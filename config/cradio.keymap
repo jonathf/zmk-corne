@@ -8,8 +8,8 @@
 // Home row mods macro
 #define LHRM(k1,k2,k3,k4) &ht LALT k1  &ht LGUI k2  &ht LCTRL k3  &lt 1 k4
 #define RHRM(k1,k2,k3,k4) &lt 2 k1  &ht LCTRL k2  &ht LGUI k3  &ht LALT k4
-#define LTR(k1,k2) &ht LSHIFT k1  &lt 3 k2
-#define RTR(k1,k2) &lt 4 k1  &ht LSHIFT k2
+#define LTRM(k1,k2) &ht LSHIFT k1  &lt 3 k2
+#define RTRM(k1,k2) &lt 4 k1  &ht LSHIFT k2
 
 / {
     behaviors {
@@ -34,12 +34,12 @@
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │ BKSP     │
-    LHRM(A,        S,         D,         F)     &kp G        &kp H      HRMR(J,        K,         L,        BKSP)
+    LHRM(A,        S,         D,         F)     &kp G        &kp H      RHRM(J,        K,         L,        BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │ ,        │ .        │ /        │
     &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                      LTR(TAB    SPACE)      RTR(ENTER  ESC)
+                                     LTRM(TAB,   SPACE)     RTRM(ENTER,  ESC)
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
