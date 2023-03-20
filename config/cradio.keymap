@@ -29,6 +29,12 @@
     };
 
     macros {
+        caret: caret {
+            label = "caret";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N6) &kp LS(N6)>;
+        };
         grave: grave {
             label = "grave";
             compatible = "zmk,behavior-macro";
@@ -46,6 +52,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp SQT &kp SQT>;
+        };
+        umlaut: umlaut {
+            label = "umlaut";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp DQT &kp DQT>;
         };
     };
 
@@ -95,7 +107,7 @@
    &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │          │          │          │          │          │
-   &kp PRCNT  &kp LS(N6)  &kp LBKT   &kp RBKT   &kp UNDER    &trans     &trans     &trans     &trans     &trans
+ &kp PRCNT &ht LS(N6) &caret &kp LBKT &kp RBKT  &kp UNDER    &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -130,8 +142,7 @@
     &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │          │ │          │          │          │          │          │
-
-    &kp DQT    &tilde     &grave     &acute     &trans       &trans     &trans     &trans     &trans     &trans
+&ht DQT &umlaut &ht LS(GRAVE) &tilde &ht GRAVE &grave &ht SQT &acute     &trans &trans &trans &trans &trans &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
