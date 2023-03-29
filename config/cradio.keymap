@@ -57,7 +57,8 @@
             label = "grave";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
+            //bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
+            bindings = <&macro_tap &kp LS(EQUAL) &kp LS(EQUAL)>;
         };
         tilde: tilde {
             label = "tilde";
@@ -169,11 +170,10 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │          │          │          │          │          │
 //  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &trans     &trans     &trans     &trans     &trans
-   &kp LS(N3)  &kp DQT    &kp RA(LS(Z))&kp RA(LS(X)) &kp LS(N6)&trans   &trans     &trans     &trans     &trans
+   &kp LS(N3)  &kp RBKT    &kp RA(LS(Z))&kp RA(LS(X)) &kp LS(N6)&trans  &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │          │ │          │          │          │          │          │
-//  &umlaut    &tilde     &grave     &acute     &trans       &trans     &trans     &trans     &trans     &trans
-&kp RA(LBKT)&kp RA(RBKT)&kp LS(EQUAL)&kp RA(EQUAL) &trans    &trans     &trans     &trans     &trans     &trans
+    &umlaut    &tilde     &grave     &acute     &trans       &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
