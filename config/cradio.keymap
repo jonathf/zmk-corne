@@ -90,7 +90,8 @@
     LHRM(A,        S,         D,         F)     &kp G        &kp H      RHRM(J,        K,         L,        BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │ ,        │ .        │ /        │
-   &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT FSLH
+// &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT FSLH
+   &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT LS(7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      LTRM(TAB,   SPACE)     RTRM(ENTER,  ESC)
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -101,13 +102,16 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│          │          │          │          │          │ │  +       │  7       │  8       │  9       │  ;       │
-    &trans     &trans     &trans     &trans     &trans       &kp PLUS   &kp N7     &kp N8     &kp N9     &kp SEMI
+//  &trans     &trans     &trans     &trans     &trans       &kp PLUS   &kp N7     &kp N8     &kp N9     &kp SEMI
+    &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N7     &kp N8     &kp N9   &kp LS(COMMA)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  -       │  4       │  5       │  6       │  :       │
-    &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
+//  &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
+    &trans     &trans     &trans     &trans     &trans       &kp FSLH    &kp N4     &kp N5     &kp N6   &kp LS(DOT)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │  \       │
-    &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
+//  &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
+    &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &trans     &trans       &kp ENTER  &kp ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -118,13 +122,16 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  !       │  @       │  {       │  }       │  =       │ │          │          │          │          │          │
-    &kp EXCL   &kp AT     &kp LBRC   &kp RBRC   &kp EQUAL    &trans     &trans     &trans     &trans     &trans
+//  &kp EXCL   &kp AT     &kp LBRC   &kp RBRC   &kp EQUAL    &trans     &trans     &trans     &trans     &trans
+   &kp LS(N1) &kp RA(N2) &kp RA(N7) &kp RA(N8) &kp LS(N0)    &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  *       │  "       │  (       │  )       │ $        │ │          │          │          │          │          │
-   &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &trans     &trans     &trans     &trans     &trans
+// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &trans     &trans     &trans     &trans     &trans
+   &kp PIPE   &kp LS(N2) &kp LS(N8) &kp LS(N9) &kp RA(N4)    &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │          │          │          │          │          │
-   &kp PRCNT   &caret     &kp LBKT   &kp RBKT  &kp UNDER     &trans     &trans     &trans     &trans     &trans
+// &kp PRCNT   &caret     &kp LBKT   &kp RBKT  &kp UNDER     &trans     &trans     &trans     &trans     &trans
+   &kp LS(N5)  &kp RBRC  &kp RA(N8) &kp RA(N9) &kp QMARK     &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -142,7 +149,8 @@
     &trans     &trans     &trans     &trans     &trans       &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  INS     │  WCAPS   │  Æ       │  Ø       │  Å       │
-    &trans     &trans     &trans     &trans     &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
+//  &trans     &trans     &trans     &trans     &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
+    &trans     &trans     &trans     &trans     &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &trans     &trans       &kp ENTER  &kp ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -153,13 +161,16 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  |       │  §       │  «       │  »       │  ?       │ │          │          │          │          │          │
-   &kp PIPE &kp LS(RA(5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK   &trans     &trans     &trans     &trans     &trans
+// &kp PIPE &kp LS(RA(N5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK  &trans     &trans     &trans     &trans     &trans
+   &kp GRAVE &kp LS(GRAVE)&kp RA(Z)  &kp RA(X)  &kp UNDER    &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │          │          │          │          │          │
-    &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &trans     &trans     &trans     &trans     &trans
+//  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &trans     &trans     &trans     &trans     &trans
+   &kp LS(N7)  &none      &kp RA(LS(Z))&kp RA(LS(X)) &kp LS(N6)&trans   &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │          │ │          │          │          │          │          │
-    &umlaut    &tilde     &grave     &acute     &trans       &trans     &trans     &trans     &trans     &trans
+//  &umlaut    &tilde     &grave     &acute     &trans       &trans     &trans     &trans     &trans     &trans
+  &kp RA(LBKT)&kp RA(RBKT) &none   &kp RA(EQUAL) &trans      &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
