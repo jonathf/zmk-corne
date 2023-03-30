@@ -166,7 +166,7 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │          │          │          │          │          │
 // &kp PRCNT  &en_caret   &kp LBKT   &kp RBKT   &kp UNDER    &trans     &trans     &trans     &trans     &trans
-   &kp LS(N5) &no_caret1  &kp RA(N8) &kp RA(N9) &kp QMARK    &trans     &trans     &trans     &trans     &trans
+   &kp LS(N5) &no_caret   &kp RA(N8) &kp RA(N9) &kp QMARK    &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
