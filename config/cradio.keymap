@@ -15,14 +15,14 @@
 #define _NOP 5
 
 // (left|right) (norwegian|english) (home|thumb) row mods
-#define LNH(k1,k2,k3,k4) &ht LALT k1  &ht LGUI k2  &ht LCTRL k3  &lt _RN1 k4
-#define RNH(k1,k2,k3,k4) &lt _LN1 k1  &ht LCTRL k2  &ht LGUI k3  &ht LALT k4
-#define LNT(k1,k2) &ht LSHIFT k1  &lt _RN2 k2
-#define RNT(k1,k2) &lt _LN2 k1 &ht LSHIFT k2
+#define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &lt _RN1 k4
+#define RNH(k1,k2,k3,k4) &lt _LN1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define LNT(k1,k2) &lht LSHIFT k1  &lt _RN2 k2
+#define RNT(k1,k2) &lt _LN2 k1 &rht LSHIFT k2
 
 / {
     behaviors {
-        ht: hold_tap {
+        lht: hold_tap {
             label = "hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -31,6 +31,18 @@
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;
+        };
+        rht: hold_tap {
+            label = "hold_tap";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            global-quick-tap;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>;
         };
     };
 
@@ -125,8 +137,8 @@
     LNH(A,     S,         D,         F)         &kp G        &kp H      RNH(J,      K,         L,        BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │ ,        │ .        │ /        │
-// &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT FSLH
-   &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT LS(N7)
+// &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
+   &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT LS(N7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      LNT(TAB,   SPACE)      RNT(ENTER,  ESC)
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
