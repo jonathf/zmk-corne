@@ -6,14 +6,19 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-// Left home row mod macro
-#define LHRM(k1,k2,k3,k4) &ht LALT k1  &ht LGUI k2  &ht LCTRL k3  &lt 1 k4
-// Right home row mod macro
-#define RHRM(k1,k2,k3,k4) &lt 2 k1  &ht LCTRL k2  &ht LGUI k3  &ht LALT k4
-// Left thumb row mod macro
-#define LTRM(k1,k2) &ht LSHIFT k1  &lt 3 k2
-// Right thumb row mod macro
-#define RTRM(k1,k2) &lt 4 k1  &ht LSHIFT k2
+// (left|right) (norwegian|english) (1|2)
+#define _HOME 0
+#define _RN1 1
+#define _LN1 2
+#define _RN2 3
+#define _LN2 4
+#define _NOP 5
+
+// (left|right) (norwegian|english) (home|thumb) row mods
+#define LNH(k1,k2,k3,k4) &ht LALT k1  &ht LGUI k2  &ht LCTRL k3  &lt _RN1 k4
+#define RNH(k1,k2,k3,k4) &lt _LN1 k1  &ht LCTRL k2  &ht LGUI k3  &ht LALT k4
+#define LNT(k1,k2) &ht LSHIFT k1  &lt _RN2 k2
+#define RNT(k1,k2) &lt _LN2 k1 &ht LSHIFT k2
 
 / {
     behaviors {
@@ -34,76 +39,101 @@
         combo_lock {
             timeout-ms = <50>;
             key-positions = <0 1 2>;
-            bindings = <&to 5>;
+            bindings = <&to _NOP>;
             layers = <0>;
         };
         combo_unlock {
             timeout-ms = <50>;
             key-positions = <0 1 2>;
-            bindings = <&to 0>;
+            bindings = <&to _HOME>;
             layers = <5>;
         };
     };
 
     macros {
-        caret: caret {
-            label = "caret";
+        no_caret: no_caret {
+            label = "no_caret";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&macro_tap &kp LS(N6) &kp LS(N6)>;
             bindings = <&macro_tap &kp RBRC &kp RBRC>;
         };
-        grave: grave {
-            label = "grave";
+        en_caret: en_caret {
+            label = "en_caret";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
+            bindings = <&macro_tap &kp LS(N6) &kp LS(N6)>;
+        };
+        no_grave: no_grave {
+            label = "no_grave";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings = <&macro_tap &kp LS(EQUAL) &kp LS(EQUAL)>;
         };
-        tilde: tilde {
-            label = "tilde";
+        en_grave: en_grave {
+            label = "en_grave";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
+            bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
+        };
+        no_tilde: no_tilde {
+            label = "no_tilde";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings = <&macro_tap &kp RA(RBKT) &kp RA(RBKT)>;
         };
-        acute: acute {
-            label = "acute";
+        en_tilde: en_tilde {
+            label = "en_tilde";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&macro_tap &kp SQT &kp SQT>;
+            bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
+        };
+        no_acute: no_acute {
+            label = "no_acute";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings = <&macro_tap &kp RA(EQUAL) &kp RA(EQUAL)>;
         };
-        umlaut: umlaut {
-            label = "umlaut";
+        en_acute: en_acute {
+            label = "en_acute";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&macro_tap &kp DQT &kp DQT>;
+            bindings = <&macro_tap &kp SQT &kp SQT>;
+        };
+        no_umlaut: no_umlaut {
+            label = "no_umlaut";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
+        };
+        en_umlaut: en_umlaut {
+            label = "en_umlaut";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp DQT &kp DQT>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+        home_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  Q       │  W       │  E       │  R       │  T       │ │  Y       │  U       │  I       │  O       │  P       │
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │ BKSP     │
-    LHRM(A,        S,         D,         F)     &kp G        &kp H      RHRM(J,        K,         L,        BKSP)
+    LNH(A,     S,         D,         F)         &kp G        &kp H      RNH(J,      K,         L,        BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │ ,        │ .        │ /        │
 // &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT FSLH
    &ht RALT Z  &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &ht RALT LS(N7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     LTRM(TAB,   SPACE)     RTRM(ENTER,  ESC)
+                                     LNT(TAB,   SPACE)      RNT(ENTER,  ESC)
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
 
-        num_layer {
+        rn1_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│          │          │          │          │          │ │  +       │  7       │  8       │  9       │  ;       │
@@ -111,8 +141,8 @@
     &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N7     &kp N8     &kp N9   &kp LS(COMMA)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  -       │  4       │  5       │  6       │  :       │
-//  &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
-    &trans     &trans     &trans     &trans     &trans       &kp FSLH    &kp N4     &kp N5     &kp N6   &kp LS(DOT)
+//  &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N4     &kp N5     &kp N6    &kp COLON
+    &trans     &trans     &trans     &trans     &trans       &kp FSLH   &kp N4     &kp N5     &kp N6    &kp LS(DOT)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │  \       │
 //  &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
@@ -123,7 +153,7 @@
             >;
         };
 
-        sym1_layer {
+        ln1_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  !       │  @       │  {       │  }       │  =       │ │          │          │          │          │          │
@@ -135,15 +165,15 @@
    &kp PIPE   &kp LS(N2) &kp LS(N8) &kp LS(N9) &kp RA(N4)    &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │          │          │          │          │          │
-// &kp PRCNT   &caret     &kp LBKT   &kp RBKT  &kp UNDER     &trans     &trans     &trans     &trans     &trans
-   &kp LS(N5)  &kp RBRC  &kp RA(N8) &kp RA(N9) &kp QMARK     &trans     &trans     &trans     &trans     &trans
+// &kp PRCNT  &en_caret   &kp LBKT   &kp RBKT   &kp UNDER    &trans     &trans     &trans     &trans     &trans
+   &kp LS(N5) &no_caret1  &kp RA(N8) &kp RA(N9) &kp QMARK    &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
 
-        nav_layer {
+        rn2_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│          │          │          │          │          │ │  HOME    │  PGDN    │  PGUP    │  END     │  PRINT   │
@@ -161,7 +191,7 @@
             >;
         };
 
-        sym2_layer {
+        ln2_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  |       │  §       │  «       │  »       │  ?       │ │          │          │          │          │          │
@@ -173,7 +203,8 @@
    &kp LS(N3) &kp BSLH &kp RA(LS(Z))&kp RA(LS(X))&kp LS(N6)  &trans     &trans     &trans     &trans     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │          │ │          │          │          │          │          │
-    &umlaut    &tilde     &grave     &acute     &trans       &trans     &trans     &trans     &trans     &trans
+// &en_umlaut  &en_tilde  &en_grave  &en_acute  &trans       &trans     &trans     &trans     &trans     &trans
+   &no_umlaut  &no_tilde  &no_grave  &no_acute  &trans       &trans     &trans     &trans     &trans     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &trans     &trans
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
