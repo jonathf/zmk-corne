@@ -10,15 +10,14 @@
 #define _HOME 0
 #define _RN1 1
 #define _LN1 2
-#define _RN2 3
-#define _LN2 4
-#define _NOP 5
+#define _N2 3
+#define _NOP 4
 
 // (left|right) (norwegian|english) (home|thumb) row mods
 #define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _RN1 k4
 #define RNH(k1,k2,k3,k4) &rlt _LN1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
-#define LNT(k1,k2) &lht LSHIFT k1  &llt _RN2 k2
-#define RNT(k1,k2) &rlt _LN2 k1 &rht LSHIFT k2
+#define LNT(k1,k2) &lht LSHIFT k1  &llt _N2 k2
+#define RNT(k1,k2) &rlt _N2 k1 &rht LSHIFT k2
 
 / {
     behaviors {
@@ -207,40 +206,22 @@
             >;
         };
 
-        rn2_layer {
+        n2_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │          │          │          │          │ │  HOME    │  PGDN    │  PGUP    │  END     │  PRINT   │
-    &trans     &trans     &trans     &trans     &trans       &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp PSCRN
+//│  |       │  §       │  «       │  »       │  ?       │ │  HOME    │  PGDN    │  PGUP    │  END     │  PRINT   │
+// &kp PIPE &kp LS(RA(N5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK  &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp PSCRN
+   &kp GRAVE &kp LS(GRAVE)&kp RA(Z)  &kp RA(X)  &kp UNDER    &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp PSCRN
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  DEL     │
-    &trans     &trans     &trans     &trans     &trans       &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
+//│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  DEL     │
+//  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
+   &kp LS(N3) &kp BSLH &kp RA(LS(Z))&kp RA(LS(X))&kp LS(N6)  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  INS     │  WCAPS   │  Æ       │  Ø       │  Å       │
-//  &trans     &trans     &trans     &trans     &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
-    &trans     &trans     &trans     &trans     &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
+//│  ¨       │  ~       │  `       │  ´       │          │ │  INS     │  WCAPS   │  Æ       │  Ø       │  Å       │
+// &en_umlaut  &en_tilde  &en_grave  &en_acute  &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
+   &no_umlaut  &no_tilde  &no_grave  &no_acute  &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &trans     &trans       &kp ENTER  &kp ESC
-//                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
-            >;
-        };
-
-        ln2_layer {
-            bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  |       │  §       │  «       │  »       │  ?       │ │          │          │          │          │          │
-// &kp PIPE &kp LS(RA(N5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK  &trans     &trans     &trans     &trans     &trans
-   &kp GRAVE &kp LS(GRAVE)&kp RA(Z)  &kp RA(X)  &kp UNDER    &trans     &trans     &trans     &trans     &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  #       │  '       │  <       │  >       │  &       │ │          │          │          │          │          │
-//  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &trans     &trans     &trans     &trans     &trans
-   &kp LS(N3) &kp BSLH &kp RA(LS(Z))&kp RA(LS(X))&kp LS(N6)  &trans     &trans     &trans     &trans     &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  ¨       │  ~       │  `       │  ´       │          │ │          │          │          │          │          │
-// &en_umlaut  &en_tilde  &en_grave  &en_acute  &trans       &trans     &trans     &trans     &trans     &trans
-   &no_umlaut  &no_tilde  &no_grave  &no_acute  &trans       &trans     &trans     &trans     &trans     &trans
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &kp TAB    &kp SPACE    &trans     &trans
+                                     &kp TAB    &kp SPACE    &kp ENTER  &kp ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
