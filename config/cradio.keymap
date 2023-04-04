@@ -83,65 +83,39 @@
     };
 
     macros {
-        no_caret: no_caret {
-            label = "no_caret";
+        caret: caret {
+            label = "caret";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp RBRC &kp RBRC>;
         };
-        en_caret: en_caret {
-            label = "en_caret";
+        grave: grave {
+            label = "grave";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(N6) &kp LS(N6)>;
-        };
-        no_grave: no_grave {
-            label = "no_grave";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+            //bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
             bindings = <&macro_tap &kp LS(EQUAL) &kp LS(EQUAL)>;
         };
-        en_grave: en_grave {
-            label = "en_grave";
+        tilde: tilde {
+            label = "tilde";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
-        };
-        no_tilde: no_tilde {
-            label = "no_tilde";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+            //bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
             bindings = <&macro_tap &kp RA(RBKT) &kp RA(RBKT)>;
         };
-        en_tilde: en_tilde {
-            label = "en_tilde";
+        acute: acute {
+            label = "acute";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
-        };
-        no_acute: no_acute {
-            label = "no_acute";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+            //bindings = <&macro_tap &kp SQT &kp SQT>;
             bindings = <&macro_tap &kp RA(EQUAL) &kp RA(EQUAL)>;
         };
-        en_acute: en_acute {
-            label = "en_acute";
+        umlaut: umlaut {
+            label = "umlaut";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp SQT &kp SQT>;
-        };
-        no_umlaut: no_umlaut {
-            label = "no_umlaut";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+            //bindings = <&macro_tap &kp DQT &kp DQT>;
             bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
-        };
-        en_umlaut: en_umlaut {
-            label = "en_umlaut";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp DQT &kp DQT>;
         };
     };
 
@@ -177,8 +151,8 @@
    &kp PIPE   &kp LS(N2) &kp LS(N8) &kp LS(N9) &kp RA(N4)    &kp FSLH   &kp N4     &kp N5     &kp N6    &kp LS(DOT)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
-// &kp PRCNT  &en_caret   &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
-   &kp LS(N5) &no_caret   &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
+// &kp PRCNT  &caret   &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
+   &kp LS(N5) &caret   &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &kp ENTER  &kp ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -197,8 +171,8 @@
    &kp LS(N3) &kp BSLH &kp RA(LS(Z))&kp RA(LS(X))&kp LS(N6)  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │          │ │  INS     │  WCAPS   │  Æ       │  Ø       │  Å       │
-// &en_umlaut  &en_tilde  &en_grave  &en_acute  &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
-   &no_umlaut  &no_tilde  &no_grave  &no_acute  &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
+//  &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
+    &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &kp TAB    &kp SPACE    &kp ENTER  &kp ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
