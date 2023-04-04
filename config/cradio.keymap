@@ -8,14 +8,13 @@
 
 // (left|right) (norwegian|english) (1|2)
 #define _HOME 0
-#define _RN1 1
-#define _LN1 2
-#define _N2 3
-#define _NOP 4
+#define _N1 1
+#define _N2 2
+#define _NOP 3
 
 // (left|right) (norwegian|english) (home|thumb) row mods
-#define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _RN1 k4
-#define RNH(k1,k2,k3,k4) &rlt _LN1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
+#define RNH(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
 #define LNT(k1,k2) &lht LSHIFT k1  &llt _N2 k2
 #define RNT(k1,k2) &rlt _N2 k1 &rht LSHIFT k2
 
@@ -166,42 +165,22 @@
             >;
         };
 
-        rn1_layer {
+        n1_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │          │          │          │          │ │  +       │  7       │  8       │  9       │  ;       │
-//  &trans     &trans     &trans     &trans     &trans       &kp PLUS   &kp N7     &kp N8     &kp N9     &kp SEMI
-    &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N7     &kp N8     &kp N9   &kp LS(COMMA)
+//│  !       │  @       │  {       │  }       │  =       │ │  +       │  7       │  8       │  9       │  ;       │
+//  &kp EXCL   &kp AT     &kp LBRC   &kp RBRC   &kp EQUAL    &kp PLUS   &kp N7     &kp N8     &kp N9     &kp SEMI
+   &kp LS(N1) &kp RA(N2) &kp RA(N7) &kp RA(N0) &kp LS(N0)    &kp MINUS  &kp N7     &kp N8     &kp N9   &kp LS(COMMA)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  -       │  4       │  5       │  6       │  :       │
-//  &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N4     &kp N5     &kp N6    &kp COLON
-    &trans     &trans     &trans     &trans     &trans       &kp FSLH   &kp N4     &kp N5     &kp N6    &kp LS(DOT)
+//│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
+// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6    &kp COLON
+   &kp PIPE   &kp LS(N2) &kp LS(N8) &kp LS(N9) &kp RA(N4)    &kp FSLH   &kp N4     &kp N5     &kp N6    &kp LS(DOT)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  0       │  1       │  2       │  3       │  \       │
-//  &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
-    &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
+//│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
+// &kp PRCNT  &en_caret   &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
+   &kp LS(N5) &no_caret   &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &trans     &trans       &kp ENTER  &kp ESC
-//                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
-            >;
-        };
-
-        ln1_layer {
-            bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  !       │  @       │  {       │  }       │  =       │ │          │          │          │          │          │
-//  &kp EXCL   &kp AT     &kp LBRC   &kp RBRC   &kp EQUAL    &trans     &trans     &trans     &trans     &trans
-   &kp LS(N1) &kp RA(N2) &kp RA(N7) &kp RA(N0) &kp LS(N0)    &trans     &trans     &trans     &trans     &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  *       │  "       │  (       │  )       │ $        │ │          │          │          │          │          │
-// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &trans     &trans     &trans     &trans     &trans
-   &kp PIPE   &kp LS(N2) &kp LS(N8) &kp LS(N9) &kp RA(N4)    &trans     &trans     &trans     &trans     &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  %       │  ^       │  [       │  ]       │ _        │ │          │          │          │          │          │
-// &kp PRCNT  &en_caret   &kp LBKT   &kp RBKT   &kp UNDER    &trans     &trans     &trans     &trans     &trans
-   &kp LS(N5) &no_caret   &kp RA(N8) &kp RA(N9) &kp QMARK    &trans     &trans     &trans     &trans     &trans
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &kp TAB    &kp SPACE    &trans     &trans
+                                     &kp TAB    &kp SPACE    &kp ENTER  &kp ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
