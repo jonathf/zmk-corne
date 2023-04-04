@@ -18,6 +18,10 @@
 #define LNT(k1,k2) &lht LSHIFT k1  &llt _N2 k2
 #define RNT(k1,k2) &rlt _N2 k1 &rht LSHIFT k2
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
+};
+
 / {
     behaviors {
         llt: left_layer_tap {
