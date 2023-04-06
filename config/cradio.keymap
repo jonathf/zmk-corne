@@ -9,9 +9,9 @@
 // (left|right) (norwegian|english) (1|2)
 #define _HOME 0
 #define _SHIFT 1
-#define _N1 1
-#define _N2 2
-#define _NOP 3
+#define _N1 2
+#define _N2 3
+#define _NOP 4
 
 // (left|right) (norwegian|english) (home|thumb) row mods
 #define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
@@ -24,6 +24,14 @@
 };
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
     behaviors {
         llt: left_layer_tap {
             label = "left_layer_tap";
