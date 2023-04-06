@@ -8,6 +8,7 @@
 
 // (left|right) (norwegian|english) (1|2)
 #define _HOME 0
+#define _SHIFT 1
 #define _N1 1
 #define _N2 2
 #define _NOP 3
@@ -15,8 +16,8 @@
 // (left|right) (norwegian|english) (home|thumb) row mods
 #define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
 #define RNH(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
-#define LNT(k1,k2) &lht LSHIFT k1  &llt _N2 k2
-#define RNT(k1,k2) &rlt _N2 k1 &rht LSHIFT k2
+#define LNT(k1,k2) &llt _SHIFT k1  &llt _N2 k2
+#define RNT(k1,k2) &rlt _N2 k1 &rlt _SHIFT k2
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
@@ -125,20 +126,39 @@
 
     keymap {
         compatible = "zmk,keymap";
+
         home_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  Q       │  W       │  E       │  R       │  T       │ │  Y       │  U       │  I       │  O       │  P       │
+//│  q       │  w       │  e       │  r       │  t       │ │  y       │  u       │  i       │  o       │  p       │
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │ BKSP     │
-    LNH(A,     S,         D,         F)         &kp G        &kp H      RNH(J,      K,         L,        BKSP)
+//│  a       │  s       │  d       │  f       │  g       │ │  h       │  j       │  k       │  l       │  BKSP    │
+    LNH(A,     S,         D,         F)         &kp G        &kp H      RNH(J,     K,         L,         BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │ ,        │ .        │ /        │
+//│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
    &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT LS(N7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     LNT(TAB,   SPACE)      RNT(ENTER,  ESC)
+                                     LNT(TAB,   SPACE)       RNT(ENTER,  ESC)
+//                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
+            >;
+        };
+
+        shift_layer {
+            bindings = <
+//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+//│  Q       │  W       │  E       │  R       │  T       │ │  Y       │  U       │  I       │  O       │  P       │
+    &kp LS(Q)  &kp LS(W)  &kp LS(E)  &kp LS(R)  &kp LS(T)    &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
+//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │  BKSP    │
+   LNH(LS(A),  LS(S),     LS(D),     LS(F))     &kp LS(G)    &kp LS(H) RNH(LS(J),  LS(K),     LS(L),     LS(BKSP))
+//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  \       │
+// &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp SEMI  &kp COLON  &rht RALT BSLH
+ &lht RALT LS(Z) &kp LS(X) &kp LS(C)  &kp LS(V)  &kp LS(B)  &kp LS(N)  &kp LS(M) &kp LS(COMMA) &kp LS(DOT) &rht RALT EQUAL
+//╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     LNT(TAB,   SPACE)       RNT(ENTER,  ESC)
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -151,8 +171,8 @@
    &kp LS(N1) &kp RA(N2) &kp RA(N7) &kp RA(N0) &kp LS(N0)    &kp MINUS  &kp N7     &kp N8     &kp N9   &kp LS(COMMA)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
-// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6    &kp COLON
-   LNH(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RNH(N4,    N5,        N6,       LS(DOT))
+// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
+   LNH(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RNH(N4,    N5,        N6,        LS(DOT))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
 //  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
