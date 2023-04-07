@@ -6,31 +6,21 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-// (left|right) (norwegian|english) (1|2)
 #define _HOME 0
 #define _SHIFT 1
 #define _N1 2
 #define _N2 3
 #define _NOP 4
 
-// (left|right) (norwegian|english) (home|thumb) row mods
+// (Left|Right) (Norwegian|English) (Home|Thumb) row mods
 #define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
 #define RNH(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
-#define LNT(k1,k2) &llt _SHIFT k1  &llt _N2 k2
-#define RNT(k1,k2) &rlt _N2 k1 &rlt _SHIFT k2
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
 };
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
 
     behaviors {
         llt: left_layer_tap {
@@ -148,7 +138,7 @@
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
    &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT LS(N7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     LNT(TAB,   SPACE)       RNT(ENTER,  ESC)
+                            &llt _SHIFT TAB &llt _N2 SPACE  &rlt _N2 ENTER &rlt _SHIFT ESC
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -166,7 +156,7 @@
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp SEMI  &kp COLON  &rht RALT BSLH
  &lht RALT LS(Z) &kp LS(X) &kp LS(C)  &kp LS(V)  &kp LS(B)  &kp LS(N)  &kp LS(M) &kp LS(COMMA) &kp LS(DOT) &rht RALT EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     LNT(TAB,   SPACE)       RNT(ENTER,  ESC)
+                          &kp LS(TAB) &llt _N2 LS(SPACE)  &rlt _N2 LS(ENTER) &kp LS(ESC)
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -186,7 +176,7 @@
 //  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
     &kp LS(N5) &caret     &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     LNT(TAB,   SPACE)      RNT(ENTER,  ESC)
+                                    &caps_word &kp TAB  &kp ESC &caps_word
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -206,7 +196,7 @@
 //  &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
     &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     LNT(TAB,   SPACE)      RNT(ENTER,  ESC)
+                                    &kp LSHIFT &kp LSHIFT   &kp LSHIFT &kp LSHIFT
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
