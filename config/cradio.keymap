@@ -13,15 +13,16 @@
 #define _NOP 4
 
 // (Left|Right) (Norwegian|English) (Home|Thumb) row mods
-#define LNH(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
-#define RNH(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define LN1(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
+#define RN1(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define LN2(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N2 k4
+#define RN2(k1,k2,k3,k4) &rlt _N2 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
 };
 
 / {
-
     behaviors {
         llt: left_layer_tap {
             label = "left_layer_tap";
@@ -86,6 +87,14 @@
     };
 
     macros {
+        _s2: sllt {
+            label = "shifted_n2_layer";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &mo _N2 &kp LSHFT>
+                       , <&macro_pause_for_release>
+                       , <&macro_release &mo _N2 &kp LSHFT>;
+        };
         caret: caret {
             label = "caret";
             compatible = "zmk,behavior-macro";
@@ -132,13 +141,13 @@
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  a       │  s       │  d       │  f       │  g       │ │  h       │  j       │  k       │  l       │  BKSP    │
-    LNH(A,     S,         D,         F)         &kp G        &kp H      RNH(J,     K,         L,         BKSP)
+    LN1(A,     S,         D,         F)         &kp G        &kp H      RN1(J,     K,         L,         BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
    &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT LS(N7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                            &llt _SHIFT TAB &llt _N2 SPACE  &rlt _N2 ENTER &rlt _SHIFT ESC
+                                    &none &llt _SHIFT SPACE  &rlt _SHIFT ENTER &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -150,13 +159,13 @@
     &kp LS(Q)  &kp LS(W)  &kp LS(E)  &kp LS(R)  &kp LS(T)    &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │  BKSP    │
-   LNH(LS(A),  LS(S),     LS(D),     LS(F))     &kp LS(G)    &kp LS(H) RNH(LS(J),  LS(K),     LS(L),     LS(BKSP))
+   LN2(LS(A),  LS(S),     LS(D),     LS(F))     &kp LS(G)    &kp LS(H) RN2(LS(J),  LS(K),     LS(L),     LS(BKSP))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  \       │
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp SEMI  &kp COLON  &rht RALT BSLH
  &lht RALT LS(Z) &kp LS(X) &kp LS(C)  &kp LS(V)  &kp LS(B)  &kp LS(N)  &kp LS(M) &kp LS(COMMA) &kp LS(DOT) &rht RALT EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                          &kp LS(TAB) &llt _N2 LS(SPACE)  &rlt _N2 LS(ENTER) &kp LS(ESC)
+                                    &none &llt _N2 LS(SPACE)  &rlt _N2 LS(ENTER) &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -170,13 +179,13 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
 // &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
-   LNH(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RNH(N4,    N5,        N6,        LS(DOT))
+   LN1(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RN1(N4,    N5,        N6,        LS(DOT))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
 //  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
     &kp LS(N5) &caret     &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &caps_word &kp TAB  &kp ESC &caps_word
+                                    &none &llt _N2 TAB  &rlt _N2 ESC &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -190,13 +199,13 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  DEL     │
 //  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
-   LNH(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   RNH(DOWN,  UP,        RIGHT,     DEL)
+   LN2(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   RN2(DOWN,  UP,        RIGHT,     DEL)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  ¨       │  ~       │  `       │  ´       │          │ │  INS     │  WCAPS   │  Æ       │  Ø       │  Å       │
-//  &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &caps_word  &kp RA(Z)  &kp RA(L)  &kp RA(W)
-    &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &caps_word  &kp SQT    &kp SEMI   &kp LBKT
+//│  ¨       │  ~       │  `       │  ´       │          │ │  INS     │          │  Æ       │  Ø       │  Å       │
+//  &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &none  &kp RA(Z)  &kp RA(L)  &kp RA(W)
+    &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &none  &kp SQT    &kp SEMI   &kp LBKT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &kp LSHIFT &kp LSHIFT   &kp LSHIFT &kp LSHIFT
+                                    &none &caps_word &kp LSHIFT &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
