@@ -84,6 +84,18 @@
             bindings = <&to _HOME>;
             layers = <5>;
         };
+        n2_trigger1 {
+            timeout-ms = <150>;
+            key-positions = <13 31>;
+            bindings = <&mo _N2>;
+            layers = <0>;
+        };
+        n2_trigger2 {
+            timeout-ms = <150>;
+            key-positions = <16 32>;
+            bindings = <&mo _N2>;
+            layers = <0>;
+        };
     };
 
     macros {
