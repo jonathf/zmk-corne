@@ -159,7 +159,7 @@
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
    &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT LS(N7)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none &llt _SHIFT SPACE  &rlt _SHIFT ENTER &none
+                                    &sl _SHIFT &llt _SHIFT SPACE  &rlt _SHIFT ESC &sl _N1
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -177,7 +177,7 @@
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp SEMI  &kp COLON  &rht RALT BSLH
  &lht RALT LS(Z) &kp LS(X) &kp LS(C)  &kp LS(V)  &kp LS(B)  &kp LS(N)  &kp LS(M) &kp LS(COMMA) &kp LS(DOT) &rht RALT EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none &llt _N2 LS(SPACE)  &rlt _N2 LS(ENTER) &none
+                                    &caps_word &llt _N2 LS(SPACE)  &rlt _N2 LS(ESC) &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -197,7 +197,7 @@
 //  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp BSLH
     &kp LS(N5) &caret     &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none &llt _N2 TAB  &rlt _N2 ESC &none
+                                    &none &llt _N2 TAB  &rlt _N2 ENTER &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -217,7 +217,7 @@
 //  &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &none  &kp RA(Z)  &kp RA(L)  &kp RA(W)
     &umlaut    &tilde     &grave     &acute     &trans       &kp INS   &none  &kp SQT    &kp SEMI   &kp LBKT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none &caps_word &kp LSHIFT &none
+                                    &none &kp LSHIFT &kp LSHIFT &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
@@ -238,5 +238,6 @@
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
+
     };
 };
