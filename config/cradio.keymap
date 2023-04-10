@@ -228,7 +228,7 @@
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
    &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &slash_slash
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &sl _SHIFT &llt _SHIFT SPACE  &rlt _SHIFT ESC &sl _NUM1
+                                &sl _SHIFT &llt _N2 SPACE  &rlt _N2 ESC &sl _NUM1
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
