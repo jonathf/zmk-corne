@@ -27,7 +27,7 @@
 #define _lpar LS(N8)
 #define _rpar LS(N9)
 #define _dollar RA(N4)
-#define _minus FLSH
+#define _minus FSLH
 #define _prcnt LS(N5)
 #define _lbkt RA(N8)
 #define _rbkt RA(N9)
@@ -220,9 +220,7 @@
    &kp _excl   &kp _at    &kp _lbrc  &kp _rbrc  &kp _equal   &kp _plus  &kp N7     &kp N8     &kp N9     &kp _semi
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
-// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
-   _LN(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FLSH   _RN(N4,    N5,        N6,        LS(DOT))
-// _LN(_star,   _dqt,     _lpar,     _rpar)    &kp _dollar   &kp _minus _RN(N4,    N5,        N6,        _colon)
+   _LN(_star,   _dqt,     _lpar,     _rpar)    &kp _dollar   &kp _minus _RN(N4,    N5,        N6,        _colon)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
    _LA(_prcnt) &caret     &kp _lbkt  &kp _rbkt  &kp _under   &kp N0     &kp N1     &kp N2     &kp N3     _RA(_bslh)
