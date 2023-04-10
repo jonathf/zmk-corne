@@ -17,6 +17,41 @@
 #define _LA(k1) &lht RALT k1
 #define _RA(k1) &rht RALT k1
 
+#define _fslh LS(N7)
+#define _bslh EQUAL
+#define _semi LS(COMMA)
+#define _colon LS(DOT)
+#define _excl LS(N1)
+#define _at RA(N2)
+#define _lbrc RA(N7)
+#define _rbrc RA(N0)
+#define _equal LS(N0)
+#define _plus MINUS
+#define _star PIPE
+#define _dqt LS(N2)
+#define _lpar LS(N8)
+#define _rpar LS(N9)
+#define _dollar RA(N4)
+#define _minus FLSH
+#define _prcnt LS(N5)
+#define _lbkt RA(N8)
+#define _rbkt RA(N9)
+#define _under QMARK
+#define _pipe GRAVE
+#define _para LS(GRAVE)
+#define _ldang RA(Z)
+#define _rdang RA(X)
+#define _qmark UNDER
+#define _aa LBKT
+#define _hash LS(N3)
+#define _sqt BSLH
+#define _lt RA(LS(Z))
+#define _rt RA(LS(X))
+#define _amps LS(N6)
+#define _oe SEMI
+#define _euro RA(E)
+#define _ae SQT
+
 &caps_word {
     continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
 };
