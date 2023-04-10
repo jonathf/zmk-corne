@@ -41,7 +41,7 @@
 #define _hash LS(N3)
 #define _sqt BSLH
 #define _lt RA(LS(Z))
-#define _rt RA(LS(X))
+#define _gt RA(LS(X))
 #define _amps LS(N6)
 #define _oe SEMI
 #define _euro RA(E)
@@ -238,8 +238,7 @@
    &kp _pipe   &kp _para  &kp _ldang &kp _rdang &kp _qmark   &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp _aa
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  Ø       │
-//  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp RA(L)
-   _LN(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   _RN(DOWN,  UP,        RIGHT,     SEMI)
+   _LN(_hash,  _sqt,      _lt,       _gt)       &kp _amps    &kp LEFT   _RN(DOWN,  UP,        RIGHT,     _oe)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  Æ       │
     &umlaut    &tilde     &grave     &acute     &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      _RA(_ae)
