@@ -224,8 +224,7 @@
    _LN(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   _RN(N4,    N5,        N6,        LS(DOT))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
-//  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &rht RALT BSLH
-    &kp LS(N5) &caret     &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &rht RALT EQUAL
+   _LA(_prcnt) &caret     &kp _lbkt  &kp _rbkt  &kp _under   &kp N0     &kp N1     &kp N2     &kp N3     _RA(_bslh)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none &llt _N2 TAB  &rlt _N2 ENTER &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -236,16 +235,14 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  |       │  §       │  «       │  »       │  ?       │ │  HOME    │  PGDN    │  PGUP    │  END     │  Å       │
-// &kp PIPE &kp LS(RA(N5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK  &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp RA(W)
-   &kp GRAVE &kp LS(GRAVE)&kp RA(Z)  &kp RA(X)  &kp UNDER    &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp LBKT
+   &kp _pipe   &kp _para  &kp _ldang &kp _rdang &kp _qmark   &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp _aa
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  Ø       │
 //  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp RA(L)
    _LN(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   _RN(DOWN,  UP,        RIGHT,     SEMI)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  Æ       │
-//  &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp RA(Z)
-    &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp SQT
+    &umlaut    &tilde     &grave     &acute     &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      _RA(_ae)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none &kp LSHIFT &kp LSHIFT &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
