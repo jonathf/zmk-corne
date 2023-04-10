@@ -206,8 +206,7 @@
    _LN(LS(A),  LS(S),     LS(D),     LS(F))     &kp LS(G)    &kp LS(H) _RN(LS(J),  LS(K),     LS(L),     LS(BKSP))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  \       │
-// &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp SEMI  &kp COLON  &rht RALT BSLH
- &lht RALT LS(Z) &kp LS(X) &kp LS(C)  &kp LS(V)  &kp LS(B)  &kp LS(N)  &kp LS(M) &kp LS(COMMA) &kp LS(DOT) &rht RALT EQUAL
+   _LA(LS(Z))  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp _semi  &kp _colon _RA(_bslh)
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &caps_word &llt _N2 LS(SPACE)  &rlt _N2 LS(ESC) &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
