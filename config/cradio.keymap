@@ -106,14 +106,6 @@
     };
 
     macros {
-        _s2: sllt {
-            label = "shifted_n2_layer";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &mo _N2 &kp LSHFT>
-                       , <&macro_pause_for_release>
-                       , <&macro_release &mo _N2 &kp LSHFT>;
-        };
         caret: caret {
             label = "caret";
             compatible = "zmk,behavior-macro";
@@ -149,7 +141,6 @@
             bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
         };
     };
-
     keymap {
         compatible = "zmk,keymap";
 
