@@ -150,11 +150,17 @@
             //bindings = <&macro_tap &kp DQT &kp DQT>;
             bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
         };
-        _0: _0 {
-            label = "_0";
+        _minus: _minus {
+            label = "_minus";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp N0 &sl _NUM2>;
+            bindings = <&macro_tap &kp MINUS &sl _NUM2>;
+        };
+        _FSLH: _FSLH {
+            label = "_FSLH";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp FSLH &sl _NUM2>;
         };
         _1: _1 {
             label = "_1";
@@ -237,11 +243,11 @@
         num1_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │          │          │          │          │ │          │  7       │  8       │  9       │          │
-    &trans     &trans     &trans     &trans     &trans       &trans     &kp N7     &kp N8     &kp N9     &trans
+//│          │          │          │          │          │ │  +       │  7       │  8       │  9       │          │
+    &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N7     &kp N8     &kp N9     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │          │  4       │  5       │  6       │          │
-    &trans     &trans     &trans     &trans     &trans       &trans     &kp N4     &kp N5     &kp N6     &trans
+//│          │          │          │          │          │ │  -       │  4       │  5       │  6       │          │
+    &trans     &trans     &trans     &trans     &trans       &kp FSLH   &kp N4     &kp N5     &kp N6     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
     &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &trans
@@ -254,11 +260,11 @@
         num2_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │          │          │          │          │ │          │  7       │  8       │  9       │          │
-    &trans     &trans     &trans     &trans     &trans       &trans     &_7        &_8        &_9        &trans
+//│          │          │          │          │          │ │  +       │  7       │  8       │  9       │          │
+    &trans     &trans     &trans     &trans     &trans       &_minus    &_7        &_8        &_9        &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │          │  4       │  5       │  6       │          │
-    &trans     &trans     &trans     &trans     &trans       &trans     &_4        &_5        &_6        &trans
+//│          │          │          │          │          │ │  -       │  4       │  5       │  6       │          │
+    &trans     &trans     &trans     &trans     &trans       &_fslh     &_4        &_5        &_6        &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
     &trans     &trans     &trans     &trans     &trans       &_0        &_1        &_2        &_3        &trans
