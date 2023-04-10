@@ -221,7 +221,7 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
 // &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
-   _LN(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp _minus _RN(N4,    N5,        N6,        _colon)
+   _LN(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp _minus _RN(N4,    N5,        N6,        LS(DOT))
 // _LN(_star,   _dqt,     _lpar,     _rpar)    &kp _dollar   &kp _minus _RN(N4,    N5,        N6,        _colon)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
