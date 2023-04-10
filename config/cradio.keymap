@@ -12,11 +12,6 @@
 #define _N2 3
 #define _NOP 4
 
-#define _LN(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
-#define _RN(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
-#define _LA(k1) &lht RALT k1
-#define _RA(k1) &rht RALT k1
-
 #define _fslh LS(N7)
 #define _bslh EQUAL
 #define _semi LS(COMMA)
@@ -51,6 +46,11 @@
 #define _oe SEMI
 #define _euro RA(E)
 #define _ae SQT
+
+#define _LN(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
+#define _RN(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define _LA(k1) &lht RALT k1
+#define _RA(k1) &rht RALT k1
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
@@ -102,11 +102,11 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>;
         };
-        slash_slash: slash_slash {
+        fslh_bslh: fslh_bslh {
             compatible = "zmk,behavior-mod-morph";
-            label = "slash_slash";
+            label = "fslh_bslh";
             #binding-cells = <0>;
-            bindings = <&rht RALT LS(N7)>, <&rht RALT EQUAL>;
+            bindings = <&rht RALT _fslh>, <&rht RALT _bslh>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -189,7 +189,7 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
-   &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &slash_slash
+   &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &fslh_bslh
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                 &sl _SHIFT &llt _N2 SPACE  &rlt _N2 ESC &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
