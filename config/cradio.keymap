@@ -7,12 +7,10 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define _HOME 0
-#define _NUM1 1
-#define _NUM2 2
-#define _SHIFT 3
-#define _N1 4
-#define _N2 5
-#define _NOP 6
+#define _SHIFT 1
+#define _N1 2
+#define _N2 3
+#define _NOP 4
 
 // (Left|Right) (Norwegian|English) (Home|Thumb) row mods
 #define LN1(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
@@ -150,78 +148,6 @@
             //bindings = <&macro_tap &kp DQT &kp DQT>;
             bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
         };
-        _minus: _minus {
-            label = "_minus";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp MINUS &sl _NUM2>;
-        };
-        _fslh: _fslh {
-            label = "_fslh";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp FSLH &sl _NUM2>;
-        };
-        _n0: _n0 {
-            label = "_n0";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N0 &sl _NUM2>;
-        };
-        _n1: _n1 {
-            label = "_n1";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N1 &sl _NUM2>;
-        };
-        _n2: _n2 {
-            label = "_n2";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N2 &sl _NUM2>;
-        };
-        _n3: _n3 {
-            label = "_n3";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N3 &sl _NUM2>;
-        };
-        _n4: _n4 {
-            label = "_n4";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N4 &sl _NUM2>;
-        };
-        _n5: _n5 {
-            label = "_n5";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N5 &sl _NUM2>;
-        };
-        _n6: _n6 {
-            label = "_n6";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N6 &sl _NUM2>;
-        };
-        _n7: _n7 {
-            label = "_n7";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N7 &sl _NUM2>;
-        };
-        _n8: _n8 {
-            label = "_n8";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N8 &sl _NUM2>;
-        };
-        _n9: _n9 {
-            label = "_n9";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N9 &sl _NUM2>;
-        };
     };
 
     keymap {
@@ -240,43 +166,9 @@
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
    &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &slash_slash
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                &sl _SHIFT &llt _N2 SPACE  &rlt _N2 ESC &sl _NUM1
+                                &sl _SHIFT &llt _N2 SPACE  &rlt _N2 ESC &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
 
-            >;
-        };
-
-        num1_layer {
-            bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │          │          │          │          │ │  +       │  7       │  8       │  9       │          │
-    &trans     &trans     &trans     &trans     &trans       &kp MINUS  &kp N7     &kp N8     &kp N9     &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  -       │  4       │  5       │  6       │          │
-    &trans     &trans     &trans     &trans     &trans       &kp FSLH   &kp N4     &kp N5     &kp N6     &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
-    &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &trans
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &trans     &trans       &trans     &sl _NUM2
-//                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
-            >;
-        };
-
-        num2_layer {
-            bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │          │          │          │          │ │  +       │  7       │  8       │  9       │          │
-    &trans     &trans     &trans     &trans     &trans       &_minus    &_n7       &_n8       &_n9        &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  -       │  4       │  5       │  6       │          │
-    &trans     &trans     &trans     &trans     &trans       &_fslh     &_n4       &_n5       &_n6        &trans
-//├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
-    &trans     &trans     &trans     &trans     &trans       &_n0       &_n1       &_n2       &_n3        &trans
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &trans     &trans       &trans     &to _HOME
-//                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
             >;
         };
 
@@ -301,16 +193,16 @@
         n1_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  !       │  @       │  {       │  }       │  =       │ │  +       │  7       │  8       │  9       │  å       │
-//  &kp EXCL   &kp AT     &kp LBRC   &kp RBRC   &kp EQUAL    &kp PLUS   &kp N7     &kp N8     &kp N9     &kp RA(W)
-   &kp LS(N1) &kp RA(N2) &kp RA(N7) &kp RA(N0) &kp LS(N0)    &kp MINUS  &kp N7     &kp N8     &kp N9     &kp LBKT
+//│  !       │  @       │  {       │  }       │  =       │ │  +       │  7       │  8       │  9       │  ;       │
+//  &kp EXCL   &kp AT     &kp LBRC   &kp RBRC   &kp EQUAL    &kp PLUS   &kp N7     &kp N8     &kp N9     &kp SEMI
+   &kp LS(N1) &kp RA(N2) &kp RA(N7) &kp RA(N0) &kp LS(N0)    &kp MINUS  &kp N7     &kp N8     &kp N9     &kp LS(COMMA)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  ø       │
-// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp RA(L)
-   LN1(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RN1(N4,    N5,        N6,        SEMI)
+//│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
+// &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
+   LN1(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RN1(N4,    N5,        N6,        LS(DOT))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  æ       │
-//  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &kp RA(Z)
+//│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
+//  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &rht RALT BSLH
     &kp LS(N5) &caret     &kp RA(N8) &kp RA(N9) &kp QMARK    &kp N0     &kp N1     &kp N2     &kp N3     &kp SQT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none &llt _N2 TAB  &rlt _N2 ENTER &none
