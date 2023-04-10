@@ -12,11 +12,10 @@
 #define _N2 3
 #define _NOP 4
 
-// (Left|Right) (Norwegian|English) (Home|Thumb) row mods
-#define LN1(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
-#define RN1(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
-#define LN2(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N2 k4
-#define RN2(k1,k2,k3,k4) &rlt _N2 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define _LN(k1,k2,k3,k4) &lht LALT k1  &lht LGUI k2  &lht LCTRL k3  &llt _N1 k4
+#define _RN(k1,k2,k3,k4) &rlt _N1 k1  &rht LCTRL k2  &rht LGUI k3  &rht LALT k4
+#define _LA(k1) &lht RALT k1
+#define _RA(k1) &rht RALT k1
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS QMARK FSLH BKSP DEL>;
@@ -151,7 +150,7 @@
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  a       │  s       │  d       │  f       │  g       │ │  h       │  j       │  k       │  l       │  BKSP    │
-    LN1(A,     S,         D,         F)         &kp G        &kp H      RN1(J,     K,         L,         BKSP)
+    _LN(A,     S,         D,         F)         &kp G        &kp H      _RN(J,     K,         L,         BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
@@ -170,7 +169,7 @@
     &kp LS(Q)  &kp LS(W)  &kp LS(E)  &kp LS(R)  &kp LS(T)    &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │  BKSP    │
-   LN2(LS(A),  LS(S),     LS(D),     LS(F))     &kp LS(G)    &kp LS(H) RN2(LS(J),  LS(K),     LS(L),     LS(BKSP))
+   _LN(LS(A),  LS(S),     LS(D),     LS(F))     &kp LS(G)    &kp LS(H) _RN(LS(J),  LS(K),     LS(L),     LS(BKSP))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  \       │
 // &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp SEMI  &kp COLON  &rht RALT BSLH
@@ -190,7 +189,7 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  *       │  "       │  (       │  )       │ $        │ │  -       │  4       │  5       │  6       │  :       │
 // &kp STAR &kp LS(RA(SQT)) &kp LPAR &kp RPAR  &kp DOLLAR    &kp MINUS  &kp N4     &kp N5     &kp N6     &kp COLON
-   LN1(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   RN1(N4,    N5,        N6,        LS(DOT))
+   _LN(PIPE,   LS(N2),    LS(N8),    LS(N9))   &kp RA(N4)    &kp FSLH   _RN(N4,    N5,        N6,        LS(DOT))
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  %       │  ^       │  [       │  ]       │ _        │ │  0       │  1       │  2       │  3       │  \       │
 //  &kp PRCNT  &caret     &kp LBKT   &kp RBKT   &kp UNDER    &kp N0     &kp N1     &kp N2     &kp N3     &rht RALT BSLH
@@ -210,7 +209,7 @@
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  Ø       │
 //  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp RA(L)
-   LN2(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   RN2(DOWN,  UP,        RIGHT,     SEMI)
+   _LN(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   _RN(DOWN,  UP,        RIGHT,     SEMI)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  Æ       │
 //  &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp RA(Z)
