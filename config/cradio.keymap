@@ -156,62 +156,68 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp MINUS &sl _NUM2>;
         };
-        _FSLH: _FSLH {
-            label = "_FSLH";
+        _fslh: _fslh {
+            label = "_fslh";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp FSLH &sl _NUM2>;
         };
-        _1: _1 {
-            label = "_1";
+        _n0: _n0 {
+            label = "_n0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N0 &sl _NUM2>;
+        };
+        _n1: _n1 {
+            label = "_n1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N1 &sl _NUM2>;
         };
-        _2: _2 {
-            label = "_2";
+        _n2: _n2 {
+            label = "_n2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N2 &sl _NUM2>;
         };
-        _3: _3 {
-            label = "_3";
+        _n3: _n3 {
+            label = "_n3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N3 &sl _NUM2>;
         };
-        _4: _4 {
-            label = "_4";
+        _n4: _n4 {
+            label = "_n4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N4 &sl _NUM2>;
         };
-        _5: _5 {
-            label = "_5";
+        _n5: _n5 {
+            label = "_n5";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N5 &sl _NUM2>;
         };
-        _6: _6 {
-            label = "_6";
+        _n6: _n6 {
+            label = "_n6";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N6 &sl _NUM2>;
         };
-        _7: _7 {
-            label = "_7";
+        _n7: _n7 {
+            label = "_n7";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N7 &sl _NUM2>;
         };
-        _8: _8 {
-            label = "_8";
+        _n8: _n8 {
+            label = "_n8";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N8 &sl _NUM2>;
         };
-        _9: _9 {
-            label = "_9";
+        _n9: _n9 {
+            label = "_n9";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N9 &sl _NUM2>;
@@ -261,13 +267,13 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│          │          │          │          │          │ │  +       │  7       │  8       │  9       │          │
-    &trans     &trans     &trans     &trans     &trans       &_minus    &_7        &_8        &_9        &trans
+    &trans     &trans     &trans     &trans     &trans       &_minus    &_n7       &_n8       &_n9        &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  -       │  4       │  5       │  6       │          │
-    &trans     &trans     &trans     &trans     &trans       &_fslh     &_4        &_5        &_6        &trans
+    &trans     &trans     &trans     &trans     &trans       &_fslh     &_n4       &_n5       &_n6        &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
-    &trans     &trans     &trans     &trans     &trans       &_0        &_1        &_2        &_3        &trans
+    &trans     &trans     &trans     &trans     &trans       &_n0       &_n1       &_n2       &_n3        &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &trans     &trans       &trans     &to _HOME
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
