@@ -150,62 +150,62 @@
             //bindings = <&macro_tap &kp DQT &kp DQT>;
             bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
         };
-        m0: m0 {
-            label = "m0";
+        _0: _0 {
+            label = "_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N0 &sl _NUM2>;
         };
-        m1: m1 {
-            label = "m1";
+        _1: _1 {
+            label = "_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N1 &sl _NUM2>;
         };
-        m2: m2 {
-            label = "m2";
+        _2: _2 {
+            label = "_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N2 &sl _NUM2>;
         };
-        m3: m3 {
-            label = "m3";
+        _3: _3 {
+            label = "_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N3 &sl _NUM2>;
         };
-        m4: m4 {
-            label = "m4";
+        _4: _4 {
+            label = "_4";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N4 &sl _NUM2>;
         };
-        m5: m5 {
-            label = "m5";
+        _5: _5 {
+            label = "_5";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N5 &sl _NUM2>;
         };
-        m6: m6 {
-            label = "m6";
+        _6: _6 {
+            label = "_6";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N6 &sl _NUM2>;
         };
-        m7: m7 {
-            label = "m7";
+        _7: _7 {
+            label = "_7";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N7 &sl _NUM2>;
         };
-        m8: m8 {
-            label = "m8";
+        _8: _8 {
+            label = "_8";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N8 &sl _NUM2>;
         };
-        m9: m9 {
-            label = "m9";
+        _9: _9 {
+            label = "_9";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp N9 &sl _NUM2>;
@@ -230,6 +230,7 @@
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                 &sl _SHIFT &llt _N2 SPACE  &rlt _N2 ESC &sl _NUM1
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
+
             >;
         };
 
@@ -243,7 +244,7 @@
     &trans     &trans     &trans     &trans     &trans       &trans     &kp N4     &kp N5     &kp N6     &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
-    &trans     &trans     &trans     &trans     &trans       &m0        &kp N1     &kp N2     &kp N3     &trans
+    &trans     &trans     &trans     &trans     &trans       &kp N0     &kp N1     &kp N2     &kp N3     &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &trans     &trans       &trans     &sl _NUM2
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -254,13 +255,13 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│          │          │          │          │          │ │          │  7       │  8       │  9       │          │
-    &trans     &trans     &trans     &trans     &trans       &trans     &m7        &m8        &m9        &trans
+    &trans     &trans     &trans     &trans     &trans       &trans     &_7        &_8        &_9        &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │          │  4       │  5       │  6       │          │
-    &trans     &trans     &trans     &trans     &trans       &trans     &m4        &m5        &m6        &trans
+    &trans     &trans     &trans     &trans     &trans       &trans     &_4        &_5        &_6        &trans
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │          │          │          │          │ │  0       │  1       │  2       │  3       │          │
-    &trans     &trans     &trans     &trans     &trans       &m0        &m1        &m2        &m3        &trans
+    &trans     &trans     &trans     &trans     &trans       &_0        &_1        &_2        &_3        &trans
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      &trans     &trans       &trans     &to _HOME
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
@@ -309,16 +310,16 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  |       │  §       │  «       │  »       │  ?       │ │  HOME    │  PGDN    │  PGUP    │  END     │  Å       │
-// &kp PIPE &kp LS(RA(N5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK  &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp LS(RA(W))
-   &kp GRAVE &kp LS(GRAVE)&kp RA(Z)  &kp RA(X)  &kp UNDER    &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp LS(LBKT)
+// &kp PIPE &kp LS(RA(N5))&kp RA(LBKT)&kp RA(RBKT)&kp QMARK  &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp RA(W)
+   &kp GRAVE &kp LS(GRAVE)&kp RA(Z)  &kp RA(X)  &kp UNDER    &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp LBKT
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  Ø       │
-//  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp LS(RA(L))
-   LN2(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   RN2(DOWN,  UP,        RIGHT,     LS(SEMI))
+//  &kp HASH  &kp RA(SQT) &kp LT     &kp GT     &kp AMPS     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp RA(L)
+   LN2(LS(N3), BSLH,     RA(LS(Z)), RA(LS(X))) &kp LS(N6)    &kp LEFT   RN2(DOWN,  UP,        RIGHT,     SEMI)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  Æ       │
-//  &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp LS(RA(Z))
-    &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp LS(SQT)
+//  &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp RA(Z)
+    &umlaut    &tilde     &grave     &acute     &kp RA(E)    &kp INS    &kp DEL    &kp PSCRN  &none      &kp SQT
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none &kp LSHIFT &kp LSHIFT &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
