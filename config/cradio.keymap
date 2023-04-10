@@ -188,8 +188,7 @@
     _LN(A,     S,         D,         F)         &kp G        &kp H      _RN(J,     K,         L,         BKSP)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┤
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
-// &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &rht RALT FSLH
-   &lht RALT Z &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT  &fslh_bslh
+    _LA(Z)     &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                 &sl _SHIFT &llt _N2 SPACE  &rlt _N2 ESC &none
 //                                 ╰──────────┴──────────╯ ╰──────────┴──────────╯
