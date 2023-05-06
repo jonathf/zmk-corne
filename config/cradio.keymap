@@ -191,7 +191,7 @@
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
     lg(Z)      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &caps_char      ln(SPACE)          rn(ESC)          &none
+                          &sk LSHIFT      ln(SPACE)          rn(ESC)          &caps_word
             >;
         };
 
@@ -207,7 +207,7 @@
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  \       │
    lg(LS(Z))   &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp _semi  &kp _colon rg(_bslh)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &caps_word      ln(LS(SPACE))      rn(LS(ESC))      &none
+                          &trans          ln(LS(SPACE))      rn(LS(ESC))      &trans
             >;
         };
 
@@ -223,23 +223,23 @@
 //│  %       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  \       │
     lg(_prcnt) &caret     &kp _lbkt  &kp _rbkt  &kp _under   &kp N0     &kp N1     &kp N2     &kp N3     rg(_bslh)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &none           ln(TAB)            rn(ENTER)        &none
+                          &trans          ln(TAB)            rn(ENTER)        &trans
             >;
         };
 
         nav_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  |       │  §       │  «       │  »       │  ?       │ │  HOME    │  PGDN    │  PGUP    │  END     │  Å       │
+//│  |       │  §       │  «       │  »       │  ?       │ │  HOME    │  PGDN    │  PGUP    │  END     │  å       │
     &kp _pipe  &kp _para  &kp _ldang &kp _rdang &kp _qmark   &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp _aa
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  Ø       │
+//│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  ø       │
     la(_hash)  lm(_sqt)   lc(_lt)    ls(_gt)    &kp _amps    &kp LEFT   rs(DOWN)   rc(UP)     rm(RIGHT)  ra(_oe)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  Æ       │
+//│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  æ       │
     &umlaut    &tilde     &grave     &acute     &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      rg(_ae)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &none           &kp LSHIFT         &kp LSHIFT       &none
+                          &trans          &kp LSHIFT         &kp LSHIFT       &trans
             >;
         };
 
