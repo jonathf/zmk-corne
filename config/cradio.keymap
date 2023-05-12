@@ -49,6 +49,12 @@
 #define _euro RA(E)
 #define _ae SQT
 
+#define _caret RBRC
+#define _grave LS(EQUAL)
+#define _tilde RA(RBKT)
+#define _acute RA(EQUAL)
+#define _umlaut RA(LBKT)
+
 #define caps_char &sl SHIFT_LAYER
 
 // [Left|Right] [altGr|Alt|Meta|Ctrl|Sym|Nav] modifiers
@@ -140,42 +146,43 @@
         };
     };
 
-    macros {
-        caret: caret {
-            label = "caret";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp RBRC &kp RBRC>;
-        };
-        grave: grave {
-            label = "grave";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            //bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
-            bindings = <&macro_tap &kp LS(EQUAL) &kp LS(EQUAL)>;
-        };
-        tilde: tilde {
-            label = "tilde";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            //bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
-            bindings = <&macro_tap &kp RA(RBKT) &kp RA(RBKT)>;
-        };
-        acute: acute {
-            label = "acute";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            //bindings = <&macro_tap &kp SQT &kp SQT>;
-            bindings = <&macro_tap &kp RA(EQUAL) &kp RA(EQUAL)>;
-        };
-        umlaut: umlaut {
-            label = "umlaut";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            //bindings = <&macro_tap &kp DQT &kp DQT>;
-            bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
-        };
-    };
+    // macros {
+    //     caret: caret {
+    //         label = "caret";
+    //         compatible = "zmk,behavior-macro";
+    //         #binding-cells = <0>;
+    //         bindings = <&macro_tap &kp RBRC &kp RBRC>;
+    //     };
+    //     grave: grave {
+    //         label = "grave";
+    //         compatible = "zmk,behavior-macro";
+    //         #binding-cells = <0>;
+    //         //bindings = <&macro_tap &kp GRAVE &kp GRAVE>;
+    //         bindings = <&macro_tap &kp LS(EQUAL) &kp LS(EQUAL)>;
+    //     };
+    //     tilde: tilde {
+    //         label = "tilde";
+    //         compatible = "zmk,behavior-macro";
+    //         #binding-cells = <0>;
+    //         //bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
+    //         bindings = <&macro_tap &kp RA(RBKT) &kp RA(RBKT)>;
+    //     };
+    //     acute: acute {
+    //         label = "acute";
+    //         compatible = "zmk,behavior-macro";
+    //         #binding-cells = <0>;
+    //         //bindings = <&macro_tap &kp SQT &kp SQT>;
+    //         bindings = <&macro_tap &kp RA(EQUAL) &kp RA(EQUAL)>;
+    //     };
+    //     umlaut: umlaut {
+    //         label = "umlaut";
+    //         compatible = "zmk,behavior-macro";
+    //         #binding-cells = <0>;
+    //         //bindings = <&macro_tap &kp DQT &kp DQT>;
+    //         bindings = <&macro_tap &kp RA(LBKT) &kp RA(LBKT)>;
+    //     };
+    // };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -221,7 +228,7 @@
     la(_star)  lm(_dqt)   lc(_lpar)  ls(_rpar) &kp _dollar   &kp _minus rs(N4)     rc(N5)     rm(N6)     ra(_colon)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  %       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  \       │
-    lg(_prcnt) &caret     &kp _lbkt  &kp _rbkt  &kp _under   &kp N0     &kp N1     &kp N2     &kp N3     rg(_bslh)
+   lg(_prcnt) &kp _caret  &kp _lbkt  &kp _rbkt &kp _under    &kp N0     &kp N1     &kp N2     &kp N3     rg(_bslh)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
                           &trans          ln(TAB)            rn(ENTER)        &trans
             >;
@@ -237,7 +244,7 @@
     la(_hash)  lm(_sqt)   lc(_lt)    ls(_gt)    &kp _amps    &kp LEFT   rs(DOWN)   rc(UP)     rm(RIGHT)  ra(_oe)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  æ       │
-    &umlaut    &tilde     &grave     &acute     &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      rg(_ae)
+   &kp _umlaut &kp _tilde &kp _grave &kp _acute &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      rg(_ae)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
                           &trans          &kp LSHIFT         &kp LSHIFT       &trans
             >;
