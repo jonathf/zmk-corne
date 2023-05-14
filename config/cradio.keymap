@@ -130,6 +130,13 @@
             bindings = <&right_hold_tap RALT _fslh>, <&right_hold_tap RALT _bslh>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        space_tab: space_tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "space_tab";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp SPACE>, <&kp TAB>;
+        };
         _shift: _shift {
             compatible = "zmk,behavior-tap-dance";
             label = "_shift";
@@ -143,6 +150,13 @@
             #binding-cells = <0>;
             tapping-term-ms = <600>;
             bindings = <&sl NAV_LAYER>, <&to NAV_LAYER>;
+        };
+        _num: _num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "_num";
+            #binding-cells = <0>;
+            tapping-term-ms = <600>;
+            bindings = <&sl NUM_LAYER>, <&to NUM_LAYER>;
         };
     };
 
@@ -209,28 +223,28 @@
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  a       │  s       │  d       │  f       │  g       │ │  h       │  j       │  k       │  l       │  BKSP    │
-    la(A)      lm(S)      lc(D)      ls(F)      &kp G        &kp H      rs(J)      rc(K)      rm(L)      ra(BKSP)
+    lg(A)      la(S)      lm(D)      lc(F)      &kp G        &kp H      rc(J)      rm(K)      ra(L)      rg(BKSP)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
-    lg(Z)      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
+//│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,;      │  .:      │  /\      │
+    &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &_shift         ln(SPACE)          rn(ESC)          &_nav
+                          &_shift         &kp SPACE          &_num            &_nav
             >;
         };
 
         num_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  !       │  @       │  {       │  }       │  =       │ │  +       │  7       │  8       │  9       │  ;       │
-    &kp _excl  &kp _at    &kp _lbrc  &kp _rbrc  &kp _equal   &kp _plus  &kp N7     &kp N8     &kp N9     &kp _semi
+//│  !       │  @       │  {       │  }       │  =       │ │  +       │  7       │  8       │  9       │  INS     │
+    &kp _excl  &kp _at    &kp _lbrc  &kp _rbrc  &kp _equal   &kp _plus  &kp N7     &kp N8     &kp N9     &kp INS
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  *       │  "       │  (       │  )       │  $       │ │  -       │  4       │  5       │  6       │  :       │
-    la(_star)  lm(_dqt)   lc(_lpar)  ls(_rpar) &kp _dollar   &kp _minus rs(N4)     rc(N5)     rm(N6)     ra(_colon)
+//│  *       │  "       │  (       │  )       │  $       │ │  -       │  4       │  5       │  6       │  DEL     │
+    la(_star)  lm(_dqt)   lc(_lpar)  ls(_rpar) &kp _dollar   &kp _minus rc(N4)     rm(N5)     ra(N6)     rg(DEL)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  %       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  \       │
-   lg(_prcnt) &kp _caret  &kp _lbkt  &kp _rbkt &kp _under    &kp N0     &kp N1     &kp N2     &kp N3     rg(_bslh)
+//│  %       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  PRINT   │
+   lg(_prcnt) &kp _caret  &kp _lbkt  &kp _rbkt &kp _under    &kp N0     &kp N1     &kp N2     &kp N3     &kp PSCRN
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &trans          ln(TAB)            rn(ENTER)        &trans
+                         &kp ESC          &kp TAB            &none            &to HOME_LAYER
             >;
         };
 
@@ -240,13 +254,13 @@
 //│  |       │  §       │  «       │  »       │  ?       │ │  HOME    │  PGDN    │  PGUP    │  END     │  å       │
     &kp _pipe  &kp _para  &kp _ldang &kp _rdang &kp _qmark   &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp _aa
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  #       │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  ø       │
+//│  \#      │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  ø       │
     la(_hash)  lm(_sqt)   lc(_lt)    ls(_gt)    &kp _amps    &kp LEFT   rs(DOWN)   rc(UP)     rm(RIGHT)  ra(_oe)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  æ       │
-   &kp _umlaut &kp _tilde &kp _grave &kp _acute &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      rg(_ae)
+//│  ¨       │  ~       │  `       │  ´       │  €       │ │  ESC     │  ENTER   │          │          │  æ       │
+   &kp _umlaut &kp _tilde &kp _grave &kp _acute &kp _euro    &none      &none      &none      &none      rg(_ae)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &trans          &kp LSHIFT         &kp LSHIFT      &to HOME_LAYER
+                          &none           &kp ENTER          &none            &to HOME_LAYER
             >;
         };
 
