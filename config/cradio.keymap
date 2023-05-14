@@ -8,10 +8,9 @@
 
 // Layers
 #define HOME_LAYER 0
-#define SHIFT_LAYER 1
-#define NUM_LAYER 2
-#define NAV_LAYER 3
-#define LOCK_LAYER 4
+#define NUM_LAYER 1
+#define NAV_LAYER 2
+#define LOCK_LAYER 3
 
 // Norwegian translations
 #define _fslh LS(N7)
@@ -135,8 +134,15 @@
             compatible = "zmk,behavior-tap-dance";
             label = "_shift";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <600>;
             bindings = <&sk LSHIFT>, <&caps_word>;
+        };
+        _nav: _nav {
+            compatible = "zmk,behavior-tap-dance";
+            label = "_nav";
+            #binding-cells = <0>;
+            tapping-term-ms = <600>;
+            bindings = <&sl NAV_LAYER>, <&to NAV_LAYER>;
         };
     };
 
@@ -208,23 +214,7 @@
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
     lg(Z)      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &_shift         ln(SPACE)          rn(ESC)          &caps_word
-            >;
-        };
-
-        shift_layer {
-            bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  Q       │  W       │  E       │  R       │  T       │ │  Y       │  U       │  I       │  O       │  P       │
-    &kp LS(Q)  &kp LS(W)  &kp LS(E)  &kp LS(R)  &kp LS(T)    &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  A       │  S       │  D       │  F       │  G       │ │  H       │  J       │  K       │  L       │  BKSP    │
-    la(LS(A))  lm(LS(S))  lc(LS(D))  ls(LS(F))  &kp LS(G)    &kp LS(H)  rs(LS(J))  rc(LS(K))  rm(LS(L))  ra(LS(BKSP))
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  \       │
-   lg(LS(Z))   &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp _semi  &kp _colon rg(_bslh)
-//                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &trans          ln(LS(SPACE))      rn(LS(ESC))      &trans
+                          &_shift         ln(SPACE)          rn(ESC)          &_nav
             >;
         };
 
@@ -256,7 +246,7 @@
 //│  ¨       │  ~       │  `       │  ´       │  €       │ │  INS     │  DEL     │  PRINT   │          │  æ       │
    &kp _umlaut &kp _tilde &kp _grave &kp _acute &kp _euro    &kp INS    &kp DEL    &kp PSCRN  &none      rg(_ae)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &trans          &kp LSHIFT         &kp LSHIFT       &trans
+                          &trans          &kp LSHIFT         &kp LSHIFT      &to HOME_LAYER
             >;
         };
 
