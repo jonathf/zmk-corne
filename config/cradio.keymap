@@ -223,12 +223,12 @@
     &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  a       │  s       │  d       │  f       │  g       │ │  h       │  j       │  k       │  l       │  BKSP    │
-    lg(A)      la(S)      lm(D)      lc(F)      &kp G        &kp H      rc(J)      rm(K)      ra(L)      rg(BKSP)
+    &kp A      lg(S)      la(D)      lc(F)      &kp G        &kp H      rc(J)      ra(K)      rg(L)      &kp BKSP
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,;      │  .:      │  /\      │
     &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &_shift         &kp SPACE          &_num            &_nav
+                          &_shift         lm(SPACE)          &to NUM_LAYER    &kp ESC
             >;
         };
 
@@ -239,12 +239,12 @@
     &kp _excl  &kp _at    &kp _lbrc  &kp _rbrc  &kp _equal   &kp _plus  &kp N7     &kp N8     &kp N9     &kp INS
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  *       │  "       │  (       │  )       │  $       │ │  -       │  4       │  5       │  6       │  DEL     │
-    la(_star)  lm(_dqt)   lc(_lpar)  ls(_rpar) &kp _dollar   &kp _minus rc(N4)     rm(N5)     ra(N6)     rg(DEL)
+    &kp _star  lg(_dqt)   la(_lpar)  lc(_rpar) &kp _dollar   &kp _minus rc(N4)     ra(N5)     rg(N6)     &kp DEL
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  %       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  PRINT   │
    lg(_prcnt) &kp _caret  &kp _lbkt  &kp _rbkt &kp _under    &kp N0     &kp N1     &kp N2     &kp N3     &kp PSCRN
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                         &kp ESC          &kp TAB            &none            &to HOME_LAYER
+                          &trans          lm(ENTER)          &to NAV_LAYER    &to HOME_LAYER
             >;
         };
 
@@ -255,12 +255,12 @@
     &kp _pipe  &kp _para  &kp _ldang &kp _rdang &kp _qmark   &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp _aa
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  \#      │  '       │  <       │  >       │  &       │ │  LEFT    │  UP      │  DOWN    │  RIGHT   │  ø       │
-    la(_hash)  lm(_sqt)   lc(_lt)    ls(_gt)    &kp _amps    &kp LEFT   rs(DOWN)   rc(UP)     rm(RIGHT)  ra(_oe)
+    &kp _hash  lg(_sqt)   la(_lt)    lc(_gt)    &kp _amps    &kp LEFT   rc(DOWN)   ra(UP)     rg(RIGHT)  &kp _oe
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  ¨       │  ~       │  `       │  ´       │  €       │ │  ESC     │  ENTER   │          │          │  æ       │
-   &kp _umlaut &kp _tilde &kp _grave &kp _acute &kp _euro    &none      &none      &none      &none      rg(_ae)
+//│  ¨       │  ~       │  `       │  ´       │  €       │ │          │          │          │          │  æ       │
+   &kp _umlaut &kp _tilde &kp _grave &kp _acute &kp _euro    &none      &none      &none      &none      &kp _ae
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &none           &kp ENTER          &none            &to HOME_LAYER
+                          &trans          lm(TAB)            &to NUM_LAYER    &to HOME_LAYER
             >;
         };
 
