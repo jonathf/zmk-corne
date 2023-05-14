@@ -89,7 +89,7 @@
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <&left_half>;
+            hold-trigger-key-positions = <left_half>;
         };
         right_layer_tap: right_layer_tap {
             label = "right_layer_tap";
@@ -100,7 +100,7 @@
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <&right_half>;
+            hold-trigger-key-positions = <right_half>;
         };
         left_hold_tap: left_hold_tap {
             label = "left_hold_tap";
@@ -111,7 +111,7 @@
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <&left_half>;
+            hold-trigger-key-positions = <left_half>;
         };
         right_hold_tap: right_hold_tap {
             label = "right_hold_tap";
@@ -122,7 +122,7 @@
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <&right_half>;
+            hold-trigger-key-positions = <right_half>;
         };
         fslh_bslh: fslh_bslh {
             compatible = "zmk,behavior-mod-morph";
@@ -131,12 +131,12 @@
             bindings = <&right_hold_tap RALT _fslh>, <&right_hold_tap RALT _bslh>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        td0: tap_dance_0 {
+        _shift: _shift {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "_shift";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp N1>, <&kp N2>, <&kp N3>;
+            bindings = <&sk LSHIFT>, <&caps_word>;
         };
     };
 
@@ -208,7 +208,7 @@
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,       │  .       │  /       │
     lg(Z)      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M      &kp COMMA  &kp DOT   &fslh_bslh
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &sk LSHIFT      ln(SPACE)          rn(ESC)          &caps_word
+                          &_shift         ln(SPACE)          rn(ESC)          &caps_word
             >;
         };
 
