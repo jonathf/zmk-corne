@@ -62,6 +62,8 @@
 #define _umlaut RA(LBKT)
 
 // [Left|Right] [altGr|Alt|Meta|Ctrl] modifiers
+#define ls(k1) &left_hold_t LSHIFT k1
+#define rs(k1) &right_hold_tap LSHIFT k1
 #define lg(k1) &left_hold_tap RALT k1
 #define rg(k1) &right_hold_tap RALT k1
 #define la(k1) &left_hold_tap LALT k1
@@ -71,13 +73,11 @@
 #define lc(k1) &left_hold_tap LCTRL k1
 #define rc(k1) &right_hold_tap LCTRL k1
 
-#define _shift &layer_hold_tap LSHIFT SHIFT_LAYER
-
 #define left_half 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 30 31 32 33
 #define right_half 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32 33
 
 &caps_word {
-    continue-list = <_under _minus BKSP DEL INS _ae _oe _aa>;
+    continue-list = <_under _minus BKSP DEL _ae _oe _aa>;
 };
 
 / {
@@ -126,194 +126,6 @@
             bindings = <&sl NUM_LAYER>, <&to NUM_LAYER>;
         };
 
-        excl_pipe: excl_pipe {
-            compatible = "zmk,behavior-mod-morph";
-            label = "excl_pipe";
-            #binding-cells = <0>;
-            bindings = <&kp _excl>, <&kp _pipe>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        at_para: at_para {
-            compatible = "zmk,behavior-mod-morph";
-            label = "at_para";
-            #binding-cells = <0>;
-            bindings = <&kp _at>, <&kp _para>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        lbrc_ldang: lbrc_ldang {
-            compatible = "zmk,behavior-mod-morph";
-            label = "lbrc_ldang";
-            #binding-cells = <0>;
-            bindings = <&kp _lbrc>, <&kp _ldang>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        rbrc_rdang: rbrc_rdang {
-            compatible = "zmk,behavior-mod-morph";
-            label = "rbrc_rdang";
-            #binding-cells = <0>;
-            bindings = <&kp _rbrc>, <&kp _rdang>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        equal_qmark: equal_qmark {
-            compatible = "zmk,behavior-mod-morph";
-            label = "equal_qmark";
-            #binding-cells = <0>;
-            bindings = <&kp _equal>, <&kp _qmark>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        star_hash: star_hash {
-            compatible = "zmk,behavior-mod-morph";
-            label = "star_hash";
-            #binding-cells = <0>;
-            bindings = <&kp _star>, <&kp _hash>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        dqt_sqt: dqt_sqt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "dqt_sqt";
-            #binding-cells = <0>;
-            bindings = <lg(_dqt)>, <lg(_sqt)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        lpar_lt: lpar_lt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "lpar_lt";
-            #binding-cells = <0>;
-            bindings = <la(_lpar)>, <la(_lt)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        rpar_gt: rpar_gt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "rpar_gt";
-            #binding-cells = <0>;
-            bindings = <lc(_rpar)>, <lc(_gt)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        dollar_amps: dollar_amps {
-            compatible = "zmk,behavior-mod-morph";
-            label = "dollar_amps";
-            #binding-cells = <0>;
-            bindings = <&kp _dollar>, <&kp _amps>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        fslh_bslh: fslh_prcnt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "fslh_bslh";
-            #binding-cells = <0>;
-            bindings = <&kp _fslh>, <&kp _bslh>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        caret_tilde: caret_tilde {
-            compatible = "zmk,behavior-mod-morph";
-            label = "caret_tilde";
-            #binding-cells = <0>;
-            bindings = <&kp _caret>, <&kp _tilde>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        lbkt_grave: lbkt_grave {
-            compatible = "zmk,behavior-mod-morph";
-            label = "lbkt_grave";
-            #binding-cells = <0>;
-            bindings = <&kp _lbkt>, <&kp _grave>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        rbkt_acute: rbkt_acute {
-            compatible = "zmk,behavior-mod-morph";
-            label = "rbkt_acute";
-            #binding-cells = <0>;
-            bindings = <&kp _rbkt>, <&kp _acute>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        plus_home: plus_home {
-            compatible = "zmk,behavior-mod-morph";
-            label = "plus_home";
-            #binding-cells = <0>;
-            bindings = <&kp _plus>, <&kp HOME>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        under_prcnt: under_prcnt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "under_prcnt";
-            #binding-cells = <0>;
-            bindings = <&kp _under>, <&kp _prcnt>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n7_pgdn: n7_pgdn {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n7_pgdn";
-            #binding-cells = <0>;
-            bindings = <&kp N7>, <&kp PG_DN>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n8_pgup: n8_pgup {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n8_pgup";
-            #binding-cells = <0>;
-            bindings = <&kp N8>, <&kp PG_UP>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n9_end: n9_end {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n9_end";
-            #binding-cells = <0>;
-            bindings = <&kp N9>, <&kp END>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        minus_left: minus_left {
-            compatible = "zmk,behavior-mod-morph";
-            label = "minus_left";
-            #binding-cells = <0>;
-            bindings = <&kp _minus>, <&kp LEFT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n4_down: n4_down {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n4_down";
-            #binding-cells = <0>;
-            bindings = <rc(N4)>, <rc(DOWN)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n5_up: n5_up {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n5_up";
-            #binding-cells = <0>;
-            bindings = <ra(N5)>, <ra(UP)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n6_right: n6_right {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n6_right";
-            #binding-cells = <0>;
-            bindings = <rg(N6)>, <rg(RIGHT)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n0_del: n0_del {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n0_del";
-            #binding-cells = <0>;
-            bindings = <&kp N0>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n1_ins: n1_ins {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n1_ins";
-            #binding-cells = <0>;
-            bindings = <&kp N1>, <&kp INS>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        n3_pscrn: n3_pscrn {
-            compatible = "zmk,behavior-mod-morph";
-            label = "n3_pscrn";
-            #binding-cells = <0>;
-            bindings = <&kp N3>, <&kp PSCRN>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
     };
 
     combos {
@@ -345,7 +157,7 @@
     &kp A      lg(S)      la(D)      lc(F)      &kp G        &kp H      rc(J)      ra(K)      rg(L)      &kp BKSP
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,;      │  .:      │  ENTER   │
-    &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M     &kp COMMA   &kp DOT    &kp ENTER
+    &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M     &kp COMMA   &kp DOT    &kp _euro
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
                          &sl SHIFT_LAYER  lm(SPACE)          &_num_layer      &sl NAV_LAYER
             >;
@@ -361,7 +173,7 @@
     &kp LS(A)  lg(LS(S))  la(LS(D))  lc(LS(F))  &kp LS(G)    &kp LS(H)  rc(LS(J))  ra(LS(K))  rg(LS(L))  &kp LS(BKSP)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  SENTER  │
-    &kp LS(Z)  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp _semi  &kp _colon &kp LS(ENTER)
+    &kp LS(Z)  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp _semi  &kp _colon &kp LS(_euro)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
                           &caps_word      lm(LS(SPACE))      &sl NUM_LAYER    &sl NAV_LAYER // TODO: sl+LSHIFT macro
             >;
@@ -370,16 +182,16 @@
         num_layer {
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  !|      │  @§      │  {«      │  }»      │  =?      │ │  +HOME   │  7PGDN   │  8PGUP   │  9END    │  å       │
-   &excl_pipe &at_para  &lbrc_ldang&rbrc_rdang&equal_qmark  &plus_home  &n7_pgdn   &n8_pgup   &n9_end    &kp _aa
+//│  !       │  @       │  {       │  }       │  =       │ │  +       │  7       │  8       │  9       │  å       │
+    &kp _excl  &kp _at    &kp _lbrc  &kp _rbrc  &kp _equal   &kp _plus  &kp N7     &kp N8     &kp N9     &kp _aa
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  *#      │  "'      │  (<      │  )>      │  $&      │ │  -LEFT   │  4DOWN   │  5UP     │  6RIGHT  │  ø       │
-   &star_hash  &dqt_sqt   &lpar_lt   &rpar_gt &dollar_amps  &minus_left &n4_down   &n5_up     &n6_right  &kp _oe
+//│  *       │  "       │  (       │  )       │  $       │ │  -       │  4       │  5       │  6       │  ø       │
+    &kp _star  lg(_dqt)   la(_lpar)  lc(_rpar)  &kp _dollar  &kp _minus rc(N4)     ra(N5)     rg(N6)     &kp _oe
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  /\\     │  ^~      │  [`      │  ]´      │  _%      │ │  0DEL    │  1INS    │  2       │  3PSCRN  │  æ       │
-   &fslh_bslh&caret_tilde&lbkt_grave&rbkt_acute&under_prcnt  &n0_del    &n1_ins    &kp N2     &n3_pscrn  &kp _ae
+//│  /       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  æ       │
+    &kp _fslh  &kp _caret &kp _lbkt  &kp _rbkt  &kp _under   &kp N0     &kp N1     &kp N2     &kp N3  &kp _ae
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          _shift          &to HOME_LAYER     &none            &to NAV_LAYER
+                          &kp ENTER       &to HOME_LAYER     &none            &to NAV_LAYER
             >;
         };
 
