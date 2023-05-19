@@ -6,29 +6,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+#include "cradio.h"
 #include "no_nb.h"
 
-// Layers
-#define HOME 0
-#define CAPS_ 1
-#define NUM 2
-#define NAV 3
-#define LOCK 4
-
-// [Left|Right] [altGr|Alt|Meta|Ctrl] modifiers
-#define ls(k1) &left_hold_tap LSHIFT k1
-#define rs(k1) &right_hold_tap LSHIFT k1
-#define lg(k1) &left_hold_tap RALT k1
-#define rg(k1) &right_hold_tap RALT k1
-#define la(k1) &left_hold_tap LALT k1
-#define ra(k1) &right_hold_tap LALT k1
-#define lm(k1) &left_hold_tap LGUI k1
-#define rm(k1) &right_hold_tap LGUI k1
-#define lc(k1) &left_hold_tap LCTRL k1
-#define rc(k1) &right_hold_tap LCTRL k1
-
-#define left_half 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 30 31 32 33
-#define right_half 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32 33
 
 &caps_word {
     continue-list = <_UNDER _MINUS BKSP DEL _AE _OE _AA>;
@@ -36,8 +16,8 @@
 
 / {
     behaviors {
-        left_hold_tap: left_hold_tap {
-            label = "left_hold_tap";
+        lht: lht {
+            label = "lht";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -48,8 +28,8 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <left_half>;
         };
-        right_hold_tap: right_hold_tap {
-            label = "right_hold_tap";
+        rht: rht {
+            label = "rht";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -66,7 +46,7 @@
             label = "_num_layer";
             #binding-cells = <0>;
             tapping-term-ms = <600>;
-            bindings = <&sl NUM>, <&to NUM>;
+            bindings = <&sl NUM_L>, <&to NUM_L>;
         };
 
     };
@@ -76,13 +56,13 @@
         combo_lock {
             timeout-ms = <50>;
             key-positions = <1 2 3>;
-            bindings = <&to LOCK>;
+            bindings = <&to LOC_L>;
             layers = <0>;
         };
         combo_unlock {
             timeout-ms = <50>;
             key-positions = <1 2 3>;
-            bindings = <&to HOME>;
+            bindings = <&to HOM_L>;
             layers = <4>;
         };
     };
@@ -94,15 +74,18 @@
             bindings = <
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  q       │  w       │  e       │  r       │  t       │ │  y       │  u       │  i       │  o       │  p       │
-    &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
+    // &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y      &kp U      &kp I      &kp O      &kp P
+    top(Q, W, E, R, T, Y, U, I, O, P)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 //│  a       │  s       │  d       │  f       │  g       │ │  h       │  j       │  k       │  l       │  BKSP    │
-    &kp A      lg(S)      la(D)      lc(F)      &kp G        &kp H      rc(J)      ra(K)      rg(L)      &kp BKSP
+    // &kp A      lg(S)      la(D)      lc(F)      &kp G        &kp H      rc(J)      ra(K)      rg(L)      &kp BKSP
+    mid(A, S, D, F, G, H, J, K, L, BKSP)
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,;      │  .:      │  ENTER   │
-    &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M     &kp COMMA   &kp DOT    &kp _EURO
+//│  z       │  x       │  c       │  v       │  b       │ │  n       │  m       │  ,;      │  .:      │  /       │
+    // &kp Z      &kp X      &kp C      &kp V      &kp B        &kp N      &kp M     &kp COMMA   &kp DOT    &kp _FSLH
+    bot(Z, X, C, V, B, N, M, COMMA, DOT, _FSLH)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &sl CAPS_       lm(SPACE)          &_num_layer      &sl NAV
+                          &sl CAP_L       lm(SPACE)          &_num_layer      &sl NAV_L
             >;
         };
 
@@ -118,7 +101,7 @@
 //│  Z       │  X       │  C       │  V       │  B       │ │  N       │  M       │  ;       │  :       │  SENTER  │
     &kp LS(Z)  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp _SEMI  &kp _COLON &kp LS(_EURO)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &caps_word      lm(LS(SPACE))      &sl NUM          &sl NAV // TODO: sl+LSHIFT macro
+                          &caps_word      lm(LS(SPACE))      &sl NUM_L        &sl NAV_L // TODO: sl+LSHIFT macro
             >;
         };
 
@@ -134,7 +117,7 @@
 //│  /       │  ^       │  [       │  ]       │  _       │ │  0       │  1       │  2       │  3       │  æ       │
     &kp _FSLH  &kp _CARET &kp _LBKT  &kp _RBKT  &kp _UNDER   &kp N0     &kp N1     &kp N2     &kp N3  &kp _AE
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          &to CAPS_       &to HOME           &none            &to NAV
+                          &to CAP_L       &to HOM_L          &none            &to NAV_L
             >;
         };
 
@@ -150,7 +133,7 @@
 //│  \\      │  ~       │  `       │  ´       │  %       │ │  INS     │  DEL     │  PRINT   │          │  Æ       │
    &kp _BSLH   &kp _TILDE &kp _GRAVE &kp _ACUTE &kp _PRCNT   &kp INS    &kp DEL    &kp PSCRN  &none      &kp LS(_AE)
 //                      ╭───────────────┬────────────────╮ ╭────────────────┬───────────────╮
-                          ls(ENTER)       lm(TAB)            &to HOME         &kp ESC
+                          ls(ENTER)       lm(TAB)            &to HOM_L        &kp ESC
                >;
            };
 
