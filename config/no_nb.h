@@ -1,4 +1,4 @@
-// Norwegian translations
+// Symbol definition in Norwegian
 
 #define _AA LBKT            // Å
 #define _ACUTE RA(EQUAL)
