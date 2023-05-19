@@ -1,12 +1,6 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MiT
 
-//  hold  HOM       hold    SHI         NUM         NAV
-//  S     sl SHI            cword       to SHI      sk LSHIFT
-//  M     SPACE     S+M     S+SPACE     to HOM      TAB
-//        sl NUM            to NUM      to NUM      to NUM
-//        sl NAV                        to NAV      ESC
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -86,11 +80,11 @@
             label = "left_hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
+            flavor = "balanced";
+            tapping-term-ms = <350>;
             quick-tap-ms = <150>;
             global-quick-tap;
-            retro-tap;
+            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <left_half>;
         };
@@ -98,11 +92,11 @@
             label = "right_hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
+            flavor = "balanced";
+            tapping-term-ms = <350>;
             quick-tap-ms = <150>;
             global-quick-tap;
-            retro-tap;
+            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <right_half>;
         };
@@ -110,11 +104,11 @@
             label = "layer_hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
+            flavor = "balanced";
+            tapping-term-ms = <350>;
             quick-tap-ms = <150>;
             global-quick-tap;
-            retro-tap;
+            hold-trigger-on-release;
             bindings = <&kp>, <&to>;
         };
 
