@@ -8,8 +8,8 @@
 #define right_half 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32 33
 
 #define _m_space &lht LGUI SPACE
-#define _ms_space &lht LGUI LS(SPACE)
-#define _s_enter &lht LSHIFT ENTER
+#define _m_sspace &lht LGUI LS(SPACE)
+#define _m_enter &lht LGUI ENTER
 #define _m_tab &lht LGUI TAB
 
 #define top(q, w, e, r, t, y, u, i, o, p) \

@@ -45,6 +45,34 @@
             tapping-term-ms = <600>;
             bindings = <&sl NUM_L>, <&to NUM_L>;
         };
+        _s_cword: _s_cword {
+            compatible = "zmk,behavior-tap-dance";
+            label = "_sl_num";
+            #binding-cells = <0>;
+            tapping-term-ms = <600>;
+            bindings = <&sk LSHIFT>, <&caps_word>;
+        };
+        _slh: _slh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "_slh";
+            #binding-cells = <0>;
+            bindings = <&mt _FSLH _BSLH>, <&kp _BSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        _dot: _dot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "_dot";
+            #binding-cells = <0>;
+            bindings = <&mt DOT _COLON>, <&kp _COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        _comma: _comma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "_comma";
+            #binding-cells = <0>;
+            bindings = <&mt COMMA _SEMI>, <&kp _SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
     combos {
         compatible = "zmk,combos";
@@ -67,9 +95,9 @@
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
 top(  Q,       W,       E,       R,       T,         Y,       U,       I,       O,       P       )
 mid(  A,       S,       D,       F,       G,         H,       J,       K,       L,       BKSP    )
-bot(  Z,       X,       C,       V,       B,         N,       M,       COMMA,   DOT,     _FSLH   )
+      &kp Z    &kp X    &kp C    &kp V    &kp B      &kp N    &kp M    &_comma  &_dot    &_slh
 //  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &sl CAP_L    _m_space        &_sl_num      &sl NAV_L
+                        &_s_cword    _m_space        &_sl_num     &sl NAV_L
         >; };
         cap_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -77,7 +105,7 @@ top(  LS(Q),   LS(W),   LS(E),   LS(R),   LS(T),     LS(Y),   LS(U),   LS(I),   
 mid(  LS(A),   LS(S),   LS(D),   LS(F),   LS(G),     LS(H),   LS(J),   LS(K),   LS(L),   LS(BKSP))
 bot(  LS(Z),   LS(X),   LS(C),   LS(V),   LS(B),     LS(N),   LS(M),   _SEMI,   _COLON,  _BSLH   )
 //  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &caps_word   _ms_space       &sl NUM_L     &sl NAV_L   // TODO: sl+LSHIFT macro
+                        &caps_word   _m_sspace       &sl NUM_L    &trans   // TODO: sl+LSHIFT macro
         >; };
         num_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -85,7 +113,7 @@ top(  _EXCL,   _AT,     _LBRC,   _RBRC,   _EQUAL,    _PLUS,   N7,      N8,      
 mid(  _STAR,   _DQT,    _LPAR,   _RPAR,   _DOLLAR,   _MINUS,  N4,      N5,      N6,      _OE     )
 bot(  _PRCNT,  _CARET,  _LBKT,   _RBKT,   _UNDER,    N0,      N1,      N2,      N3,      _AE     )
 //  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &to CAP_L    &to HOM_L       &none         &to NAV_L
+                        &_s_cword    _m_tab          &kp ESC      &trans
         >; };
         nav_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -93,7 +121,7 @@ top(  _PIPE,   _PARA,   _LDANG,  _RDANG,  _QMARK,    HOME,    PG_DN,   PG_UP,   
 mid(  _HASH,   _SQT,    _LT,     _GT,     _AMPS,     LEFT,    DOWN,    UP,      RIGHT,   LS(_OE) )
 bot(  _EURO,   _TILDE,  _GRAVE,  _ACUTE,  _PRCNT,    DEL,     INS,     PSCRN,   &none,   LS(_AE) )
 //  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        _s_enter     _m_tab          &to HOM_L     &kp ESC
+                        &_s_cword    _m_enter        &to HOM_L    &trans
         >; };
         loc_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -101,7 +129,7 @@ bot(  _EURO,   _TILDE,  _GRAVE,  _ACUTE,  _PRCNT,    DEL,     INS,     PSCRN,   
       &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
       &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
 //  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &none        &none           &none         &none
+                        &none        &none           &none        &none
         >; };
     };
 };
