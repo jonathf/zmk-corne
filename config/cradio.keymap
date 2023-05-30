@@ -8,8 +8,8 @@
 
 / {
     behaviors {
-        lht: lht {
-            label = "lht";
+        ll: ll {
+            label = "ll";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -18,10 +18,10 @@
             global-quick-tap;
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <left_half>;
+            hold-trigger-key-positions = <left_side>;
         };
-        rht: rht {
-            label = "rht";
+        rr: rr {
+            label = "rr";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -30,101 +30,132 @@
             global-quick-tap;
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <right_half>;
+            hold-trigger-key-positions = <right_side>;
         };
-        ht: ht {
-            label = "ht";
+        tt: tt {
+            label = "tt";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            global-quick-tap;
+            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
         };
-        _sl_num: _sl_num {
+        shift_capsword: shift_capsword {
             compatible = "zmk,behavior-tap-dance";
-            label = "_sl_num";
+            label = "shift_capsword";
             #binding-cells = <0>;
-            tapping-term-ms = <600>;
-            bindings = <&sl NUM_L>, <&to NUM_L>;
-        };
-        _s_cword: _s_cword {
-            compatible = "zmk,behavior-tap-dance";
-            label = "_sl_num";
-            #binding-cells = <0>;
-            tapping-term-ms = <600>;
+            tapping-term-ms = <200>;
             bindings = <&sk LSHIFT>, <&caps_word>, <&none>;
         };
-        _slh: _slh {
+        slash: slash {
             compatible = "zmk,behavior-mod-morph";
-            label = "_slh";
+            label = "slash";
             #binding-cells = <0>;
-            bindings = <&ht _BSLH _FSLH>, <&kp _BSLH>;
+            bindings = <&tt _BSLH _FSLH>, <&kp _BSLH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        _dot: _dot {
+        dot: dot {
             compatible = "zmk,behavior-mod-morph";
-            label = "_dot";
+            label = "dot";
             #binding-cells = <0>;
-            bindings = <&ht _COLON DOT>, <&kp _COLON>;
+            bindings = <&tt _COLON DOT>, <&kp _COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        _comma: _comma {
+        comma: comma {
             compatible = "zmk,behavior-mod-morph";
-            label = "_comma";
+            label = "comma";
             #binding-cells = <0>;
-            bindings = <&ht _SEMI COMMA>, <&kp _SEMI>;
+            bindings = <&tt _SEMI COMMA>, <&kp _SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
     combos {
         compatible = "zmk,combos";
+        left_ctrl {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&sk LCTRL>;
+            layers = <HOM_L NUM_L NAV_L>;
+        };
+        right_ctrl {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&sk LCTRL>;
+            layers = <HOM_L NUM_L NAV_L>;
+        };
+        left_alt {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&sk LALT>;
+            layers = <HOM_L NUM_L NAV_L>;
+        };
+        right_alt {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&sk LALT>;
+            layers = <HOM_L NUM_L NAV_L>;
+        };
+        left_altgr {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&sk RALT>;
+            layers = <HOM_L NUM_L NAV_L>;
+        };
+        right_altgr {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&sk RALT>;
+            layers = <HOM_L NUM_L NAV_L>;
+        };
         combo_lock {
             timeout-ms = <50>;
             key-positions = <1 2 3>;
             bindings = <&to LOC_L>;
-            layers = <0>;
+            layers = <HOM_L>;
         };
         combo_unlock {
             timeout-ms = <50>;
             key-positions = <1 2 3>;
             bindings = <&to HOM_L>;
-            layers = <4>;
+            layers = <LOC_L>;
         };
     };
     keymap {
         compatible = "zmk,keymap";
         hom_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-top(  Q,       W,       E,       R,       T,         Y,       U,       I,       O,       P       )
-mid(  A,       S,       D,       F,       G,         H,       J,       K,       L,       BKSP    )
-      &kp Z    &kp X    &kp C    &kp V    &kp B      &kp N    &kp M    &_comma  &_dot    &_slh
-//  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &_s_cword     _m_space        &sl NUM_L    &sl NAV_L
+     q(Q)     q(W)     q(E)     q(R)     q(T)       q(Y)     q(U)     q(I)     q(O)     q(P)
+     q(A)     q(S)     q(D)     q(F)     q(G)       q(H)     q(J)     q(K)     q(L)     q(BKSP)
+     q(Z)     q(X)     q(C)     q(V)     q(B)       q(N)     q(M)     &comma   &dot     &slash
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+               &caps_word        &tt LGUI SPACE      &sl NUM_L         &sl NAV_L
         >; };
         num_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-top(  _EXCL,   _AT,     _LBRC,   _RBRC,   _EQUAL,    _PLUS,   N7,      N8,      N9,      _AA     )
-mid(  _STAR,   _DQT,    _LPAR,   _RPAR,   _DOLLAR,   _MINUS,  N4,      N5,      N6,      _OE     )
-bot(  _PRCNT,  _CARET,  _LBKT,   _RBKT,   _UNDER,    N0,      N1,      N2,      N3,      _AE     )
-//  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &sk LSHIFT   _m_enter        &kp ESC      &none
+     k(_EXCL) k(_AT)   k(_LBRC) k(_RBRC) k(_EQUAL)  k(_PLUS) k(N7)    k(N8)    k(N9)    q(_AA)
+     k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)    q(_OE)
+     k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)    q(_AE)
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+               &sk LSHIFT        &tt LGUI ENTER      &kp ESC           &none
         >; };
         nav_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-top(  _PIPE,   _PARA,   _LDANG,  _RDANG,  _QMARK,    HOME,    PG_DN,   PG_UP,   END,     LS(_AA) )
-mid(  _HASH,   _SQT,    _LT,     _GT,     _AMPS,     LEFT,    DOWN,    UP,      RIGHT,   LS(_OE) )
-bot(  _EURO,   _TILDE,  _GRAVE,  _ACUTE,  _PRCNT,    DEL,     INS,     PSCRN,   &none,   LS(_AE) )
-//  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &sk LSHIFT   &sk LGUI        &none        &kp TAB
+     k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    k(LS(_AA))
+     k(_HASH) k(_SQT)  k(_LT)   k(_GT)   k(_AMPS)   k(LEFT)  k(DOWN)  k(UP)    k(RIGHT)  k(LS(_OE))
+     k(_EURO) k(_TILDE)k(_GRAVE)k(_ACUTE)k(_PRCNT)  k(DEL)   k(INS)   k(PSCRN) &none     k(LS(_AE))
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+               &sk LSHIFT        &sk LGUI            &none             &kp TAB
         >; };
         loc_l { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
       &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
       &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
       &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
-//  ╰────────┴────────┼────────┴───┬────┴────────┤ ├────────┴───┬────┴────────┼────────┴────────╯
-                        &none        &none           &none        &none
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+               &none             &none               &none             &none
         >; };
     };
 };
