@@ -1,54 +1,36 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MiT
 
-#include "cradio.h"
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+#include "no_nb.h"
+#include "34keys.h"
+
+#define L0 0
+#define L1 1
+#define L2 2
+
+#define k(v) &kp v
+#define q(v) &tt LS(v) v
 
 
 &caps_word { continue-list = <_UNDER _MINUS BKSP DEL _AE _OE _AA>; };
 
 / {
     behaviors {
-        ll: ll {
-            label = "ll";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <350>;
-            quick-tap-ms = <150>;
-            global-quick-tap;
-            hold-trigger-on-release;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <left_side>;
-        };
-        rr: rr {
-            label = "rr";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <350>;
-            quick-tap-ms = <150>;
-            global-quick-tap;
-            hold-trigger-on-release;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <right_side>;
-        };
         tt: tt {
             label = "tt";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <350>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <100>;
             global-quick-tap;
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
-        };
-        shift_capsword: shift_capsword {
-            compatible = "zmk,behavior-tap-dance";
-            label = "shift_capsword";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk LSHIFT>, <&caps_word>, <&none>;
         };
         slash: slash {
             compatible = "zmk,behavior-mod-morph";
@@ -78,62 +60,50 @@
             timeout-ms = <50>;
             key-positions = <12 13>;
             bindings = <&sk LCTRL>;
-            layers = <HOM_L NUM_L NAV_L>;
+            layers = <L0 L1 L2>;
         };
         right_ctrl {
             timeout-ms = <50>;
             key-positions = <16 17>;
             bindings = <&sk LCTRL>;
-            layers = <HOM_L NUM_L NAV_L>;
+            layers = <L0 L1 L2>;
         };
         left_alt {
             timeout-ms = <50>;
             key-positions = <11 12>;
             bindings = <&sk LALT>;
-            layers = <HOM_L NUM_L NAV_L>;
+            layers = <L0 L1 L2>;
         };
         right_alt {
             timeout-ms = <50>;
             key-positions = <17 18>;
             bindings = <&sk LALT>;
-            layers = <HOM_L NUM_L NAV_L>;
+            layers = <L0 L1 L2>;
         };
         left_altgr {
             timeout-ms = <50>;
             key-positions = <10 11>;
             bindings = <&sk RALT>;
-            layers = <HOM_L NUM_L NAV_L>;
+            layers = <L0 L1 L2>;
         };
         right_altgr {
             timeout-ms = <50>;
             key-positions = <18 19>;
             bindings = <&sk RALT>;
-            layers = <HOM_L NUM_L NAV_L>;
-        };
-        combo_lock {
-            timeout-ms = <50>;
-            key-positions = <1 2 3>;
-            bindings = <&to LOC_L>;
-            layers = <HOM_L>;
-        };
-        combo_unlock {
-            timeout-ms = <50>;
-            key-positions = <1 2 3>;
-            bindings = <&to HOM_L>;
-            layers = <LOC_L>;
+            layers = <L0 L1 L2>;
         };
     };
     keymap {
         compatible = "zmk,keymap";
-        hom_l { bindings = <
+        layer_0 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
      q(Q)     q(W)     q(E)     q(R)     q(T)       q(Y)     q(U)     q(I)     q(O)     q(P)
      q(A)     q(S)     q(D)     q(F)     q(G)       q(H)     q(J)     q(K)     q(L)     q(BKSP)
      q(Z)     q(X)     q(C)     q(V)     q(B)       q(N)     q(M)     &comma   &dot     &slash
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &caps_word        &tt LGUI SPACE      &sl NUM_L         &sl NAV_L
+               &caps_word        &tt LGUI SPACE      &sl L1            &sl L2
         >; };
-        num_l { bindings = <
+        layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
      k(_EXCL) k(_AT)   k(_LBRC) k(_RBRC) k(_EQUAL)  k(_PLUS) k(N7)    k(N8)    k(N9)    q(_AA)
      k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)    q(_OE)
@@ -141,21 +111,13 @@
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &sk LSHIFT        &tt LGUI ENTER      &kp ESC           &none
         >; };
-        nav_l { bindings = <
+        layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
      k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    k(LS(_AA))
      k(_HASH) k(_SQT)  k(_LT)   k(_GT)   k(_AMPS)   k(LEFT)  k(DOWN)  k(UP)    k(RIGHT)  k(LS(_OE))
      k(_EURO) k(_TILDE)k(_GRAVE)k(_ACUTE)k(_PRCNT)  k(DEL)   k(INS)   k(PSCRN) &none     k(LS(_AE))
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &sk LSHIFT        &sk LGUI            &none             &kp TAB
-        >; };
-        loc_l { bindings = <
-//  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-      &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
-      &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
-      &none    &none    &none    &none    &none      &none    &none    &none    &none    &none
-//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &none             &none               &none             &none
         >; };
     };
 };
