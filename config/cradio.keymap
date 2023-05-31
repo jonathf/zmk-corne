@@ -25,9 +25,20 @@
             label = "tt";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
+            global-quick-tap;
+            hold-trigger-on-release;
+            bindings = <&kp>, <&kp>;
+        };
+        ht: ht {
+            label = "ht";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <100>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <300>;
             global-quick-tap;
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
@@ -101,7 +112,7 @@
      q(A)     q(S)     q(D)     q(F)     q(G)       q(H)     q(J)     q(K)     q(L)     q(BKSP)
      q(Z)     q(X)     q(C)     q(V)     q(B)       q(N)     q(M)     &comma   &dot     &slash
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &caps_word        &tt LGUI SPACE      &sl L1            &sl L2
+               &caps_word        &ht LGUI SPACE      &sl L1            &sl L2
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -109,7 +120,7 @@
      k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)    q(_OE)
      k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)    q(_AE)
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &sk LSHIFT        &tt LGUI ENTER      &kp ESC           &none
+               &sk LSHIFT        &ht LGUI ENTER      &kp ESC           &none
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
