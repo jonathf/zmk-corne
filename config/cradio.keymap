@@ -14,7 +14,7 @@
 #define L2 2
 
 #define k(v) &kp v
-#define q(v) &tt LS(v) v
+#define as(v) &tt LS(v) v
 
 
 &caps_word { continue-list = <_UNDER _MINUS BKSP DEL _AE _OE _AA>; };
@@ -47,21 +47,21 @@
             compatible = "zmk,behavior-mod-morph";
             label = "slash";
             #binding-cells = <0>;
-            bindings = <&tt _BSLH _FSLH>, <&kp _BSLH>;
+            bindings = <&mt _BSLH _FSLH>, <&kp _BSLH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         dot: dot {
             compatible = "zmk,behavior-mod-morph";
             label = "dot";
             #binding-cells = <0>;
-            bindings = <&tt _COLON DOT>, <&kp _COLON>;
+            bindings = <&mt _COLON DOT>, <&kp _COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         comma: comma {
             compatible = "zmk,behavior-mod-morph";
             label = "comma";
             #binding-cells = <0>;
-            bindings = <&tt _SEMI COMMA>, <&kp _SEMI>;
+            bindings = <&mt _SEMI COMMA>, <&kp _SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         bksp: bksp {
@@ -125,7 +125,7 @@
         insert {
             timeout-ms = <50>;
             key-positions = <23 24>;
-            bindings = <&tt q(INS)>;
+            bindings = <as(INS)>;
             layers = <L0>;
         };
     };
@@ -133,17 +133,17 @@
         compatible = "zmk,keymap";
         layer_0 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-     q(Q)     q(W)     q(E)     q(R)     q(T)       q(Y)     q(U)     q(I)     q(O)     q(P)
-     q(A)     q(S)     q(D)     q(F)     q(G)       q(H)     q(J)     q(K)     q(L)     &bksp
-     q(Z)     q(X)     q(C)     q(V)     q(B)       q(N)     q(M)     &comma   &dot     &slash
+      as(Q)    as(W)    as(E)    as(R)    as(T)      as(Y)    as(U)    as(I)    as(O)    as(P)
+      as(A)    as(S)    as(D)    as(F)    as(G)      as(H)    as(J)    as(K)    as(L)    &bksp
+      as(Z)    as(X)    as(C)    as(V)    as(B)      as(N)    as(M)    &comma   &dot     &slash
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &kp TAB           &ht LGUI SPACE      &sl L1            &sl L2
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-     k(_EXCL) k(_AT)   k(_LBRC) k(_RBRC) k(_EQUAL)  k(_PLUS) k(N7)    k(N8)    k(N9)    q(_AA)
-     k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)    q(_OE)
-     k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)    q(_AE)
+     k(_EXCL) k(_AT)   k(_LBRC) k(_RBRC) k(_EQUAL)  k(_PLUS) k(N7)    k(N8)    k(N9)   as(_AA)
+     k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)   as(_OE)
+     k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)   as(_AE)
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &caps_word        &ht LGUI ENTER      &kp ESC           &sl L2
         >; };
