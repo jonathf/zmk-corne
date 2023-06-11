@@ -47,7 +47,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "slash";
             #binding-cells = <0>;
-            bindings = <&mt _BSLH _FSLH>, <&kp _BSLH>;
+            bindings = <&tt _BSLH _FSLH>, <&kp _BSLH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         dot: dot {
