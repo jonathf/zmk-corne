@@ -15,11 +15,20 @@
 
 #define k(v) &kp v
 #define as(v) &tt LS(v) v
+#define b(v) &bt BT_SEL v
 
 
 &caps_word { continue-list = <_UNDER _MINUS BKSP DEL _AE _OE _AA>; };
 
 / {
+    macros {
+        capsword: capsword {
+            label = "capsword";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to L0>, <&caps_word>;
+        };
+    };
     behaviors {
         tt: tt {
             label = "tt";
@@ -27,7 +36,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <300>;
+            quick-tap-ms = <100>;
             global-quick-tap;
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
@@ -38,7 +47,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            quick-tap-ms = <300>;
+            quick-tap-ms = <100>;
             global-quick-tap;
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
@@ -74,6 +83,24 @@
     };
     combos {
         compatible = "zmk,combos";
+        left_altgr {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&sk RALT>;
+            layers = <L0 L1 L2>;
+        };
+        left_alt {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&sk LALT>;
+            layers = <L0 L1 L2>;
+        };
+        left_ctrl {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&sk LCTRL>;
+            layers = <L0 L1 L2>;
+        };
         left_shift {
             timeout-ms = <50>;
             key-positions = <13 14>;
@@ -86,22 +113,10 @@
             bindings = <&sk LSHIFT>;
             layers = <L0 L1 L2>;
         };
-        left_ctrl {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&sk LCTRL>;
-            layers = <L0 L1 L2>;
-        };
         right_ctrl {
             timeout-ms = <50>;
             key-positions = <16 17>;
             bindings = <&sk LCTRL>;
-            layers = <L0 L1 L2>;
-        };
-        left_alt {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&sk LALT>;
             layers = <L0 L1 L2>;
         };
         right_alt {
@@ -110,23 +125,11 @@
             bindings = <&sk LALT>;
             layers = <L0 L1 L2>;
         };
-        left_altgr {
-            timeout-ms = <50>;
-            key-positions = <1 2>;
-            bindings = <&sk RALT>;
-            layers = <L0 L1 L2>;
-        };
         right_altgr {
             timeout-ms = <50>;
-            key-positions = <7 8>;
+            key-positions = <18 19>;
             bindings = <&sk RALT>;
             layers = <L0 L1 L2>;
-        };
-        insert {
-            timeout-ms = <50>;
-            key-positions = <23 24>;
-            bindings = <as(INS)>;
-            layers = <L0>;
         };
     };
     keymap {
@@ -145,15 +148,15 @@
      k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)   as(_OE)
      k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)   as(_AE)
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &caps_word        &ht LGUI ENTER      &kp ESC           &sl L2
+               &capsword         &ht LGUI ENTER      &kp ESC           &sl L2
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-     k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    k(LS(_AA))
-     k(_HASH) k(_SQT)  k(_LT)   k(_GT)   k(_AMPS)   k(LEFT)  k(DOWN)  k(UP)    k(RIGHT)  k(LS(_OE))
-     k(_EURO) k(_TILDE)k(_GRAVE)k(_ACUTE) &none     k(DEL)   &none    k(PSCRN) &none     k(LS(_AE))
+     k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    &none
+     k(_HASH) k(_SQT)  k(_LT)   k(_GT)   k(_AMPS)   k(LEFT)  k(DOWN)  k(UP)    k(RIGHT)  as(INS)
+     k(_EURO) k(_TILDE)k(_GRAVE)k(_ACUTE) &none   &bt BT_CLR  b(0)    b(1)     b(2)      b(3)
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &sk LSHIFT        &sk LGUI            &to L0            &sl L2
+               &kp LSHIFT        &kp LGUI            &to L0            &sl L2
         >; };
     };
 };
