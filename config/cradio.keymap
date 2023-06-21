@@ -101,18 +101,6 @@
             bindings = <&sk LCTRL>;
             layers = <L0 L1 L2>;
         };
-        left_shift {
-            timeout-ms = <50>;
-            key-positions = <13 14>;
-            bindings = <&sk LSHIFT>;
-            layers = <L0 L1 L2>;
-        };
-        right_shift {
-            timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&sk LSHIFT>;
-            layers = <L0 L1 L2>;
-        };
         right_ctrl {
             timeout-ms = <50>;
             key-positions = <16 17>;
@@ -140,7 +128,7 @@
       as(A)    as(S)    as(D)    as(F)    as(G)      as(H)    as(J)    as(K)    as(L)    &bksp
       as(Z)    as(X)    as(C)    as(V)    as(B)      as(N)    as(M)    &comma   &dot     &slash
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &kp TAB           &ht LGUI SPACE      &sl L1            &sl L2
+               &ht LGUI TAB      &ht LSHIFT SPACE    &sl L1            &sl L2
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -148,15 +136,15 @@
      k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)   as(_OE)
      k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)   as(_AE)
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &capsword         &ht LGUI ENTER      &kp ESC           &sl L2
+               &capsword         &ht LSHIFT ENTER    &kp ESC           &sl L2
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-     k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    &none
+     k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    k(PSCRN)
      k(_HASH) k(_SQT)  k(_LT)   k(_GT)   k(_AMPS)   k(LEFT)  k(DOWN)  k(UP)    k(RIGHT)  as(INS)
      k(_EURO) k(_TILDE)k(_GRAVE)k(_ACUTE) &none   &bt BT_CLR  b(0)    b(1)     b(2)      b(3)
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-               &kp LSHIFT        &kp LGUI            &to L0            &sl L2
+               &kp LGUI          &kp LSHIFT          &to L0            &sl L2
         >; };
     };
 };
