@@ -8,6 +8,7 @@
 
 #include "no_nb.h"
 #include "34keys.h"
+#include "helper.h"
 
 #define L0 0
 #define L1 1
@@ -20,6 +21,34 @@
 
 &caps_word { continue-list = <_UNDER _MINUS BKSP DEL _AE _OE _AA>; };
 
+ZMK_BEHAVIOR(tt, hold_tap,
+    flavor="tap-preferred";
+    tapping-term-ms=<200>;
+    quick-tap-ms=<100>;
+    global-quick-tap;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+ZMK_BEHAVIOR(ht, hold_tap,
+    flavor="balanced";
+    tapping-term-ms=<200>;
+    quick-tap-ms=<100>;
+    global-quick-tap;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+
+#define SHIFTMORPH(name, bind0, bind1) \
+  ZMK_BEHAVIOR(name, mod_morph, \
+    bindings = <&tt bind1 bind0>, <&kp bind1>; \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+  )
+
+SHIFTMORPH(slash, _FSLH, _BSLH)
+SHIFTMORPH(dot, DOT, _COLON)
+SHIFTMORPH(comma, COMMA, _SEMI)
+SHIFTMORPH(bksp, BKSP, DEL)
+
 / {
     macros {
         capsword: capsword {
@@ -28,61 +57,33 @@
             #binding-cells = <0>;
             bindings = <&to L0>, <&caps_word>;
         };
-    };
-    behaviors {
-        tt: tt {
-            label = "tt";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
-            global-quick-tap;
-            hold-trigger-on-release;
-            bindings = <&kp>, <&kp>;
-        };
-        ht: ht {
-            label = "ht";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
-            global-quick-tap;
-            hold-trigger-on-release;
-            bindings = <&kp>, <&kp>;
-        };
-        slash: slash {
-            compatible = "zmk,behavior-mod-morph";
-            label = "slash";
+        brc: brc {
+            label = "brc";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tt _BSLH _FSLH>, <&kp _BSLH>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp _LBRC>, <&kp _RBRC>, <&kp LEFT>;
         };
-        dot: dot {
-            compatible = "zmk,behavior-mod-morph";
-            label = "dot";
+        bkt: bkt {
+            label = "bkt";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mt _COLON DOT>, <&kp _COLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        comma: comma {
-            compatible = "zmk,behavior-mod-morph";
-            label = "comma";
-            #binding-cells = <0>;
-            bindings = <&mt _SEMI COMMA>, <&kp _SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        bksp: bksp {
-            compatible = "zmk,behavior-mod-morph";
-            label = "bksp";
-            #binding-cells = <0>;
-            bindings = <&tt DEL BKSP>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp _LBKT>, <&kp _RBKT>, <&kp LEFT>;
         };
     };
     combos {
         compatible = "zmk,combos";
+        brc {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&brc>;
+            layers = <L1>;
+        };
+        bkt {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&bkt>;
+            layers = <L1>;
+        };
         left_altgr {
             timeout-ms = <50>;
             key-positions = <10 11>;
