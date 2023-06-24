@@ -10,6 +10,10 @@
 
 #pragma once
 
+#define L0 0
+#define L1 1
+#define L2 2
+
 #define LT0  4  // left-top row
 #define LT1  3
 #define LT2  2

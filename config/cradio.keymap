@@ -9,17 +9,13 @@
 #include "no_nb.h"
 #include "34keys.h"
 #include "helper.h"
+#include "keys.h"
 
 #define L0 0
 #define L1 1
 #define L2 2
 
-#define k(v) &kp v
-#define as(v) &tt LS(v) v
-#define b(v) &bt BT_SEL v
-
-
-&caps_word { continue-list = <_UNDER _MINUS BKSP DEL _AE _OE _AA>; };
+&caps_word { continue-list = <__UNDER __MINUS BKSP DEL __AE __OE __AA>; };
 
 ZMK_BEHAVIOR(tt, hold_tap,
     flavor="tap-preferred";
@@ -38,17 +34,6 @@ ZMK_BEHAVIOR(ht, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
-#define SHIFTMORPH(name, bind0, bind1) \
-  ZMK_BEHAVIOR(name, mod_morph, \
-    bindings = <&tt bind1 bind0>, <&kp bind1>; \
-    mods = <(MOD_LSFT|MOD_RSFT)>; \
-  )
-
-SHIFTMORPH(slash, _FSLH, _BSLH)
-SHIFTMORPH(dot, DOT, _COLON)
-SHIFTMORPH(comma, COMMA, _SEMI)
-SHIFTMORPH(bksp, BKSP, DEL)
-
 / {
     macros {
         capsword: capsword {
@@ -61,13 +46,13 @@ SHIFTMORPH(bksp, BKSP, DEL)
             label = "brc";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp _LBRC>, <&kp _RBRC>, <&kp LEFT>;
+            bindings = <&kp __LBRC>, <&kp __RBRC>, <&kp LEFT>;
         };
         bkt: bkt {
             label = "bkt";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp _LBKT>, <&kp _RBKT>, <&kp LEFT>;
+            bindings = <&kp __LBKT>, <&kp __RBKT>, <&kp LEFT>;
         };
     };
     combos {
@@ -84,66 +69,30 @@ SHIFTMORPH(bksp, BKSP, DEL)
             bindings = <&bkt>;
             layers = <L1>;
         };
-        left_altgr {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
-            bindings = <&sk RALT>;
-            layers = <L0 L1 L2>;
-        };
-        left_alt {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&sk LALT>;
-            layers = <L0 L1 L2>;
-        };
-        left_ctrl {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&sk LCTRL>;
-            layers = <L0 L1 L2>;
-        };
-        right_ctrl {
-            timeout-ms = <50>;
-            key-positions = <16 17>;
-            bindings = <&sk LCTRL>;
-            layers = <L0 L1 L2>;
-        };
-        right_alt {
-            timeout-ms = <50>;
-            key-positions = <17 18>;
-            bindings = <&sk LALT>;
-            layers = <L0 L1 L2>;
-        };
-        right_altgr {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&sk RALT>;
-            layers = <L0 L1 L2>;
-        };
     };
     keymap {
         compatible = "zmk,keymap";
         layer_0 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-      as(Q)    as(W)    as(E)    as(R)    as(T)      as(Y)    as(U)    as(I)    as(O)    as(P)
-      as(A)    as(S)    as(D)    as(F)    as(G)      as(H)    as(J)    as(K)    as(L)    &bksp
-      as(Z)    as(X)    as(C)    as(V)    as(B)      as(N)    as(M)    &comma   &dot     &slash
+      &_Q      &_W      &_E      &_R      &_T        &_Y      &_U      &_I      &_O      &_P
+      &_A      &_S      &_D      &_F      &_G        &_H      &_J      &_K      &_L      &_BKSP
+      &_Z      &_X      &_C      &_V      &_B        &_N      &_M      &_COMMA  &_DOT    &_SLASH
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &ht LGUI TAB      &ht LSHIFT SPACE    &sl L1            &sl L2
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-     k(_EXCL) k(_AT)   k(_LBRC) k(_RBRC) k(_EQUAL)  k(_PLUS) k(N7)    k(N8)    k(N9)   as(_AA)
-     k(_STAR) k(_DQT)  k(_LPAR) k(_RPAR) k(_DOLLAR) k(_MINUS)k(N4)    k(N5)    k(N6)   as(_OE)
-     k(_PRCNT)k(_CARET)k(_LBKT) k(_RBKT) k(_UNDER)  k(N0)    k(N1)    k(N2)    k(N3)   as(_AE)
+      &_EXCL   &_AT     &_LBRC   &_RBRC   &_EQUAL    &_PLUS   &_7      &_8      &_9      &_AA
+      &_STAR   &_DQT    &_LPAR   &_RPAR   &_DOLLAR   &_MINUS  &_4      &_5      &_6      &_OE
+      &_PRCNT  &_CARET  &_LBKT   &_RBKT   &_UNDER    &_0      &_1      &_2      &_3      &_AE
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &capsword         &ht LSHIFT ENTER    &kp ESC           &sl L2
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-     k(_PIPE) k(_PARA) k(_LDANG)k(_RDANG)k(_QMARK)  k(HOME)  k(PG_DN) k(PG_UP) k(END)    k(PSCRN)
-     k(_HASH) k(_SQT)  k(_LT)   k(_GT)   k(_AMPS)   k(LEFT)  k(DOWN)  k(UP)    k(RIGHT)  as(INS)
-     k(_EURO) k(_TILDE)k(_GRAVE)k(_ACUTE) &none   &bt BT_CLR  b(0)    b(1)     b(2)      b(3)
+      &_PIPE   &_PARA   &_LDANG  &_RDANG  &_QMARK    &_HOME   &_PG_DN  &_PG_UP  &_END    &_PSCRN
+      &_HASH   &_SQT    &_LT     &_GT     &_AMPS     &_LEFT   &_DOWN   &_UP     &_RIGHT  &_INS
+      &_EURO   &_TILDE  &_GRAVE  &_ACUTE  &none      &_BT0    &_BT1    &_BT2    &_BT3    &_BT4
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &kp LGUI          &kp LSHIFT          &to L0            &sl L2
         >; };
