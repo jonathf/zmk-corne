@@ -4,13 +4,13 @@
   ZMK_BEHAVIOR(name, mod_morph, \
     bindings = <&kp bind1>; \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
-  ) \
+  )
 
 #define key2(name, bind0, bind1) \
   ZMK_BEHAVIOR(name, mod_morph, \
     bindings = <&tt bind1 bind0>, <&kp bind1>; \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
-  ) \
+  )
 
 #define skey(name, bind) key2(name, bind, LS(bind))
 #define kkey(bind) skey(_ ## bind, bind)
@@ -26,13 +26,39 @@
       global-quick-tap; \
       hold-trigger-on-release; \
       bindings = <&bt BT_SEL n>, <&_bt_clr_ ## n>; \
-  ) \
+  )
 
-bluetooth(0) bluetooth(1) bluetooth(2) bluetooth(3) bluetooth(4)
+bluetooth(0)
+bluetooth(1)
+bluetooth(2)
+bluetooth(3)
+bluetooth(4)
 
-kkey(Q) kkey(W) kkey(E) kkey(R) kkey(T) kkey(Y) kkey(U) kkey(I) kkey(P)
-kkey(A) kkey(S) kkey(D) kkey(F) kkey(G) kkey(H) kkey(J) kkey(K) kkey(L)
-kkey(Z) kkey(X) kkey(C) kkey(V) kkey(B) kkey(N) kkey(M)
+kkey(A)
+kkey(B)
+kkey(C)
+kkey(D)
+kkey(E)
+kkey(F)
+kkey(G)
+kkey(H)
+kkey(I)
+kkey(J)
+kkey(K)
+kkey(L)
+kkey(M)
+kkey(N)
+kkey(P)
+kkey(Q)
+kkey(R)
+kkey(S)
+kkey(T)
+kkey(U)
+kkey(V)
+kkey(W)
+kkey(X)
+kkey(Y)
+kkey(Z)
 
 skey(_AE, __AE)
 skey(_OO, __OO)
