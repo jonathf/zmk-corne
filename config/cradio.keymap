@@ -10,6 +10,7 @@
 #include "34keys.h"
 #include "helper.h"
 #include "keys.h"
+#include "bluetooth.h"
 
 #define L0 0
 #define L1 1

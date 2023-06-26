@@ -15,25 +15,6 @@
 #define skey(name, bind) key2(name, bind, LS(bind))
 #define kkey(bind) skey(_ ## bind, bind)
 
-#define bluetooth(n) \
-  ZMK_BEHAVIOR(_bt_clr_ ## n, macro \
-      bindings = <&to 0>, <&bt BT_SEL n>, <&bt BT_CLR>; \
-  ) \
-  ZMK_BEHAVIOR(_BT ## n, hold_tap, \
-      bindings = "tap-preferred"; \
-      tapping-term-ms=<500>; \
-      quick-tap-ms=<400>; \
-      global-quick-tap; \
-      hold-trigger-on-release; \
-      bindings = <&bt BT_SEL n>, <&_bt_clr_ ## n>; \
-  )
-
-bluetooth(0)
-bluetooth(1)
-bluetooth(2)
-bluetooth(3)
-bluetooth(4)
-
 kkey(A)
 kkey(B)
 kkey(C)
