@@ -83,17 +83,18 @@ ZMK_BEHAVIOR(ht, hold_tap,
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-      &_EXCL   &_AT     &_LBRC   &_RBRC   &_EQUAL    &_PLUS   &_7      &_8      &_9      &_AA
-      &_STAR   &_DQT    &_LPAR   &_RPAR   &_DOLLAR   &_MINUS  &_4      &_5      &_6      &_OE
-      &_PRCNT  &_CARET  &_LBKT   &_RBKT   &_UNDER    &_0      &_1      &_2      &_3      &_AE
+      &_EXCL   &_AT     &_LBRC   &_RBRC   &_EQUAL    &_PLUS   &_N7     &_N8     &_N9     &_AA
+      &_STAR   &_DQT    &_LPAR   &_RPAR   &_DOLLAR   &_MINUS  &_N4     &_N5     &_N6     &_OE
+      &_PRCNT  &_CARET  &_LBKT   &_RBKT   _UNDER     &_N0     &_N1     &_N2     &_N3     &_AE
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &capsword         &ht LSHIFT ENTER    &kp ESC           &sl L2
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-      &_PIPE   &_PARA   &_LDANG  &_RDANG  &_QMARK    &_HOME   &_PG_DN  &_PG_UP  &_END    &_PSCRN
-      &_HASH   &_SQT    &_LT     &_GT     &_AMPS     &_LEFT   &_DOWN   &_UP     &_RIGHT  &_INS
-      &_EURO   &_TILDE  &_GRAVE  &_ACUTE  &none      &_BT0    &_BT1    &_BT2    &_BT3    &_BT4
+      _PIPE    _PARA    _LDANG   _RDANG   _QMARK     &_HOME   &_PG_DN  &_PG_UP  &_END    _PSCRN
+      _HASH    _SQT     _LT      _GT      _AMPS      &_LEFT   &_DOWN   &_UP     &_RIGHT  &_INS
+      _EURO    _TILDE   _GRAVE   _ACUTE   &none      //&_BT0    &_BT1    &_BT2    &_BT3    &_BT4
+                                                     &none    &none    &none    &none    &none
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &kp LGUI          &kp LSHIFT          &to L0            &sl L2
         >; };

@@ -1,107 +1,103 @@
 #include "helper.h"
 
-#define key1(name, bind) \
-  ZMK_BEHAVIOR(name, mod_morph, \
-    bindings = <&kp bind1>; \
-    mods = <(MOD_LSFT|MOD_RSFT)>; \
-  )
-
-#define key2(name, bind0, bind1) \
+#define shift_morph(name, bind0, bind1) \
   ZMK_BEHAVIOR(name, mod_morph, \
     bindings = <&tt bind1 bind0>, <&kp bind1>; \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
   )
+#define autoshift_raw(bind) shift_morph(_ ## bind, bind, LS(bind))
+#define autoshift_altered(bind) shift_morph(bind, _ ## bind, LS(_ ## bind))
 
-#define skey(name, bind) key2(name, bind, LS(bind))
-#define kkey(bind) skey(_ ## bind, bind)
+autoshift_raw(A)
+autoshift_raw(B)
+autoshift_raw(C)
+autoshift_raw(D)
+autoshift_raw(E)
+autoshift_raw(F)
+autoshift_raw(G)
+autoshift_raw(H)
+autoshift_raw(I)
+autoshift_raw(J)
+autoshift_raw(K)
+autoshift_raw(L)
+autoshift_raw(M)
+autoshift_raw(N)
+autoshift_raw(O)
+autoshift_raw(P)
+autoshift_raw(Q)
+autoshift_raw(R)
+autoshift_raw(S)
+autoshift_raw(T)
+autoshift_raw(U)
+autoshift_raw(V)
+autoshift_raw(W)
+autoshift_raw(X)
+autoshift_raw(Y)
+autoshift_raw(Z)
 
-kkey(A)
-kkey(B)
-kkey(C)
-kkey(D)
-kkey(E)
-kkey(F)
-kkey(G)
-kkey(H)
-kkey(I)
-kkey(J)
-kkey(K)
-kkey(L)
-kkey(M)
-kkey(N)
-kkey(P)
-kkey(Q)
-kkey(R)
-kkey(S)
-kkey(T)
-kkey(U)
-kkey(V)
-kkey(W)
-kkey(X)
-kkey(Y)
-kkey(Z)
+autoshift_altered(_AE)
+autoshift_altered(_OE)
+autoshift_altered(_AA)
 
-skey(_AE, __AE)
-skey(_OO, __OO)
-skey(_AA, __AA)
+autoshift_raw(HOME)
+autoshift_raw(PG_DN)
+autoshift_raw(PG_UP)
+autoshift_raw(END)
+autoshift_raw(LEFT)
+autoshift_raw(DOWN)
+autoshift_raw(UP)
+autoshift_raw(RIGHT)
+autoshift_raw(INS)
 
-skey(_HOME, HOME)
-skey(_PG_DN, PG_DN)
-skey(_PG_UP, PG_UP)
-skey(_END, END)
-skey(_LEFT, LEFT)
-skey(_DOWN, DOWN)
-skey(_UP, UP)
-skey(_RIGHT, RIGHT)
+shift_morph(_N1, N1, F1)
+shift_morph(_N2, N2, F2)
+shift_morph(_N3, N3, F3)
+shift_morph(_N4, N4, F4)
+shift_morph(_N5, N5, F5)
+shift_morph(_N6, N6, F6)
+shift_morph(_N7, N7, F7)
+shift_morph(_N8, N8, F8)
+shift_morph(_N9, N9, F9)
+shift_morph(_N0, N0, F10)
 
-key2(_1, N1, F1)
-key2(_2, N2, F2)
-key2(_3, N3, F3)
-key2(_4, N4, F4)
-key2(_5, N5, F5)
-key2(_6, N6, F6)
-key2(_7, N7, F7)
-key2(_8, N8, F8)
-key2(_9, N9, F9)
-key2(_0, N0, F10)
+shift_morph(_PLUS, __PLUS, F12)
+shift_morph(_MINUS, __MINUS, F11)
 
-key2(_PLUS, __PLUS, F12)
-key2(_MINUS, __MINUS, F11)
+shift_morph(_SLASH, __FSLH, __BSLH)
+shift_morph(_DOT, DOT, __COLON)
+shift_morph(_COMMA, COMMA, __SEMI)
+shift_morph(_BKSP, BKSP, DEL)
 
-key2(_SLASH, __FSLH, __BSLH)
-key2(_DOT, DOT, __COLON)
-key2(_COMMA, COMMA, __SEMI)
-key2(_BKSP, BKSP, DEL)
+shift_morph(_EXCL, __EXCL, __PIPE)
+shift_morph(_AT, __AT, __PARA)
+shift_morph(_LBRC, __LBRC, __LDANG)
+shift_morph(_RBRC, __RBRC, __RDANG)
+shift_morph(_EQUAL, __EQUAL, __QMARK)
+shift_morph(_STAR, __STAR, __HASH)
+shift_morph(_DQT, __DQT, __SQT)
+shift_morph(_LPAR, __LPAR, __LT)
+shift_morph(_RPAR, __RPAR, __GT)
+shift_morph(_DOLLAR, __DOLLAR, __AMPS)
+shift_morph(_PRCNT, __PRCNT, __EURO)
+shift_morph(_CARET, __CARET, __TILDE)
+shift_morph(_LBKT, __LBKT, __GRAVE)
+shift_morph(_RBKT, __RBKT, __ACUTE)
 
-key2(_EXCL, __EXCL, __PIPE)
-key2(_AT, __AT, __PARA)
-key2(_LBRC, __LBRC, __LDANG)
-key2(_RBRC, __RBRC, __RDANG)
-key2(_EQUAL, __EQUAL, __QMARK)
-key2(_STAR, __STAR, __HASH)
-key2(_DQT, __DQT, __SQT)
-key2(_LPAR, __LPAR, __LT)
-key2(_RPAR, __RPAR, __GT)
-key2(_DOLLAR, __DOLLAR, __AMPS)
-key2(_PRCNT, __PRCNT, __EURO)
-key2(_CARET, __CARET, __TILDE)
-key2(_LBKT, __LBKT, __GRAVE)
-key2(_RBKT, __RBKT, __ACUTE)
+#define _UNDER &kp __UNDER
+#define _PIPE &kp __PIPE
+#define _PARA &kp __PARA
+#define _LDANG &kp __LDANG
+#define _RDANG &kp __RDANG
+#define _QMARK &kp __QMARK
+#define _HASH &kp __HASH
+#define _SQT &kp __SQT
+#define _LT &kp __LT
+#define _GT &kp __GT
+#define _AMPS &kp __AMPS
+#define _EURO &kp __EURO
+#define _TILDE &kp __TILDE
+#define _GRAVE &kp __GRAVE
+#define _ACUTE &kp __ACUTE
+#define _PIPE &kp __PIPE
 
-key1(_UNDER, __UNDER)
-
-key1(_PIPE, __PIPE)
-key1(_PARA, __PARA)
-key1(_LDANG, __LDANG)
-key1(_RDANG, __RDANG)
-key1(_QMARK, __QMARK)
-key1(_HASH, __HASH)
-key1(_SQT, __SQT)
-key1(_LT, __LT)
-key1(_GT, __GT)
-key1(_AMPS, __AMPS)
-key1(_EURO, __EURO)
-key1(_TILDE, __TILDE)
-key1(_GRAVE, __GRAVE)
-key1(_ACUTE, __ACUTE)
-key1(_PIPE, __PIPE)
+#define _PSCRN &kp PSCRN
