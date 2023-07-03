@@ -93,8 +93,8 @@ ZMK_BEHAVIOR(ht, hold_tap,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
       _PIPE    _PARA    _LDANG   _RDANG   _QMARK     &_HOME   &_PG_DN  &_PG_UP  &_END    _PSCRN
       _HASH    _SQT     _LT      _GT      _AMPS      &_LEFT   &_DOWN   &_UP     &_RIGHT  &_INS
-      _EURO    _TILDE   _GRAVE   _ACUTE   &none      //&_BT0    &_BT1    &_BT2    &_BT3    &_BT4
-                                                     &none    &none    &none    &none    &none
+      _EURO    _TILDE   _GRAVE   _ACUTE   &none      &_BT0    //&_BT1    &_BT2    &_BT3    &_BT4
+                                                     &none    &none    &none    &none    //&none
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
                &kp LGUI          &kp LSHIFT          &to L0            &sl L2
         >; };
