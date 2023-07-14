@@ -1,0 +1,102 @@
+// Copyright (c) 2022 The ZMK Contributors
+// SPDX-License-Identifier: MiT
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+#include "no_nb.h"
+#include "36keys.h"
+#include "helper.h"
+#include "keys.h"
+// #include "bluetooth.h"
+
+#define L0 0
+#define L1 1
+#define L2 2
+
+#define _ &none
+&caps_word { continue-list = <__UNDER __MINUS BKSP DEL __AE __OE __AA>; };
+
+ZMK_BEHAVIOR(tt, hold_tap,
+    flavor="tap-preferred";
+    tapping-term-ms=<200>;
+    quick-tap-ms=<100>;
+    global-quick-tap;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+ZMK_BEHAVIOR(ht, hold_tap,
+    flavor="balanced";
+    tapping-term-ms=<200>;
+    quick-tap-ms=<100>;
+    global-quick-tap;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+
+/ {
+    macros {
+        capsword: capsword {
+            label = "capsword";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to L0>, <&caps_word>;
+        };
+        brc: brc {
+            label = "brc";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp __LBRC>, <&kp __RBRC>, <&kp LEFT>;
+        };
+        bkt: bkt {
+            label = "bkt";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp __LBKT>, <&kp __RBKT>, <&kp LEFT>;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+        brc {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&brc>;
+            layers = <L1>;
+        };
+        bkt {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&bkt>;
+            layers = <L1>;
+        };
+    };
+    keymap {
+        compatible = "zmk,keymap";
+        layer_0 { bindings = <
+//  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
+    _ &_Q      &_W      &_E      &_R      &_T        &_Y      &_U      &_I      &_O      &_P    _
+    _ &_A      &_S      &_D      &_F      &_G        &_H      &_J      &_K      &_L      &_BKSP _
+    _ &_Z      &_X      &_C      &_V      &_B        &_N      &_M      &_COMMA  &_DOT    &_SLASH _
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+              _ &ht LGUI TAB      &ht LSHIFT SPACE    &sl L1            &sl L2          &capsword
+        >; };
+        layer_1 { bindings = <
+//  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
+    _ &_EXCL   &_AT     &_LBRC   &_RBRC   &_EQUAL    &_PLUS   &_N7     &_N8     &_N9     &_AA   _
+    _ &_STAR   &_DQT    &_LPAR   &_RPAR   &_DOLLAR   &_MINUS  &_N4     &_N5     &_N6     &_OE   _
+    _ &_PRCNT  &_CARET  &_LBKT   &_RBKT   _UNDER     &_N0     &_N1     &_N2     &_N3     &_AE   _
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+             _ &capsword         &ht LSHIFT ENTER    &kp ESC           &sl L2          _
+        >; };
+        layer_2 { bindings = <
+//  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
+    _ _PIPE    _PARA    _LDANG   _RDANG   _QMARK     &_HOME   &_PG_DN  &_PG_UP  &_END    _PSCRN _
+    _ _HASH    _SQT     _LT      _GT      _AMPS      &_LEFT   &_DOWN   &_UP     &_RIGHT  &_INS  _
+    _ _EURO    _TILDE   _GRAVE   _ACUTE   &none      &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 _
+//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+             _ &kp LGUI          &kp LSHIFT          &to L0            &sl L2          _
+        >; };
+    };
+};
