@@ -1,0 +1,13 @@
+#include "helper.h"
+#include "36keys.h"
+
+ZMK_COMBO(_LALT, &sk LALT, LM3 LM4, L0)
+ZMK_COMBO(_RALT, &sk RALT, RM3 RM4, L0)
+
+ZMK_COMBO(_ESC, &kp ESC, LT3 LT2, L0)
+ZMK_COMBO(_TAB, &kp TAB, LB3 LB2, L0)
+ZMK_COMBO(_INS, &kp INS, RT2 RT1, L0)
+
+ZMK_COMBO(_BKSP, &kp BKSP, RM3 RM2, L0)
+ZMK_COMBO(_DEL, &kp DEL, RM4 RM3, L0)
+ZMK_COMBO(_ENTER, &kp ENTER, RB3 RB2, L0)
