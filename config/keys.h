@@ -7,39 +7,37 @@
   )
 #define autoshift_raw(bind) shift_morph(_ ## bind, bind, LS(bind))
 #define autoshift_altered(bind) shift_morph(bind, _ ## bind, LS(_ ## bind))
-#define identity(bind) shift_morph(_ ## bind, bind, bind)
-#define identity_altered(bind) shift_morph(bind, _ ## bind, _ ## bind)
 
-identity(A)
-identity(B)
-identity(C)
-identity(D)
-identity(E)
-identity(F)
-identity(G)
-identity(H)
-identity(I)
-identity(J)
-identity(K)
-identity(L)
-identity(M)
-identity(N)
-identity(O)
-identity(P)
-identity(Q)
-identity(R)
-identity(S)
-identity(T)
-identity(U)
-identity(V)
-identity(W)
-identity(X)
-identity(Y)
-identity(Z)
+#define _A &kp A
+#define _B &kp B
+#define _C &kp C
+#define _D &kp D
+#define _E &kp E
+#define _F &kp F
+#define _G &kp G
+#define _H &kp H
+#define _I &kp I
+#define _J &kp J
+#define _K &kp K
+#define _L &kp L
+#define _M &kp M
+#define _N &kp N
+#define _O &kp O
+#define _P &kp P
+#define _Q &kp Q
+#define _R &kp R
+#define _S &kp S
+#define _T &kp T
+#define _U &kp U
+#define _V &kp V
+#define _W &kp W
+#define _X &kp X
+#define _Y &kp Y
+#define _Z &kp Z
 
-identity_altered(_AE)
-identity_altered(_OE)
-identity_altered(_AA)
+#define _AE &kp __AE
+#define _OE &kp __OE
+#define _AA &kp __AA
 
 autoshift_raw(HOME)
 autoshift_raw(PG_DN)
