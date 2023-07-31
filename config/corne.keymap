@@ -7,7 +7,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #include "no_nb.h"
-#include "36keys.h"
 #include "helper.h"
 #include "keys.h"
 // #include "bluetooth.h"
