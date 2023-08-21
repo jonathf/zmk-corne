@@ -1,16 +1,17 @@
 #include "helper.h"
 
-#define shift_morph(name, bind0, bind1) \
+#define shift_hold_morph(name, bind0, bind1, bind2) \
   ZMK_BEHAVIOR(name, mod_morph, \
-    bindings = <&tt bind1 bind0>, <&kp bind1>; \
+    bindings = <&tt bind1 bind0>, <&kp bind2>; \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
   )
-#define autoshift_raw(bind) shift_morph(_ ## bind, bind, LS(bind))
-#define autoshift_altered(bind) shift_morph(bind, _ ## bind, LS(_ ## bind))
+#define shift_morph(name, bind0, bind1) shift_hold_morph(name, bind0, bind1, bind1)
+#define autoshift_raw(bind) shift_hold_morph(_ ## bind, bind, LS(bind), LS(bind))
+#define autoshift_altered(bind) shift_hold_morph(bind, _ ## bind, LS(_ ## bind), LS(_ ## bind))
 
 #define _A &kp A
-#define _B &kp B
-#define _C &kp C
+#define _B &tt LGUI B
+#define _C &tt LCTRL C
 #define _D &kp D
 #define _E &kp E
 #define _F &kp F
@@ -20,8 +21,8 @@
 #define _J &kp J
 #define _K &kp K
 #define _L &kp L
-#define _M &kp M
-#define _N &kp N
+#define _M &tt LSHIFT M
+#define _N &tt LGUI N
 #define _O &kp O
 #define _P &kp P
 #define _Q &kp Q
@@ -29,11 +30,11 @@
 #define _S &kp S
 #define _T &kp T
 #define _U &kp U
-#define _V &kp V
+#define _V &tt LSHIFT V
 #define _W &kp W
-#define _X &kp X
+#define _X &tt LALT X
 #define _Y &kp Y
-#define _Z &kp Z
+#define _Z &tt RALT Z
 
 #define _AE &kp __AE
 #define _OE &kp __OE
@@ -63,9 +64,9 @@ shift_morph(_N0, N0, F10)
 shift_morph(_PLUS, __PLUS, F12)
 shift_morph(_MINUS, __MINUS, F11)
 
-shift_morph(_SLASH, __FSLH, __BSLH)
-shift_morph(_DOT, DOT, __COLON)
-shift_morph(_COMMA, COMMA, __SEMI)
+shift_hold_morph(_SLASH, __FSLH, RALT, __BSLH)
+shift_hold_morph(_DOT, DOT, LALT, __COLON)
+shift_hold_morph(_COMMA, COMMA, LCTRL, __SEMI)
 shift_morph(_BKSP, BKSP, DEL)
 
 shift_morph(_EXCL, __EXCL, __PIPE)

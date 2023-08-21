@@ -53,7 +53,7 @@ ZMK_BEHAVIOR(ht, hold_tap,
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       &_BKSP  _
     _ _Z       _X       _C       _V       _B         _N       _M       &_COMMA  &_DOT    &_SLASH _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-    &sk LCTRL  &ht LGUI TAB     &ht LSHIFT SPACE      &sl L1            &sl L2            &capsword
+    &none  &capsword     &kp SPACE      &sl L1            &sl L2            &none
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -61,7 +61,7 @@ ZMK_BEHAVIOR(ht, hold_tap,
     _ &_STAR   &_DQT    &_LPAR   &_RPAR   &_DOLLAR   &_MINUS  &_N4     &_N5     &_N6     _OE    _
     _ &_PRCNT  &_CARET  &_LBKT   &_RBKT   _UNDER     &_N0     &_N1     &_N2     &_N3     _AE    _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-    &trans     &sk LGUI         &ht LSHIFT ENTER    &kp ESC           &sl L2          &trans
+    &trans     &trans         &trans    &trans           &trans          &trans
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
@@ -69,7 +69,7 @@ ZMK_BEHAVIOR(ht, hold_tap,
     _ _HASH    _SQT     _LT      _GT      _AMPS      &_LEFT   &_DOWN   &_UP     &_RIGHT  &_INS  _
     _ _EURO    _TILDE   _GRAVE   _ACUTE   &none      &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-      &trans   &trans            &sk LSHIFT          &to L0            &sl L2            &trans
+      &trans   &trans            &trans          &to L0            &trans            &trans
         >; };
     };
 };
