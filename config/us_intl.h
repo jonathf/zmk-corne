@@ -6,7 +6,7 @@
 #define __AMPS AMPS
 #define __AT AT
 #define __BSLH BSLH
-#define __CARET RBRC
+#define __CARET CARET
 #define __COLON COLON
 #define __DOLLAR DOLLAR
 #define __DQT DQT
