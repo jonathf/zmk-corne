@@ -67,22 +67,36 @@ shift_morph(_MINUS, __MINUS, F11)
 shift_hold_morph(_SLASH, __FSLH, RALT, __BSLH)
 shift_hold_morph(_DOT, DOT, LALT, __COLON)
 shift_hold_morph(_COMMA, COMMA, LCTRL, __SEMI)
-shift_morph(_BKSP, BKSP, DEL)
 
-shift_morph(_EXCL, __EXCL, __PIPE)
-shift_morph(_AT, __AT, __PARA)
-shift_morph(_LBRC, __LBRC, __LDANG)
-shift_morph(_RBRC, __RBRC, __RDANG)
-shift_morph(_EQUAL, __EQUAL, __QMARK)
-shift_morph(_STAR, __STAR, __HASH)
-shift_morph(_DQT, __DQT, __SQT)
-shift_morph(_LPAR, __LPAR, __LT)
-shift_morph(_RPAR, __RPAR, __GT)
-shift_morph(_DOLLAR, __DOLLAR, __AMPS)
-shift_morph(_PRCNT, __PRCNT, __EURO)
-shift_morph(_CARET, __CARET, __TILDE)
-shift_morph(_LBKT, __LBKT, __GRAVE)
-shift_morph(_RBKT, __RBKT, __ACUTE)
+#define _BKSP &kp BKSP
+// shift_morph(_EXCL, __EXCL, __PIPE)
+#define _EXCL &kp __EXCL
+// shift_morph(_AT, __AT, __PARA)
+#define _AT &kp __AT
+// shift_morph(_LBRC, __LBRC, __LDANG)
+#define _LBRC &kp __LBRC
+// shift_morph(_RBRC, __RBRC, __RDANG)
+#define _RBRC &kp __RBRC
+// shift_morph(_EQUAL, __EQUAL, __QMARK)
+#define _EQUAL &kp __EQUAL
+// shift_morph(_STAR, __STAR, __HASH)
+#define _STAR &kp __STAR
+// shift_morph(_DQT, __DQT, __SQT)
+#define _DQT &kp __DQT
+// shift_morph(_LPAR, __LPAR, __LT)
+#define _LPAR &kp __LPAR
+// shift_morph(_RPAR, __RPAR, __GT)
+#define _RPAR &kp __RPAR
+// shift_morph(_DOLLAR, __DOLLAR, __AMPS)
+#define _DOLLAR &kp __DOLLAR
+// shift_morph(_PRCNT, __PRCNT, __EURO)
+#define _PRCNT &kp __PRCNT
+// shift_morph(_CARET, __CARET, __TILDE)
+#define _CARET &kp __CARET
+// shift_morph(_LBKT, __LBKT, __GRAVE)
+#define _LBKT &kp __LBKT
+// shift_morph(_RBKT, __RBKT, __ACUTE)
+#define _RBKT &kp __RBKT
 
 #define _UNDER &kp __UNDER
 #define _PIPE &kp __PIPE
