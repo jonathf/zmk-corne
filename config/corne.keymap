@@ -18,7 +18,7 @@
 #define L3 3
 
 #define _ &none
-&caps_word { continue-list = <__UNDER __MINUS BKSP DEL __AE __OE __AA>; };
+&caps_word { continue-list = <__UNDER __MINUS BKSP DEL>; };
 
 ZMK_BEHAVIOR(tt, hold_tap,
     flavor="tap-preferred";
