@@ -1,8 +1,8 @@
 // Symbol definition in US-International
 
-#define __AA RA(W)            // Å
+// #define __AA RA(W)            // Å
 #define __ACUTE RA(SQT)
-#define __AE RA(Z)             // Æ
+// #define __AE RA(Z)             // Æ
 #define __AMPS AMPS
 #define __AT AT
 #define __BSLH BSLH
@@ -19,19 +19,19 @@
 #define __HASH HASH
 #define __LBKT LBKT
 #define __LBRC LBRC
-#define __LDANG RA(LBKT)
+// #define __LDANG RA(LBKT)
 #define __LPAR LPAR
 #define __LT LT
 #define __MINUS MINUS
-#define __OE RA(L)            // Ø
-#define __PARA RA(LS(S))
+// #define __OE RA(L)            // Ø
+// #define __PARA RA(LS(S))
 #define __PIPE PIPE
 #define __PLUS PLUS
 #define __PRCNT PRCNT
 #define __QMARK QMARK
 #define __RBKT RBKT
 #define __RBRC RBRC
-#define __RDANG RA(RBKT)
+// #define __RDANG RA(RBKT)
 #define __RPAR RPAR
 #define __SEMI SEMI
 #define __SQT SQT

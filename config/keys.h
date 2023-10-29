@@ -8,6 +8,14 @@
 #define shift_morph(name, bind0, bind1) shift_hold_morph(name, bind0, bind1, bind1)
 #define autoshift_raw(bind) shift_hold_morph(_ ## bind, bind, LS(bind), LS(bind))
 #define autoshift_altered(bind) shift_hold_morph(bind, _ ## bind, LS(_ ## bind), LS(_ ## bind))
+#define unicode(name, k1, k2, k3, k4) \
+  ZMK_BEHAVIOR(name, macro, \
+    wait-ms = <30>; \
+    tap-ms = <5>; \
+    bindings = <&macro_press &kp LALT>, \
+               <&kp k1>, <&kp k2>, <&kp k3>, <&kp k4> \
+               <&macro_release &kp LALT> ; \
+  )
 
 #define _A &kp A
 #define _B &tt LGUI B
@@ -36,9 +44,20 @@
 #define _Y &kp Y
 #define _Z &tt RALT Z
 
-#define _AE &kp __AE
-#define _OE &kp __OE
-#define _AA &kp __AA
+unicode(__AE1, N0, N0, E, N6)
+unicode(__AE2, N0, N0, C, N6)
+shift_morph(__AE, __AE1, __AE2)
+#define _AE &__AE
+
+unicode(__OE1, N0, N0, F, N8)
+unicode(__OE2, N0, N0, D, N8)
+shift_morph(__OE, __OE1, __OE2)
+#define _OE &__OE
+
+unicode(__AA1, N0, N0, E, N5)
+unicode(__AA2, N0, N0, C, N5)
+shift_morph(__AA, __AA1, __AA2)
+#define _AA &__AA
 
 #define _HOME &kp HOME
 #define _PG_DN &kp PG_DN
@@ -102,9 +121,16 @@ shift_hold_morph(_COMMA_SEMI, COMMA, LCTRL, __SEMI)
 
 #define _UNDER &kp __UNDER
 #define _PIPE &kp __PIPE
-#define _PARA &kp __PARA
-#define _LDANG &kp __LDANG
-#define _RDANG &kp __RDANG
+
+unicode(__PARA, N0, N0, A, N7)
+#define _PARA &__PARA
+
+unicode(__LDANG, N0, N0, A, B)
+#define _LDANG &__LDANG
+
+unicode(__LDANG, N0, N0, B, B)
+#define _RDANG &__RDANG
+
 #define _QMARK &kp __QMARK
 #define _HASH &kp __HASH
 #define _SQT &kp __SQT
