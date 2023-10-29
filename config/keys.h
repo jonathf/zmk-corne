@@ -83,6 +83,8 @@ shift_hold_morph(_COMMA_SEMI, COMMA, LCTRL, __SEMI)
 #define _COMMA &_COMMA_SEMI
 
 #define _BKSP &kp BKSP
+#define _INS &kp RIGHT
+
 #define _EXCL &kp __EXCL
 #define _AT &kp __AT
 #define _LBRC &kp __LBRC
