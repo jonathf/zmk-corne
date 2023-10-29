@@ -1,5 +1,10 @@
 #include "helper.h"
 
+#define dual_key(name, bind0, bind1) \
+  ZMK_BEHAVIOR(name, mod_morph, \
+    bindings = <bind0>, <bind1>; \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+  )
 #define shift_hold_morph(name, bind0, bind1, bind2) \
   ZMK_BEHAVIOR(name, mod_morph, \
     bindings = <&tt bind1 bind0>, <&kp bind2>; \
@@ -46,17 +51,17 @@
 
 unicode(__AE1, N0, N0, E, N6)
 unicode(__AE2, N0, N0, C, N6)
-shift_morph(__AE, __AE1, __AE2)
+dual_key(__AE, &__AE1, &__AE2)
 #define _AE &__AE
 
 unicode(__OE1, N0, N0, F, N8)
 unicode(__OE2, N0, N0, D, N8)
-shift_morph(__OE, __OE1, __OE2)
+dual_key(__OE, &__OE1, &__OE2)
 #define _OE &__OE
 
 unicode(__AA1, N0, N0, E, N5)
 unicode(__AA2, N0, N0, C, N5)
-shift_morph(__AA, __AA1, __AA2)
+dual_key(__AA, &__AA1, &__AA2)
 #define _AA &__AA
 
 #define _HOME &kp HOME
