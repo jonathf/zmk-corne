@@ -78,7 +78,7 @@ shift_morph(_MINUS_F11, __MINUS, F11)
 shift_hold_morph(_FSLH_BSLH, __FSLH, RALT, __BSLH)
 shift_hold_morph(_DOT_COLON, DOT, LALT, __COLON)
 shift_hold_morph(_COMMA_SEMI, COMMA, LCTRL, __SEMI)
-#define _SLASH &_FLSH_BSLH
+#define _SLASH &_FSLH_BSLH
 #define _DOT &_DOT_COLON
 #define _COMMA &_COMMA_SEMI
 
