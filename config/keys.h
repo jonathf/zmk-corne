@@ -13,7 +13,7 @@
     wait-ms = <30>; \
     tap-ms = <5>; \
     bindings = <&macro_press &kp LALT>, \
-               <&kp k1>, <&kp k2>, <&kp k3>, <&kp k4> \
+               <&kp k1>, <&kp k2>, <&kp k3>, <&kp k4>, \
                <&macro_release &kp LALT> ; \
   )
 
