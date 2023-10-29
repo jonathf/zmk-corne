@@ -40,33 +40,47 @@
 #define _OE &kp __OE
 #define _AA &kp __AA
 
-autoshift_raw(HOME)
-autoshift_raw(PG_DN)
-autoshift_raw(PG_UP)
-autoshift_raw(END)
-autoshift_raw(LEFT)
-autoshift_raw(DOWN)
-autoshift_raw(UP)
-autoshift_raw(RIGHT)
-autoshift_raw(INS)
+#define _HOME &kp HOME
+#define _PG_DN &kp PG_DN
+#define _PC_UP &kp PC_UP
+#define _END &kp END
+#define _LEFT &kp LEFT
+#define _RIGHT &kp RIGHT
+#define _DOWN &kp DOWN
+#define _UP &kp UP
 
-shift_morph(_N1, N1, F1)
-shift_morph(_N2, N2, F2)
-shift_morph(_N3, N3, F3)
-shift_morph(_N4, N4, F4)
-shift_morph(_N5, N5, F5)
-shift_morph(_N6, N6, F6)
-shift_morph(_N7, N7, F7)
-shift_morph(_N8, N8, F8)
-shift_morph(_N9, N9, F9)
-shift_morph(_N0, N0, F10)
+shift_morph(__N1, N1, F1)
+shift_morph(__N2, N2, F2)
+shift_morph(__N3, N3, F3)
+shift_morph(__N4, N4, F4)
+shift_morph(__N5, N5, F5)
+shift_morph(__N6, N6, F6)
+shift_morph(__N7, N7, F7)
+shift_morph(__N8, N8, F8)
+shift_morph(__N9, N9, F9)
+shift_morph(__N0, N0, F10)
+#define _N1 &__N1
+#define _N2 &__N2
+#define _N3 &__N3
+#define _N4 &__N4
+#define _N5 &__N5
+#define _N6 &__N6
+#define _N7 &__N7
+#define _N8 &__N8
+#define _N9 &__N9
+#define _N0 &__N0
 
-shift_morph(_PLUS, __PLUS, F12)
-shift_morph(_MINUS, __MINUS, F11)
+shift_morph(_PLUS_F12, __PLUS, F12)
+shift_morph(_MINUS_F11, __MINUS, F11)
+#define _PLUS &_PLUS_F12
+#define _MINUS &_MINUS_F11
 
-shift_hold_morph(_SLASH, __FSLH, RALT, __BSLH)
-shift_hold_morph(_DOT, DOT, LALT, __COLON)
-shift_hold_morph(_COMMA, COMMA, LCTRL, __SEMI)
+shift_hold_morph(_FSLH_BSLH, __FSLH, RALT, __BSLH)
+shift_hold_morph(_DOT_COLON, DOT, LALT, __COLON)
+shift_hold_morph(_COMMA_SEMI, COMMA, LCTRL, __SEMI)
+#define _SLASH &_FLSH_BSLH
+#define _DOT &_DOT_COLON
+#define _COMMA &_COMMA_SEMI
 
 #define _BKSP &kp BKSP
 #define _EXCL &kp __EXCL
@@ -99,6 +113,11 @@ shift_hold_morph(_COMMA, COMMA, LCTRL, __SEMI)
 #define _TILDE &kp __TILDE
 #define _GRAVE &kp __GRAVE
 #define _ACUTE &kp __ACUTE
-#define _PIPE &kp __PIPE
 
 #define _PSCRN &kp PSCRN
+
+#define _LGUI &kp LGUI
+#define _LSHIFT &kp LSHIFT
+#define _LCTRL &kp LCTRL
+#define _LALT &kp LALT
+#define _RALT &kp RALT
