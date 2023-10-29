@@ -133,7 +133,7 @@ unicode(__PARA, N0, N0, A, N7)
 unicode(__LDANG, N0, N0, A, B)
 #define _LDANG &__LDANG
 
-unicode(__LDANG, N0, N0, B, B)
+unicode(__RDANG, N0, N0, B, B)
 #define _RDANG &__RDANG
 
 #define _QMARK &kp __QMARK
