@@ -42,12 +42,12 @@
 
 #define _HOME &kp HOME
 #define _PG_DN &kp PG_DN
-#define _PC_UP &kp PC_UP
+#define _PG_UP &kp PG_UP
 #define _END &kp END
 #define _LEFT &kp LEFT
-#define _RIGHT &kp RIGHT
 #define _DOWN &kp DOWN
 #define _UP &kp UP
+#define _RIGHT &kp RIGHT
 
 shift_morph(__N1, N1, F1)
 shift_morph(__N2, N2, F2)
