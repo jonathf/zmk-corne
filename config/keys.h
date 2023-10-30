@@ -1,10 +1,5 @@
 #include "helper.h"
 
-#define dual_key(name, bind0, bind1) \
-  ZMK_BEHAVIOR(name, mod_morph, \
-    bindings = <bind0>, <bind1>; \
-    mods = <(MOD_LSFT|MOD_RSFT)>; \
-  )
 #define shift_hold_morph(name, bind0, bind1, bind2) \
   ZMK_BEHAVIOR(name, mod_morph, \
     bindings = <&tt bind1 bind0>, <&kp bind2>; \
@@ -13,14 +8,6 @@
 #define shift_morph(name, bind0, bind1) shift_hold_morph(name, bind0, bind1, bind1)
 #define autoshift_raw(bind) shift_hold_morph(_ ## bind, bind, LS(bind), LS(bind))
 #define autoshift_altered(bind) shift_hold_morph(bind, _ ## bind, LS(_ ## bind), LS(_ ## bind))
-#define unicode(name, k1, k2, k3, k4) \
-  ZMK_BEHAVIOR(name, macro, \
-    wait-ms = <30>; \
-    tap-ms = <5>; \
-    bindings = <&macro_press &kp LALT>, \
-               <&kp k1>, <&kp k2>, <&kp k3>, <&kp k4>, \
-               <&macro_release &kp LALT> ; \
-  )
 
 #define _A &kp A
 #define _B &tt LGUI B
@@ -49,19 +36,13 @@
 #define _Y &kp Y
 #define _Z &tt RALT Z
 
-unicode(__AE1, N0, N0, E, N6)
-unicode(__AE2, N0, N0, C, N6)
-dual_key(__AE, &__AE1, &__AE2)
+ZMK_UNICODE_PAIR(__AE, N0, N0, E, N6, N0, N0, C, N6)
 #define _AE &__AE
 
-unicode(__OE1, N0, N0, F, N8)
-unicode(__OE2, N0, N0, D, N8)
-dual_key(__OE, &__OE1, &__OE2)
+ZMK_UNICODE_PAIR(__OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _OE &__OE
 
-unicode(__AA1, N0, N0, E, N5)
-unicode(__AA2, N0, N0, C, N5)
-dual_key(__AA, &__AA1, &__AA2)
+ZMK_UNICODE_PAIR(__AA, N0, N0, E, N5, N0, N0, C, N5)
 #define _AA &__AA
 
 #define _HOME &kp HOME
@@ -127,13 +108,13 @@ shift_hold_morph(_COMMA_SEMI, COMMA, LCTRL, __SEMI)
 #define _UNDER &kp __UNDER
 #define _PIPE &kp __PIPE
 
-unicode(__PARA, N0, N0, A, N7)
+ZMK_UNICODE_SINGLE(__PARA, N0, N0, A, N7)
 #define _PARA &__PARA
 
-unicode(__LDANG, N0, N0, A, B)
+ZMK_UNICODE_SINGLE(__LDANG, N0, N0, A, B)
 #define _LDANG &__LDANG
 
-unicode(__RDANG, N0, N0, B, B)
+ZMK_UNICODE_SINGLE(__RDANG, N0, N0, B, B)
 #define _RDANG &__RDANG
 
 #define _QMARK &kp __QMARK

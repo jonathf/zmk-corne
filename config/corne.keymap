@@ -7,7 +7,10 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #include "us_int.h"
+
+#define HOST_OS 2
 #include "helper.h"
+
 #include "keys.h"
 // #include "bluetooth.h"
 #include "combos.h"
