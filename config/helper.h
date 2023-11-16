@@ -7,6 +7,11 @@
 
 #pragma once
 
+#define L0 0
+#define L1 1
+#define L2 2
+#define L3 3
+#define _ &none
 #define ZMK_HELPER_STRINGIFY(x) #x
 
 /* ZMK_BEHAVIOR */
@@ -154,3 +159,24 @@
     UC_MACRO(name ## _lower, &kp L0 &kp L1 &kp L2 &kp L3) \
     UC_MACRO(name ## _upper, &kp U0 &kp U1 &kp U2 &kp U3) \
     UC_MODMORPH(name, &name ## _lower, &name ## _upper)
+
+ZMK_BEHAVIOR(tt, hold_tap,
+    flavor="tap-preferred";
+    tapping-term-ms=<200>;
+    quick-tap-ms=<100>;
+    global-quick-tap;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+
+#define ZMK_PAIR(name, bind0, bind1) \
+  ZMK_BEHAVIOR(name, mod_morph, \
+    bindings = <&kp bind0>, <&kp bind1>; \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+  )
+
+#define ZMK_MOD_PAIR(name, bind0, bind1, bind2) \
+  ZMK_BEHAVIOR(name, mod_morph, \
+    bindings = <&tt bind1 bind0>, <&kp bind2>; \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+  )
