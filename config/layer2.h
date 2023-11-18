@@ -7,7 +7,7 @@
 #define _0_EQUAL &kp EQUAL
 
 ZMK_PAIR(__0_PLUS, PLUS, F12)
-#define _0_PLUS &_0_PLUS_F12
+#define _0_PLUS &__0_PLUS
 
 ZMK_PAIR(__N7, N7, F7)
 #define _N7 &__N7
