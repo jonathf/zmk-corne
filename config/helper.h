@@ -160,6 +160,15 @@
     UC_MACRO(name ## _upper, &kp U0 &kp U1 &kp U2 &kp U3) \
     UC_MODMORPH(name, &name ## _lower, &name ## _upper)
 
+ZMK_BEHAVIOR(ll, hold_tap,
+    flavor="tap-preferred";
+    tapping-term-ms=<200>;
+    quick-tap-ms=<100>;
+    global-quick-tap;
+    hold-trigger-on-release;
+    bindings = <&sl>, <&kp>;
+)
+
 ZMK_BEHAVIOR(tt, hold_tap,
     flavor="tap-preferred";
     tapping-term-ms=<200>;

@@ -31,23 +31,23 @@
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _Q       _W       _E       _R       _T         _Y       _U       _I       _O       _P     _
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       _BKSP  _
-    _ _Z       _X       _C       _V       _B         _N       _M       _0_COMMA _0_DOT   _0_SLH _
+    _ _Z       _X       _C       _V       _B         _N       _M       _0_COMMA _0_DOT   _0_FSLH _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-     _         &capsword         &kp SPACE           &sl L1            &sl L2            &sl L3
+     &sl L3    &capsword         &kp SPACE           &sl L1            &sl L2            _
         >; };
         layer_1 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-    _ _EXCL    _AT      _LBRC    _RBRC    _EQUAL     _PLUS    _N7      _N8      _N9     _AA     _
-    _ _STAR    _DQT     _LPAR    _RPAR    _DOLLAR    _MINUS   _N4      _N5      _N6     _OE     _
-    _ _PRCNT   _CARET   _LBKT    _RBKT    _UNDER     _N0      _N1      _N2      _N3     _AE     _
+    _ _0_EXCL  _0_AT    _0_LBRC  _0_RBRC  _0_EQUAL   _0_PLUS  _N7      _N8      _N9     _2_AA   _
+    _ _0_STAR  _0_DQT   _0_LPAR  _0_RPAR  _0_DOLLAR  _0_MINUS _N4      _N5      _N6     _2_OE   _
+    _ _0_PRCNT _0_CARET _0_LBKT  _0_RBKT  _0_UNDER   _N0      _N1      _N2      _N3     _2_AE   _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
     _          _                 _                   _                 _                 _
         >; };
         layer_2 { bindings = <
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-    _ _PIPE    _PARA    _LDANG   _RDANG   _QMARK     _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
-    _ _HASH    _SQT     _LT      _GT      _AMPS      _LEFT    _DOWN    _UP      _RIGHT   _      _
-    _ _EURO    _TILDE   _GRAVE   _ACUTE   _          _GUI     _SHIFT   _CTRL    _LALT    _RALT  _
+    _ _0_PIPE  _2_PARA  _2_LDANG _2_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
+    _ _0_HASH  _0_SQT   _0_LT    _0_GT    _0_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
+    _ _2_EURO  _0_TILDE _0_GRAVE _2_ACUTE _          _        _        _        _        _      _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
       _        _                 _                   &to L0            _                 _
         >; };
@@ -55,9 +55,10 @@
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _BT0     _BT1     _BT2     _BT3     _BTCLR     _        _        _        _        _      _
     _ _        _        _        _        _          _        _        _        _        _      _
-    _ _        _        _        _        _          _        _        _1_COMMA _1_DOT   _1_SLH _
+    _ _        _        _        _        _          _        _        _        _        _      _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-      _        _                 _                   &sl L2            _                 _
+
+      _        _                 _                   _                 &sl L2                 _
         >; };
     };
 };
