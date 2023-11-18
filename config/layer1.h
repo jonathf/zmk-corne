@@ -1,4 +1,4 @@
-// HOST_OS: 0 iso, 2 macos unicode
+// HOST_OS: 0 iso, 1 macos
 
 #define _Q &kp Q
 #define _W &kp W
@@ -30,17 +30,17 @@
 #define _N &tt LGUI N
 #define _M &tt LSHIFT M
 
-#define _0_SEMI SEMI
-#define _2_SEMI LS(COMMA)
-ZMK_MOD_PAIR(_COMMA_SEMI, COMMA, LCTRL, _0_SEMI)
-#define _COMMA &_COMMA_SEMI
+ZMK_MOD_PAIR(_0_COMMA_SEMI, COMMA, LCTRL, SEMI)
+ZMK_MOD_PAIR(_1_COMMA_SEMI, COMMA, LCTRL, LS(COMMA))
+#define _0_COMMA &_0_COMMA_SEMI
+#define _1_COMMA &_1_COMMA_SEMI
 
-#define _0_COLON COLON
-#define _2_COLON LS(DOT)
-ZMK_MOD_PAIR(_DOT_COLON, DOT, LALT, _0_COLON)
-#define _DOT &_DOT_COLON
+ZMK_MOD_PAIR(_0_DOT_COLON, DOT, LALT, COLON)
+ZMK_MOD_PAIR(_1_DOT_COLON, DOT, LALT, LS(DOT))
+#define _0_DOT &_0_DOT_COLON
+#define _1_DOT &_1_DOT_COLON
 
-#define _0_FSLH FSLH
-#define _0_BSLH BSLH
-ZMK_MOD_PAIR(_FSLH_BSLH, _0_FSLH, RALT, _0_BSLH)
-#define _SLASH &_FSLH_BSLH
+ZMK_MOD_PAIR(_0_FSLH_BSLH, FSLH, RALT, BSLH)
+ZMK_MOD_PAIR(_1_FSLH_BSLH, LS(N7), RALT, LS(LA(N7)))
+#define _0_SLH &_0_FSLH_BSLH
+#define _1_SLH &_1_FSLH_BSLH
