@@ -31,7 +31,10 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 // nop backspace
 // nop percent
 
-#define _2_EURO &kp RA(5)
+ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
+#define _2_EURO &__2_EURO
 #define _0_TILDE &kp TILDE
 #define _0_GRAVE &kp GRAVE
-#define _2_ACUTE &kp RA(SQT)
+#define _0_ACUTE &kp ACUTE
+ZMK_UNICODE_SINGLE(__2_ACUTE, N0, N0, B, N4)
+#define _2_ACUTE &__2_ACUTE
