@@ -47,25 +47,19 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
 #define _2_EURO &__2_EURO
 
-ZMK_BEHAVIOR(_tilde, macro,
-    bindings = <&kp LS(RBKT)>, <&kp SPACE>;
-)
-ZMK_BEHAVIOR(_tilde_ht, hold_tap,
-    flavor="tap-preferred";
-    tapping-term-ms=<200>;
-    quick-tap-ms=<100>;
-    global-quick-tap;
-    hold-trigger-on-release;
-    bindings = <&kp>, <&_tilde>;
-)
-#define _0_TILDE &tt LALT TILDE
-// #define _1_CARET &tt LALT LS(RBRC)
-#define _1_TILDE &_tilde_ht LA(RBKT) 0
+#define _0_TILDE &hold_tap LALT TILDE
+// #define _1_TILDE &hold_tap LALT LS(RBKT)
+ZMK_MOD_NODEAD(_tilde, LS(RBKT))
+#define _1_TILDE &_tilde LALT 0
 
 #define _0_GRAVE &kp GRAVE
-#define _1_GRAVE &kp LS(EQUAL)
+// #define _1_GRAVE &kp LS(EQUAL)
+ZMK_MOD_NODEAD(_grave, LS(EQUAL))
+#define _1_GRAVE &_grave LCTRL 0
 
 #define _0_ACUTE &kp ACUTE
-#define _1_ACUTE &kp EQUAL
+// #define _1_ACUTE &kp EQUAL
+ZMK_MOD_NODEAD(_acute, EQUAL)
+#define _1_ACUTE &_acute LSHIFT 0
 ZMK_UNICODE_SINGLE(__2_ACUTE, N0, N0, B, N4)
 #define _2_ACUTE &__2_ACUTE

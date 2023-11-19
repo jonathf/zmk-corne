@@ -166,23 +166,19 @@
     UC_MACRO(name ## _upper, &kp U0 &kp U1 &kp U2 &kp U3) \
     UC_MODMORPH(name, &name ## _lower, &name ## _upper)
 
-ZMK_BEHAVIOR(ll, hold_tap,
-    flavor="tap-preferred";
-    tapping-term-ms=<200>;
-    quick-tap-ms=<100>;
-    global-quick-tap;
-    hold-trigger-on-release;
-    bindings = <&sl>, <&kp>;
-)
 
-ZMK_BEHAVIOR(tt, hold_tap,
-    flavor="tap-preferred";
-    tapping-term-ms=<200>;
-    quick-tap-ms=<100>;
-    global-quick-tap;
-    hold-trigger-on-release;
-    bindings = <&kp>, <&kp>;
-)
+#define ZMK_HOLDTAP(name, type1, type2) \
+  ZMK_BEHAVIOR(name, hold_tap, \
+    flavor="tap-preferred"; \
+    tapping-term-ms=<200>; \
+    quick-tap-ms=<100>; \
+    global-quick-tap; \
+    hold-trigger-on-release; \
+    bindings = <&type1>, <&type2>; \
+  )
+
+ZMK_HOLDTAP(layer_tap, sl, kp)
+ZMK_HOLDTAP(hold_tap, kp, kp)
 
 #define ZMK_PAIR(name, bind0, bind1) \
   ZMK_BEHAVIOR(name, mod_morph, \
@@ -192,6 +188,14 @@ ZMK_BEHAVIOR(tt, hold_tap,
 
 #define ZMK_MOD_PAIR(name, bind0, bind1, bind2) \
   ZMK_BEHAVIOR(name, mod_morph, \
-    bindings = <&tt bind1 bind0>, <&kp bind2>; \
+    bindings = <&hold_tap bind1 bind0>, <&kp bind2>; \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
   )
+
+#define ZMK_NODEAD(name, bind) \
+  ZMK_BEHAVIOR(name, macro, \
+    bindings = <&kp bind>, <&kp SPACE>; \
+  )
+#define ZMK_MOD_NODEAD(name, bind) \
+  ZMK_NODEAD(name ## _w_space, bind) \
+  ZMK_HOLDTAP(name, kp, name ## _w_space)

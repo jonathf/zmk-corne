@@ -43,12 +43,13 @@ ZMK_UNICODE_PAIR(__2_AA, N0, N0, E, N5, N0, N0, C, N5)
 ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _2_OE &__2_OE
 
-#define _0_PRCNT &tt RALT PRCNT
-#define _1_PRCNT &tt RALT LS(N5)
+#define _0_PRCNT &hold_tap RALT PRCNT
+#define _1_PRCNT &hold_tap RALT LS(N5)
 
 ZMK_BEHAVIOR(_caret, macro,
     bindings = <&kp LS(RBRC)>, <&kp SPACE>;
 )
+
 ZMK_BEHAVIOR(_caret_ht, hold_tap,
     flavor="tap-preferred";
     tapping-term-ms=<200>;
@@ -57,16 +58,16 @@ ZMK_BEHAVIOR(_caret_ht, hold_tap,
     hold-trigger-on-release;
     bindings = <&kp>, <&_caret>;
 )
-#define _0_CARET &tt LALT CARET
-// #define _1_CARET &tt LALT LS(RBRC)
-#define _1_CARET &_caret_ht LS(RBRC) 0
+#define _0_CARET &hold_tap LALT CARET
+// #define _1_CARET &hold_tap LALT LS(RBRC)
+#define _1_CARET &_caret_ht LALT 0
 
-#define _0_LBKT &tt LCTRL LBKT
-#define _1_LBKT &tt LCTRL LA(N8)
-#define _0_RBKT &tt LSHIFT RBKT
-#define _1_RBKT &tt LSHIFT LA(N9)
-#define _0_UNDER &tt LGUI UNDER
-#define _1_UNDER &tt LGUI LS(FSLH)
+#define _0_LBKT &hold_tap LCTRL LBKT
+#define _1_LBKT &hold_tap LCTRL LA(N8)
+#define _0_RBKT &hold_tap LSHIFT RBKT
+#define _1_RBKT &hold_tap LSHIFT LA(N9)
+#define _0_UNDER &hold_tap LGUI UNDER
+#define _1_UNDER &hold_tap LGUI LS(FSLH)
 
 #define _N0 &kp N0
 #define _N1 &kp N1

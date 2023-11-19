@@ -22,13 +22,13 @@
 #define _L &kp L
 #define _BKSP &kp BKSP
 
-#define _Z &tt RALT Z
-#define _X &tt LALT X
-#define _C &tt LCTRL C
-#define _V &tt LSHIFT V
-#define _B &tt LGUI B
-#define _N &tt LGUI N
-#define _M &tt LSHIFT M
+#define _Z &hold_tap RALT Z
+#define _X &hold_tap LALT X
+#define _C &hold_tap LCTRL C
+#define _V &hold_tap LSHIFT V
+#define _B &hold_tap LGUI B
+#define _N &hold_tap LGUI N
+#define _M &hold_tap LSHIFT M
 
 ZMK_MOD_PAIR(__0_COMMA, COMMA, LCTRL, SEMI)
 #define _0_COMMA &__0_COMMA
