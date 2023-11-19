@@ -46,21 +46,10 @@ ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _0_PRCNT &hold_tap RALT PRCNT
 #define _1_PRCNT &hold_tap RALT LS(N5)
 
-ZMK_BEHAVIOR(_caret, macro,
-    bindings = <&kp LS(RBRC)>, <&kp SPACE>;
-)
-
-ZMK_BEHAVIOR(_caret_ht, hold_tap,
-    flavor="tap-preferred";
-    tapping-term-ms=<200>;
-    quick-tap-ms=<100>;
-    global-quick-tap;
-    hold-trigger-on-release;
-    bindings = <&kp>, <&_caret>;
-)
 #define _0_CARET &hold_tap LALT CARET
 // #define _1_CARET &hold_tap LALT LS(RBRC)
-#define _1_CARET &_caret_ht LALT 0
+ZMK_MOD_NODEAD(_caret, LS(RBRC))
+#define _1_CARET &_caret LALT 0
 
 #define _0_LBKT &hold_tap LCTRL LBKT
 #define _1_LBKT &hold_tap LCTRL LA(N8)

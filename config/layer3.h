@@ -3,7 +3,7 @@
 #define _0_PIPE &kp PIPE
 #define _1_PIPE &kp LA(N7)
 
-#define _1_PARA &kp GRAVE
+#define _1_PARA &kp NON_US_BSLH //<
 ZMK_UNICODE_SINGLE(__2_PARA, N0, N0, A, N7)
 #define _2_PARA &__2_PARA
 
@@ -27,7 +27,7 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 #define _0_HASH &kp HASH
 #define _1_HASH &kp LS(N3)
 #define _0_SQT &kp SQT
-#define _1_SQT &kp GRAVE
+#define _1_SQT &kp NON_US_HASH //<
 #define _0_LT &kp LT
 #define _1_LT &kp LA(V)
 #define _0_GT &kp GT
