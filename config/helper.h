@@ -203,4 +203,3 @@ ZMK_HOLDTAP(hold_tap, kp, kp)
 ZMK_BEHAVIOR(capsword, macro,
     bindings = <&to L0>, <&caps_word>;
 )
-// sd&caps_word { continue-list = <__UNDER __MINUS BKSP DEL>; };
