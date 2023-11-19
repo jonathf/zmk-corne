@@ -45,8 +45,12 @@ ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 
 #define _0_PRCNT &tt RALT PRCNT
 #define _1_PRCNT &tt RALT LS(N5)
+
+
 #define _0_CARET &tt LALT CARET
-#define _1_CARET &tt LALT LS(RBRC)
+// #define _1_CARET &tt LALT LS(RBRC)
+#define _1_CARET &_caret_ht LS(RBRC) 0
+
 #define _0_LBKT &tt LCTRL LBKT
 #define _1_LBKT &tt LCTRL LA(N8)
 #define _0_RBKT &tt LSHIFT RBKT
