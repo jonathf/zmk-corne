@@ -49,8 +49,9 @@ ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
 
 #define _0_TILDE &hold_tap LALT TILDE
 // #define _1_TILDE &hold_tap LALT LS(RBKT)
-ZMK_MOD_NODEAD(_tilde, LS(RBKT))
-#define _1_TILDE &_tilde LALT 0
+// ZMK_MOD_NODEAD(_tilde, LS(RBKT))
+// #define _1_TILDE &_tilde LALT 0
+#define _1_TILDE &hold_tap LALT NON_US_HASH
 
 #define _0_GRAVE &kp GRAVE
 // #define _1_GRAVE &kp LS(EQUAL)
