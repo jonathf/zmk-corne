@@ -16,30 +16,11 @@
 
 // sd&caps_word { continue-list = <__UNDER __MINUS BKSP DEL>; };
 
-ZMK_BEHAVIOR(_caret_ht, hold_tap,
-    flavor="tap-preferred";
-    tapping-term-ms=<200>;
-    quick-tap-ms=<100>;
-    global-quick-tap;
-    hold-trigger-on-release;
-    bindings = <&kp>, <&_caret>;
+ZMK_BEHAVIOR(capsword, macro,
+    bindings = <&to L0>, <&caps_word>;
 )
 
 / {
-    macros {
-        capsword: capsword {
-            label = "capsword";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&to L0>, <&caps_word>;
-        };
-        _caret: _caret {
-            label = "_caret";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(RBRC)>, <&kp SPACE>;
-        };
-    };
     keymap {
         compatible = "zmk,keymap";
         layer_0 { bindings = <
