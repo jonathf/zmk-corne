@@ -9,12 +9,12 @@
        ╰────┴────┴────┴────╯  ╰────┴────┴────┴────╯
                 30   31   32 33   34   35
 */
-ZMK_COMBO(_9_Q,  &kp Q,    2  3, 0)
-ZMK_COMBO(_9_Z,  &kp Z,   26 27, 0)
+ZMK_COMBO(_9_Q,  &kp Q,    2  3, 0 4)
+ZMK_COMBO(_9_Z,  &kp Z,   26 27, 0 4)
 
-ZMK_COMBO(_9_BKSP,  &kp BKSP,   20 21, 0)
-ZMK_COMBO(_9_DEL,   &kp DEL,     8  9, 0)
-ZMK_COMBO(_9_ENTER, &kp ENTER,  19 20, 0)
-ZMK_COMBO(_9_ESC,   &kp ESC,    14 15, 0)
-ZMK_COMBO(_9_INS,   &kp INS,     7  8, 0)
-ZMK_COMBO(_9_TAB,   &kp TAB,    15 16, 0)
+ZMK_COMBO(_9_BKSP,  &kp BKSP,   20 21, 0 4)
+ZMK_COMBO(_9_DEL,   &kp DEL,     8  9, 0 4)
+ZMK_COMBO(_9_ENTER, &kp ENTER,  19 20, 0 4)
+ZMK_COMBO(_9_ESC,   &kp ESC,    14 15, 0 4)
+ZMK_COMBO(_9_INS,   &kp INS,     7  8, 0 4)
+ZMK_COMBO(_9_TAB,   &kp TAB,    15 16, 0 4)
