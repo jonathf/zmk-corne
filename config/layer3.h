@@ -51,7 +51,8 @@ ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
 // #define _1_TILDE &hold_tap LALT LA(RBRC)
 // ZMK_MOD_NODEAD(_tilde, LA(RBRC))
 // #define _1_TILDE &_tilde LALT 0
-#define _1_TILDE &kp RBRC
+#define _1_TILDE &kp LC(RBRC)
+
 
 #define _0_GRAVE &kp GRAVE
 // #define _1_GRAVE &kp LS(EQUAL)
