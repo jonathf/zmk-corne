@@ -11,21 +11,13 @@
 #define _0_EQUAL &kp EQUAL
 #define _1_EQUAL &kp LS(N0)
 
-ZMK_PAIR(__0_PLUS, PLUS, F12)
-#define _0_PLUS &__0_PLUS
-ZMK_PAIR(__1_PLUS, MINUS, F12)
-#define _1_PLUS &__1_PLUS
+#define _0_PLUS &kp PLUS
+#define _1_PLUS &kp MINUS
+#define _N7 &kp N7
+#define _N8 &kp N8
+#define _N9 &kp N9
 
-ZMK_PAIR(__N7, N7, F7)
-#define _N7 &__N7
-
-ZMK_PAIR(__N8, N8, F8)
-#define _N8 &__N8
-
-ZMK_PAIR(__N9, N9, F9)
-#define _N9 &__N9
-
-#define _1_AA &kp LBRC
+#define _1_AA &kp LBKT
 ZMK_UNICODE_PAIR(__2_AA, N0, N0, E, N5, N0, N0, C, N5)
 #define _2_AA &__2_AA
 
@@ -40,17 +32,12 @@ ZMK_UNICODE_PAIR(__2_AA, N0, N0, E, N5, N0, N0, C, N5)
 #define _0_DOLLAR &kp DOLLAR
 #define _1_DOLLAR &kp LS(N4)
 
-ZMK_PAIR(__0_MINUS, MINUS, F11)
-#define _0_MINUS &__0_MINUS
-ZMK_PAIR(__1_MINUS, FSLH, F11)
-#define _1_MINUS &__1_MINUS
+#define _0_MINUS &kp MINUS
+#define _1_MINUS &kp FSLH
 
-ZMK_PAIR(__N4, N4, F4)
-#define _N4 &__N4
-ZMK_PAIR(__N5, N5, F5)
-#define _N5 &__N5
-ZMK_PAIR(__N6, N6, F6)
-#define _N6 &__N6
+#define _N4 &kp N4
+#define _N5 &kp N5
+#define _N6 &kp N6
 
 #define _1_OE &kp SEMI
 ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
@@ -67,14 +54,10 @@ ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _0_UNDER &tt LGUI UNDER
 #define _1_UNDER &tt LGUI LS(FSLH)
 
-ZMK_PAIR(__N0, N0, F10)
-#define _N0 &__N0
-ZMK_PAIR(__N1, N1, F1)
-#define _N1 &__N1
-ZMK_PAIR(__N2, N2, F2)
-#define _N2 &__N2
-ZMK_PAIR(__N3, N3, F3)
-#define _N3 &__N3
+#define _N0 &kp N0
+#define _N1 &kp N1
+#define _N2 &kp N2
+#define _N3 &kp N3
 
 #define _1_AE &kp SQT
 ZMK_UNICODE_PAIR(__2_AE, N0, N0, E, N6, N0, N0, C, N6)
