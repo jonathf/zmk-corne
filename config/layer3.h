@@ -29,9 +29,9 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 #define _0_SQT &kp SQT
 #define _1_SQT &kp NON_US_BSLH
 #define _0_LT &kp LT
-#define _1_LT &kp LA(V)
+#define _1_LT &kp LS(GRAVE) //LA(V)
 #define _0_GT &kp GT
-#define _1_GT &kp LA(B)
+#define _1_GT &kp GRAVE //LA(B)
 #define _0_AMPS &kp AMPS
 #define _1_AMPS &kp LS(N6)
 
