@@ -1,16 +1,19 @@
-// HOST_OS: 0 iso, 1 macno 2 macos unicode
+// HOST_OS: 0 us-int, 1 mac-no 2 mac-unicode
 
 #define _0_PIPE &kp PIPE
 #define _1_PIPE &kp LA(N7)
 
+#define _0_PARA &kp LA(S)
 #define _1_PARA &kp LS(NON_US_BSLH)
 ZMK_UNICODE_SINGLE(__2_PARA, N0, N0, A, N7)
 #define _2_PARA &__2_PARA
 
+#define _0_LDANG &kp LA(LBKT)
 #define _1_LDANG &kp LS(LA(V))
 ZMK_UNICODE_SINGLE(__2_LDANG, N0, N0, A, B)
 #define _2_LDANG &__2_LDANG
 
+#define _0_RDANG &kp LA(RBKT)
 #define _1_RDANG &kp LS(LA(B))
 ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 #define _2_RDANG &__2_RDANG
@@ -29,9 +32,9 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 #define _0_SQT &kp SQT
 #define _1_SQT &kp NON_US_BSLH
 #define _0_LT &kp LT
-#define _1_LT &kp LS(GRAVE) //LA(V)
+#define _1_LT &kp GRAVE
 #define _0_GT &kp GT
-#define _1_GT &kp GRAVE //LA(B)
+#define _1_GT &kp LS(GRAVE)
 #define _0_AMPS &kp AMPS
 #define _1_AMPS &kp LS(N6)
 
@@ -43,6 +46,7 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 // nop backspace
 // nop percent
 
+#define _0_EURO &kp LA(N5)
 #define _1_EURO &kp LA(N4)
 ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
 #define _2_EURO &__2_EURO

@@ -1,4 +1,4 @@
-// HOST_OS: 0 iso, 1 macos
+// HOST_OS: 0 us-int, 1 mac-no 2 mac-unicode
 
 #define _Q &kp Q
 #define _W &kp W

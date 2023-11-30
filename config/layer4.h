@@ -1,3 +1,5 @@
+// HOST_OS: 0 us-int, 1 mac-no 2 mac-unicode
+
 #define _BT0 &bt BT_SEL 0
 #define _BT1 &bt BT_SEL 1
 #define _BT2 &bt BT_SEL 2

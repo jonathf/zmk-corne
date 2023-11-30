@@ -1,4 +1,4 @@
-// HOST_OS: 0 iso, 2 macos unicode
+// HOST_OS: 0 us-int, 1 mac-no 2 mac-unicode
 
 #define _0_EXCL &kp EXCL
 #define _1_EXCL &kp LS(N1)
@@ -17,6 +17,7 @@
 #define _N8 &kp N8
 #define _N9 &kp N9
 
+#define _0_AA &kp LA(W)
 #define _1_AA &kp LBKT
 ZMK_UNICODE_PAIR(__2_AA, N0, N0, E, N5, N0, N0, C, N5)
 #define _2_AA &__2_AA
@@ -39,6 +40,7 @@ ZMK_UNICODE_PAIR(__2_AA, N0, N0, E, N5, N0, N0, C, N5)
 #define _N5 &kp N5
 #define _N6 &kp N6
 
+#define _0_OE &kp LA(L)
 #define _1_OE &kp SEMI
 ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _2_OE &__2_OE
@@ -62,6 +64,7 @@ ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _N2 &kp N2
 #define _N3 &kp N3
 
+#define _0_AE &kp LA(Z)
 #define _1_AE &kp SQT
 ZMK_UNICODE_PAIR(__2_AE, N0, N0, E, N6, N0, N0, C, N6)
 #define _2_AE &__2_AE
