@@ -46,8 +46,8 @@ ZMK_UNICODE_SINGLE(__2_RDANG, N0, N0, B, B)
 // nop backspace
 // nop percent
 
-#define _0_EURO &kp LA(N5)
-#define _1_EURO &kp LA(N4)
+#define _0_EURO &hold_tap RALT LA(N5)
+#define _1_EURO &hold_tap RALT LA(N4)
 ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
 #define _2_EURO &__2_EURO
 
@@ -55,17 +55,22 @@ ZMK_UNICODE_SINGLE(__2_EURO, N2, N0, A, C)
 // #define _1_TILDE &hold_tap LALT LA(RBRC)
 // ZMK_MOD_NODEAD(_tilde, LA(RBRC))
 // #define _1_TILDE &_tilde LALT 0
-#define _1_TILDE &kp LC(RBRC)
+#define _1_TILDE &hold_tap LALT LC(RBRC)
 
 
-#define _0_GRAVE &kp GRAVE
+#define _0_GRAVE &hold_tap LCTRL GRAVE
 // #define _1_GRAVE &kp LS(EQUAL)
 ZMK_MOD_NODEAD(_grave, LS(EQUAL))
 #define _1_GRAVE &_grave LCTRL 0
 
-#define _0_ACUTE &kp ACUTE
-// #define _1_ACUTE &kp EQUAL
+#define _0_ACUTE &hold_tap LSHIFT ACUTE
 ZMK_MOD_NODEAD(_acute, EQUAL)
 #define _1_ACUTE &_acute LSHIFT 0
 ZMK_UNICODE_SINGLE(__2_ACUTE, N0, N0, B, N4)
 #define _2_ACUTE &__2_ACUTE
+
+#define _LGUI &kp LGUI
+#define _LSHIFT &kp LSHIFT
+#define _LCTRL &kp LCTRL
+#define _LALT &kp LALT
+#define _RALT &kp RALT

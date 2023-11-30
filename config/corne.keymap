@@ -38,7 +38,7 @@ ZMK_LAYER(navigation,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _1_PIPE  _1_PARA  _1_LDANG _1_RDANG _1_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
     _ _1_HASH  _1_SQT   _1_LT    _1_GT    _1_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
-    _ _1_EURO  _1_TILDE _1_GRAVE _1_ACUTE _          _        _        _        _        _      _
+    _ _1_EURO  _1_TILDE _1_GRAVE _1_ACUTE _LGUI      _LGUI    _LSHIFT  _LCTRL   _LALT    _RALT  _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
       _        _                 _                   &to L0            _                 _
 )
@@ -72,9 +72,9 @@ ZMK_LAYER(numeric,
 
 ZMK_LAYER(navigation,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-    _ _0_PIPE  _0_PARA  _0_LDANG _0_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     PSCRN _
+    _ _0_PIPE  _0_PARA  _0_LDANG _0_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
     _ _0_HASH  _0_SQT   _0_LT    _0_GT    _0_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
-    _ _0_EURO  _0_TILDE _0_GRAVE _0_ACUTE _          _        _        _        _        _      _
+    _ _0_EURO  _0_TILDE _0_GRAVE _0_ACUTE _LGUI      _LGUI    _LSHIFT  _LCTRL   _LALT    _RALT  _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
       _        _                 _                   &to L5            _                 _
 )

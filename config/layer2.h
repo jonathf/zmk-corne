@@ -59,12 +59,12 @@ ZMK_UNICODE_PAIR(__2_OE, N0, N0, F, N8, N0, N0, D, N8)
 #define _0_UNDER &hold_tap LGUI UNDER
 #define _1_UNDER &hold_tap LGUI LS(FSLH)
 
-#define _N0 &kp N0
-#define _N1 &kp N1
-#define _N2 &kp N2
-#define _N3 &kp N3
+#define _N0 &hold_tap LGUI N0
+#define _N1 &hold_tap LSHIFT N1
+#define _N2 &hold_tap LCTRL N2
+#define _N3 &hold_tap LALT N3
 
-#define _0_AE &kp LA(Z)
-#define _1_AE &kp SQT
+#define _0_AE &hold_tap RALT LA(Z)
+#define _1_AE &hold_tap RALT SQT
 ZMK_UNICODE_PAIR(__2_AE, N0, N0, E, N6, N0, N0, C, N6)
 #define _2_AE &__2_AE
