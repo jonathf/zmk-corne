@@ -58,7 +58,7 @@ ZMK_LAYER(us_international,
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       _BKSP  _
     _ _Z       _X       _C       _V       _B         _N       _M       _0_COMMA _0_DOT   _0_FSLH _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-     &sl L3    &capsword         &kp SPACE           &sl L5            &sl L6            &to L0
+     &sl L3    &capsword         &kp SPACE           &sl L5            &sl L1            &to L0
 )
 
 ZMK_LAYER(us_numeric,
@@ -70,11 +70,11 @@ ZMK_LAYER(us_numeric,
     _          _                 _                   _                 _                 _
 )
 
-ZMK_LAYER(us_navigation,
-//  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
-    _ _0_PIPE  _0_PARA  _0_LDANG _0_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
-    _ _0_HASH  _0_SQT   _0_LT    _0_GT    _0_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
-    _ _0_EURO  _0_TILDE _0_GRAVE _0_ACUTE _LGUI      _LGUI    _LSHIFT  _LCTRL   _LALT    _RALT  _
-//  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-      _        _                 _                   &to L5            _                 _
-)
+// ZMK_LAYER(us_navigation,
+// //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
+//     _ _0_PIPE  _0_PARA  _0_LDANG _0_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
+//     _ _0_HASH  _0_SQT   _0_LT    _0_GT    _0_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
+//     _ _0_EURO  _0_TILDE _0_GRAVE _0_ACUTE _LGUI      _LGUI    _LSHIFT  _LCTRL   _LALT    _RALT  _
+// //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
+//       _        _                 _                   &to L5            _                 _
+// )
