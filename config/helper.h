@@ -199,7 +199,3 @@ ZMK_HOLDTAP(hold_tap, kp, kp)
 #define ZMK_MOD_NODEAD(name, bind) \
   ZMK_NODEAD(name ## _w_space, bind) \
   ZMK_HOLDTAP(name, kp, name ## _w_space)
-
-ZMK_BEHAVIOR(capsword, macro,
-    bindings = <&to L0>, <&caps_word>;
-)
