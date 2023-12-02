@@ -73,7 +73,7 @@ ZMK_LAYER(us_numeric,
 ZMK_LAYER(us_navigation,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _0_PIPE  _0_PARA  _0_LDANG _0_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
-    _ _        _        _        _        _          _F11     _F4      _F5      _F6      _      _
+    _ _0_HASH  _0_SQT   _0_LT    _0_GT    _0_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
     _ _        _        _        _        _          _F10     _F1      _F2      _F3      _      _
     // _ _0_EURO  _0_TILDE _0_GRAVE _0_ACUTE _LGUI      _LGUI    _LSHIFT  _LCTRL   _LALT    _RALT  _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
