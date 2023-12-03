@@ -20,7 +20,7 @@ ZMK_LAYER(no,
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       _BKSP  _
     _ _Z       _X       _C       _V       _B         _N       _M       _1_COMMA _1_DOT   _1_FSLH _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-     &sl L3    CAPSWORD0         &kp SPACE           &sl L1            &sl L2            &to L4
+     &sl L3    &capsword0        &kp SPACE           &sl L1            &sl L2            &to L4
 )
 
 ZMK_LAYER(no_numeric,
@@ -56,7 +56,7 @@ ZMK_LAYER(us_international,
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       _BKSP  _
     _ _Z       _X       _C       _V       _B         _N       _M       _0_COMMA _0_DOT   _0_FSLH _
 //  ╰────────┼────────┴────────┼────────┴────────┤ ├────────┴────────┼────────┴────────┼────────╯
-     &sl L3    CAPSWORD1         &kp SPACE           &sl L5            &sl L6            &to L0
+     &sl L3    &capsword1         &kp SPACE           &sl L5            &sl L6            &to L0
 )
 
 ZMK_LAYER(us_numeric,

@@ -47,23 +47,15 @@ ZMK_MOD_PAIR(__1_FSLH, LS(N7), RALT, LS(LA(N7)))
 ZMK_UNICODE_PAIR(__2_FSLH, N0, N0, N2, F, N0, N0, N5, C)
 #define _2_FSLH &__2_FSLH
 
-/ {
-    _capsword0: _capsword0 {
-        compatible = "zmk,behavior-caps-word";
-        label = "capsword0";
-        #binding-cells = <0>;
-        continue-list = <UNDER MINUS BKSP DEL>;
-    };
-    _capsword1: _capsword1 {
-        compatible = "zmk,behavior-caps-word";
-        label = "_capsword1";
-        #binding-cells = <0>;
-        continue-list = <FSLH LS(FSLH) BKSP DEL>;
-    };
-}
-ZMK_BEHAVIOR(CAPSWORD0, macro,
+ZMK_BEHAVIOR(_capsword0, caps_word,
+    continue-list = <UNDER MINUS BKSP DEL>;
+)
+ZMK_BEHAVIOR(_capsword1, caps_word,
+    continue-list = <FSLH LS(FSLH) BKSP DEL>;
+)
+ZMK_BEHAVIOR(capsword0, macro,
     bindings = <&to L0>, <&_capsword0>;
 )
-ZMK_BEHAVIOR(CAPSWORD1, macro,
+ZMK_BEHAVIOR(capsword1, macro,
     bindings = <&to L4>, <&_capsword1>;
 )
