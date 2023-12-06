@@ -8,14 +8,14 @@
 
 #define HOST_OS 2
 #include "keymap/helper.h"
-#include "keymap/letters.h"
-#include "keymap/numbers.h"
+#include "keymap/qwerty.h"
+#include "keymap/1234.h"
 #include "keymap/navigate.h"
 #include "keymap/function.h"
 #include "keymap/thumbs.h"
 #include "keymap/combos.h"
 
-ZMK_LAYER(no_mac,
+ZMK_LAYER(MAC-NO,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _Q       _W       _E       _R       _T         _Y       _U       _I       _O       _P     _
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       _BKSP  _
@@ -24,7 +24,7 @@ ZMK_LAYER(no_mac,
                         _2FUNC   _1_CAPS  _SPACE     _1_2NUM  _1_2NAV  _0_2ROOT
 )
 
-ZMK_LAYER(no_mac_numeric,
+ZMK_LAYER(O1234,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _1_EXCL  _1_AT    _1_LBRC  _1_RBRC  _1_EQUAL   _1_PLUS  _N7      _N8      _N9     _1_AA   _
     _ _1_STAR  _1_DQT   _1_LPAR  _1_RPAR  _1_DOLLAR  _1_MINUS _N4      _N5      _N6     _1_OE   _
@@ -33,7 +33,7 @@ ZMK_LAYER(no_mac_numeric,
                         _        _        _          _        _        _
 )
 
-ZMK_LAYER(no_mac_navigation,
+ZMK_LAYER(NAV,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _1_PIPE  _1_PARA  _1_LDANG _1_RDANG _1_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
     _ _1_HASH  _1_SQT   _1_LT    _1_GT    _1_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
@@ -51,7 +51,7 @@ ZMK_LAYER(function_keys,
                         _        _        _          _        _        _
 )
 
-ZMK_LAYER(us_international,
+ZMK_LAYER(US-INT,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _Q       _W       _E       _R       _T         _Y       _U       _I       _O       _P     _
     _ _A       _S       _D       _F       _G         _H       _J       _K       _L       _BKSP  _
@@ -60,7 +60,7 @@ ZMK_LAYER(us_international,
                         _2FUNC   _0_CAPS  _SPACE     _0_2NUM  _0_2NAV  _1_2ROOT
 )
 
-ZMK_LAYER(us_numeric,
+ZMK_LAYER(O1234,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _0_EXCL  _0_AT    _0_LBRC  _0_RBRC  _0_EQUAL   _0_PLUS  _N7      _N8      _N9     _0_AA   _
     _ _0_STAR  _0_DQT   _0_LPAR  _0_RPAR  _0_DOLLAR  _0_MINUS _N4      _N5      _N6     _0_OE   _
@@ -69,7 +69,7 @@ ZMK_LAYER(us_numeric,
                         _        _        _          _        _        _
 )
 
-ZMK_LAYER(us_navigation,
+ZMK_LAYER(NAV,
 //  ╭────────┬────────┬────────┬────────┬────────╮ ╭────────┬────────┬────────┬────────┬────────╮
     _ _0_PIPE  _0_PARA  _0_LDANG _0_RDANG _0_QMARK   _HOME    _PG_DN   _PG_UP   _END     _PSCRN _
     _ _0_HASH  _0_SQT   _0_LT    _0_GT    _0_AMPS    _LEFT    _DOWN    _UP      _RIGHT   _      _
