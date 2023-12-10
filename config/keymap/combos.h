@@ -5,7 +5,7 @@
  12   13   14   15   16   17 18   19   20   21   22   23
              ESC  TAB              ENTER BKSP
  24   25   26   27   28   29 30   31   32   33   34   35
-              Z
+              Z    ;                 ,    .
        ╰────┴────┴────┴────╯  ╰────┴────┴────┴────╯
                 30   31   32 33   34   35
 */
@@ -27,3 +27,7 @@ ZMK_COMBO(_9_ENTER, &kp ENTER,  19 20, 0 4)
 ZMK_COMBO(_9_ESC,   &kp ESC,    14 15, 0 4)
 ZMK_COMBO(_9_INS,   &kp INS,     7  8, 0 4)
 ZMK_COMBO(_9_TAB,   &kp TAB,    15 16, 0 4)
+
+ZMK_COMBO(_COMBO_SEMI,  LS(DOT), 3  4, 0 4)
+ZMK_COMBO(_COMBO_COMMA, COMMA,  32 33, 0 4)
+ZMK_COMBO(_COMBO_DOT,   DOT,    33 34, 0 4)
