@@ -16,10 +16,10 @@ ZMK_COMBO(_COMBO_Q_3, _Q,       2  3, 4)
 ZMK_COMBO(_COMBO_Q_4, _0_EXCL,  2  3, 5)
 ZMK_COMBO(_COMBO_Q_5, _0_PIPE,  2  3, 6)
 
-/* ZMK_COMBO(_COMBO_Z_0, _Z,       26 27, 0) */
-/* ZMK_COMBO(_COMBO_Z_1, _1_PRCNT, 26 27, 1) */
-/* ZMK_COMBO(_COMBO_Z_3, _Z,       26 27, 4) */
-/* ZMK_COMBO(_COMBO_Z_4, _0_PRCNT, 26 27, 5) */
+ZMK_COMBO(_COMBO_Z_0, _Z,       26 27, 0)
+ZMK_COMBO(_COMBO_Z_1, _1_PRCNT, 26 27, 1)
+ZMK_COMBO(_COMBO_Z_3, _Z,       26 27, 4)
+ZMK_COMBO(_COMBO_Z_4, _0_PRCNT, 26 27, 5)
 
 ZMK_COMBO(_9_BKSP,  &kp BKSP,   20 21, 0 4)
 ZMK_COMBO(_9_DEL,   &kp DEL,     8  9, 0 4)
