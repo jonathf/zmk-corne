@@ -19,4 +19,4 @@ ZMK_BEHAVIOR(__1_capsword, caps_word,
 )
 #define _1_CAPS &__1_capsword
 
-#define _SPACE &kp SPACE
+#define _SPACE &hold_tap LS(LC(LGUI)) SPACE
