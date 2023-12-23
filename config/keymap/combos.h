@@ -7,19 +7,19 @@
  24   25   26   27   28   29 30   31   32   33   34   35
               Z    B                 N    Æ
        ╰────┴────┴────┴────╯  ╰────┴────┴────┴────╯
-                30   31   32 33   34   35
+                36   37   38 39   40   41
 */
-ZMK_COMBO(_COMBO_Q_0, _Q,       2  3, 0)
-ZMK_COMBO(_COMBO_Q_1, _1_EXCL,  2  3, 1)
-ZMK_COMBO(_COMBO_Q_2, _1_PIPE,  2  3, 2)
-ZMK_COMBO(_COMBO_Q_3, _Q,       2  3, 4)
-ZMK_COMBO(_COMBO_Q_4, _0_EXCL,  2  3, 5)
-ZMK_COMBO(_COMBO_Q_5, _0_PIPE,  2  3, 6)
-/* ZMK_COMBO(_COMBO_AE_0, _1_AE,   2  3, 0 1 2) */
-/* ZMK_COMBO(_COMBO_AE_3, _0_AE,   2  3, 4 5 6) */
+ZMK_COMBO(_COMBO_Q_0, _Q,        2  3, 0)
+ZMK_COMBO(_COMBO_Q_1, _1_EXCL,   2  3, 1)
+ZMK_COMBO(_COMBO_Q_2, _1_PIPE,   2  3, 2)
+ZMK_COMBO(_COMBO_Q_3, _Q,        2  3, 4)
+ZMK_COMBO(_COMBO_Q_4, _0_EXCL,   2  3, 5)
+ZMK_COMBO(_COMBO_Q_5, _0_PIPE,   2  3, 6)
+/* ZMK_COMBO(_COMBO_AE_0, _1_AE,    2  3, 0 1 2) */
+/* ZMK_COMBO(_COMBO_AE_3, _0_AE,    2  3, 4 5 6) */
 
-ZMK_COMBO(_COMBO_AA_0, _1_AA,   3  4, 0 1 2)
-ZMK_COMBO(_COMBO_AA_3, _0_AA,   3  4, 4 5 6)
+ZMK_COMBO(_COMBO_AA_0, _1_AA,    3  4, 0 1 2)
+ZMK_COMBO(_COMBO_AA_3, _0_AA,    3  4, 4 5 6)
 
 ZMK_COMBO(_COMBO_Z_0, _Z,       26 27, 0)
 ZMK_COMBO(_COMBO_Z_1, _1_PRCNT, 26 27, 1)
@@ -46,5 +46,5 @@ ZMK_COMBO(_COMBO_ESC,   &kp ESC,    14 15, 0 4)
 ZMK_COMBO(_COMBO_INS,   &kp INS,     7  8, 0 4)
 ZMK_COMBO(_COMBO_TAB,   &kp TAB,    15 16, 0 4)
 
-ZMK_COMBO(_COMBO_LANG_NO,   &to 4,    33 34, 0)
-ZMK_COMBO(_COMBO_LANG_EN,   &to 0,    33 34, 4)
+ZMK_COMBO(_COMBO_LANG_NO, &to 4, 39 40, 0)
+ZMK_COMBO(_COMBO_LANG_EN, &to 0, 39 40, 4)
