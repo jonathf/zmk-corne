@@ -1,4 +1,7 @@
 // HOST_OS: 0 us-int, 1 mac-no 2 mac-unicode
+// !"Å \`789  !"Å ``/()
+// (Æ)= +456  (Æ)= ? %&
+// %&å¨?0123  %&Å ?=!"
 
 #define _0_EXCL &kp EXCL
 #define _1_EXCL &kp LS(N1)
