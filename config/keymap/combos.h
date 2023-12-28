@@ -1,6 +1,6 @@
 #pragma once
 
-#define _combo_q(layer, key) ZMK_COMBO(_Q_ ## layer, key, _UL4 _UL3, layer)
+#define _combo_q(layer, key) ZMK_COMBO(_Q_ ## layer, key, 1 2, layer)
 _combo_q(0, _Q)
 _combo_q(1, _1_EXCL)
 _combo_q(2, _1_PIPE)
