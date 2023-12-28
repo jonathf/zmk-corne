@@ -23,114 +23,114 @@ __   25   26   27   28   29 30   31   32   33   34   __
 */
 #pragma once
 
-#define INC_1 2
-#define INC_2 3
-#define INC_3 4
-#define INC_4 5
-#define INC_5 6
-#define INC_6 7
-#define INC_7 8
-#define INC_8 9
-#define INC_9 10
-#define INC_10 11
-#define INC_11 12
-#define INC_12 13
-#define INC_13 14
-#define INC_14 15
-#define INC_15 16
-#define INC_16 17
-#define INC_17 18
-#define INC_18 19
-#define INC_19 20
-#define INC_20 21
-#define INC_21 22
-#define INC_22 23
-#define INC_23 24
-#define INC_24 25
-#define INC_25 26
-#define INC_26 27
-#define INC_27 28
-#define INC_28 29
-#define INC_29 30
-#define INC_30 31
-#define INC_31 32
-#define INC_32 33
-#define INC_33 34
-#define INC_34 35
-#define INC_35 36
-#define INC_36 37
-#define INC_37 38
-#define INC_38 39
-#define INC_39 40
+#define _INC_1 2
+#define _INC_2 3
+#define _INC_3 4
+#define _INC_4 5
+#define _INC_5 6
+#define _INC_6 7
+#define _INC_7 8
+#define _INC_8 9
+#define _INC_9 10
+#define _INC_10 11
+#define _INC_11 12
+#define _INC_12 13
+#define _INC_13 14
+#define _INC_14 15
+#define _INC_15 16
+#define _INC_16 17
+#define _INC_17 18
+#define _INC_18 19
+#define _INC_19 20
+#define _INC_20 21
+#define _INC_21 22
+#define _INC_22 23
+#define _INC_23 24
+#define _INC_24 25
+#define _INC_25 26
+#define _INC_26 27
+#define _INC_27 28
+#define _INC_28 29
+#define _INC_29 30
+#define _INC_30 31
+#define _INC_31 32
+#define _INC_32 33
+#define _INC_33 34
+#define _INC_34 35
+#define _INC_35 36
+#define _INC_36 37
+#define _INC_37 38
+#define _INC_38 39
+#define _INC_39 40
 
-#define ADD(x, y) ADD_ ## y(x)
-#define ADD_0(x) x
-#define ADD_1(x) INC(x)
-#define ADD_2(x) ADD_1(INC(x))
-#define ADD_3(x) ADD_2(INC(x))
-#define ADD_4(x) ADD_3(INC(x))
-#define ADD_5(x) ADD_4(INC(x))
-#define ADD_6(x) ADD_5(INC(x))
-#define ADD_7(x) ADD_6(INC(x))
-#define ADD_8(x) ADD_7(INC(x))
-#define ADD_9(x) ADD_8(INC(x))
+#define _ADD(x, y) _ADD_ ## y(x)
+#define _ADD_0(x) x
+#define _ADD_1(x) _INC(x)
+#define _ADD_2(x) _ADD_1(_INC(x))
+#define _ADD_3(x) _ADD_2(_INC(x))
+#define _ADD_4(x) _ADD_3(_INC(x))
+#define _ADD_5(x) _ADD_4(_INC(x))
+#define _ADD_6(x) _ADD_5(_INC(x))
+#define _ADD_7(x) _ADD_6(_INC(x))
+#define _ADD_8(x) _ADD_7(_INC(x))
+#define _ADD_9(x) _ADD_8(_INC(x))
 
 
 #if LAYOUT == 0
-  #define SHIFT1 0
-  #define SHIFT2 0
-  #define SHIFT3 0
-  #define SHIFT4 0
-  #define SHIFT5 0
+  #define _SHIFT1 0
+  #define _SHIFT2 0
+  #define _SHIFT3 0
+  #define _SHIFT4 0
+  #define _SHIFT5 0
 #elif LAYOUT == 1
-  #define SHIFT1 0
-  #define SHIFT2 0
-  #define SHIFT3 1
-  #define SHIFT4 2
-  #define SHIFT5 4
+  #define _SHIFT1 0
+  #define _SHIFT2 0
+  #define _SHIFT3 1
+  #define _SHIFT4 2
+  #define _SHIFT5 4
 #else
-  #define SHIFT1 1
-  #define SHIFT2 3
-  #define SHIFT3 6
-  #define SHIFT4 9
-  #define SHIFT5 9
+  #define _SHIFT1 1
+  #define _SHIFT2 3
+  #define _SHIFT3 6
+  #define _SHIFT4 9
+  #define _SHIFT5 9
 #endif
 
-#define UL5 ADD(0, SHIFT1)
-#define UL4 ADD(1, SHIFT1)
-#define UL3 ADD(2, SHIFT1)
-#define UL2 ADD(3, SHIFT1)
-#define UL1 ADD(4, SHIFT1)
-#define UR1 ADD(5, SHIFT1)
-#define UR2 ADD(6, SHIFT1)
-#define UR3 ADD(7, SHIFT1)
-#define UR4 ADD(8, SHIFT1)
-#define UR5 ADD(9, SHIFT1)
+#define UL5 _ADD(0, _SHIFT1)
+#define UL4 _ADD(1, _SHIFT1)
+#define UL3 _ADD(2, _SHIFT1)
+#define UL2 _ADD(3, _SHIFT1)
+#define UL1 _ADD(4, _SHIFT1)
+#define UR1 _ADD(5, _SHIFT1)
+#define UR2 _ADD(6, _SHIFT1)
+#define UR3 _ADD(7, _SHIFT1)
+#define UR4 _ADD(8, _SHIFT1)
+#define UR5 _ADD(9, _SHIFT1)
 
-#define ML5 ADD(10, SHIFT2)
-#define ML4 ADD(11, SHIFT2)
-#define ML3 ADD(12, SHIFT2)
-#define ML2 ADD(13, SHIFT2)
-#define ML1 ADD(14, SHIFT2)
-#define MR1 ADD(15, SHIFT2)
-#define MR2 ADD(16, SHIFT2)
-#define MR3 ADD(17, SHIFT2)
-#define MR4 ADD(18, SHIFT2)
-#define MR5 ADD(19, SHIFT2)
+#define ML5 _ADD(10, _SHIFT2)
+#define ML4 _ADD(11, _SHIFT2)
+#define ML3 _ADD(12, _SHIFT2)
+#define ML2 _ADD(13, _SHIFT2)
+#define ML1 _ADD(14, _SHIFT2)
+#define MR1 _ADD(15, _SHIFT2)
+#define MR2 _ADD(16, _SHIFT2)
+#define MR3 _ADD(17, _SHIFT2)
+#define MR4 _ADD(18, _SHIFT2)
+#define MR5 _ADD(19, _SHIFT2)
 
-#define LL5 ADD(19, SHIFT3)
-#define LL4 ADD(20, SHIFT3)
-#define LL3 ADD(21, SHIFT3)
-#define LL2 ADD(22, SHIFT3)
-#define LL1 ADD(23, SHIFT3)
-#define LR1 ADD(24, SHIFT3)
-#define LR2 ADD(25, SHIFT3)
-#define LR3 ADD(26, SHIFT3)
-#define LR4 ADD(27, SHIFT3)
-#define LR5 ADD(28, SHIFT3)
+#define LL5 _ADD(19, _SHIFT3)
+#define LL4 _ADD(20, _SHIFT3)
+#define LL3 _ADD(21, _SHIFT3)
+#define LL2 _ADD(22, _SHIFT3)
+#define LL1 _ADD(23, _SHIFT3)
+#define LR1 _ADD(24, _SHIFT3)
+#define LR2 _ADD(25, _SHIFT3)
+#define LR3 _ADD(26, _SHIFT3)
+#define LR4 _ADD(27, _SHIFT3)
+#define LR5 _ADD(28, _SHIFT3)
 
-#define TL2 ADD(28, SHIFT4)
-#define TL1 ADD(29, SHIFT4)
+#define TL2 _ADD(28, _SHIFT4)
+#define TL1 _ADD(29, _SHIFT4)
 
-#define TR1 ADD(30, SHIFT5)
-#define TR2 ADD(31, SHIFT5)
+#define TR1 _ADD(30, _SHIFT5)
+#define TR2 _ADD(31, _SHIFT5)
