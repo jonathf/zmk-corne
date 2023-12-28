@@ -21,7 +21,6 @@
 #define _J &kp J
 #define _K &kp K
 #define _L &kp L
-#define _BKSP &kp BKSP
 
 #define _Z &hold_tap RALT Z
 #define _X &hold_tap LALT X
