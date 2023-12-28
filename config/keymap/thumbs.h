@@ -23,4 +23,4 @@ ZMK_BEHAVIOR(__1_capsword, caps_word,
 ZMK_HOLDTAP(__1_layer_caps, mo, __1_capsword)
 #define _1_CAPS &__1_layer_caps 3 0
 
-#define _SPACE &hold_tap LS(LC(LGUI)) SPACE
+#define _SPACE &hold_tap LA(LC(LGUI)) SPACE
