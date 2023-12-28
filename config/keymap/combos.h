@@ -11,8 +11,8 @@ combo_q(6, _1_PIPE)
 /* ZMK_COMBO(_COMBO_AE_3, _0_AE,    2  3, 4 5 6) */
 
 #define combo_aa(layer, key) ZMK_COMBO(_AA_ ## layer, key, UL2 UL3, layer)
-combe_aa(0, _1_AA)
-combe_aa(3, _0_AA)
+combo_aa(0, _1_AA)
+combo_aa(3, _0_AA)
 
 #define combo_z(layer, key) ZMK_COMBO(_Z_ ## layer, key, LL3 LL4, layer)
 combo_z(0, _Z)

@@ -80,7 +80,7 @@ __   25   26   27   28   29 30   31   32   33   34   __
   #define SHIFT3 0
   #define SHIFT4 0
   #define SHIFT5 0
-#if LAYOUT == 1
+#elif LAYOUT == 1
   #define SHIFT1 0
   #define SHIFT2 0
   #define SHIFT3 1
