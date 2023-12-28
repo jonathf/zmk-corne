@@ -1,11 +1,14 @@
+#pragma once
 
-#define combo_q(layer, key) ZMK_COMBO(_Q_ ## layer, key, UL4 UL3, layer)
-combo_q(0, _Q)
-combo_q(1, _1_EXCL)
-combo_q(2, _1_PIPE)
-combo_q(4, _Q)
-combo_q(5, _0_EXCL)
-combo_q(6, _1_PIPE)
+ZMK_COMBO(_Q_00, _Q, UL4 UL3, 0)
+
+#define _combo_q(layer, key) ZMK_COMBO(_Q_ ## layer, key, UL4 UL3, layer)
+_combo_q(0, _Q)
+_combo_q(1, _1_EXCL)
+_combo_q(2, _1_PIPE)
+_combo_q(4, _Q)
+_combo_q(5, _0_EXCL)
+_combo_q(6, _1_PIPE)
 
 /* ZMK_COMBO(_COMBO_AE_0, _1_AE,    2  3, 0 1 2) */
 /* ZMK_COMBO(_COMBO_AE_3, _0_AE,    2  3, 4 5 6) */

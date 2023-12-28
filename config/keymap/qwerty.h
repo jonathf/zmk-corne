@@ -1,4 +1,5 @@
 // HOST_OS: 0 us-int, 1 mac-no 2 mac-unicode
+#pragma once
 
 #define _Q &kp Q
 #define _W &kp W

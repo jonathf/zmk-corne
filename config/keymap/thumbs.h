@@ -1,3 +1,5 @@
+#pragma once
+
 #define _0_2ROOT &to 4
 #define _1_2ROOT &to 0
 
