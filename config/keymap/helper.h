@@ -7,16 +7,6 @@
 
 #pragma once
 
-#define L0 0
-#define L1 1
-#define L2 2
-#define L3 3
-#define L4 4
-#define L5 5
-#define L6 6
-#define L7 7
-#define L8 8
-#define L9 9
 #define _ &none
 #define ZMK_HELPER_STRINGIFY(x) #x
 
