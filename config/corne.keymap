@@ -7,9 +7,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define HOST_OS 2
-#define LAYOUT 2
 
-#include "keymap/possition.h"
+#include "keymap/corne.h"
 #include "keymap/helper.h"
 #include "keymap/qwerty.h"
 #include "keymap/1234.h"
