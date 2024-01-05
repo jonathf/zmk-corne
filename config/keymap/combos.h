@@ -1,19 +1,20 @@
 #pragma once
 
-#define _combo_q(layer, key) ZMK_COMBO(_Q_ ## layer, key, _UL3 _UL4, layer)
-_combo_q(0, _Q)
-_combo_q(1, _1_EXCL)
-_combo_q(2, _1_PIPE)
-_combo_q(4, _Q)
-_combo_q(5, _0_EXCL)
-_combo_q(6, _1_PIPE)
+/* #define _combo_q(layer, key) ZMK_COMBO(_Q_ ## layer, key, _UL3 _UL4, layer) */
+/* _combo_q(0, _Q) */
+/* _combo_q(1, _1_EXCL) */
+/* _combo_q(2, _1_PIPE) */
+/* _combo_q(4, _Q) */
+/* _combo_q(5, _0_EXCL) */
+/* _combo_q(6, _1_PIPE) */
 
-/* ZMK_COMBO(_COMBO_AE_0, _1_AE,    2  3, 0 1 2) */
-/* ZMK_COMBO(_COMBO_AE_3, _0_AE,    2  3, 4 5 6) */
+#define combo_oe(layer, key) ZMK_COMBO(_OE_ ## layer, key, _UL3 _UL4, layer)
+combo_oe(0, _1_OE)
+combo_oe(4, _0_OE)
 
 #define combo_aa(layer, key) ZMK_COMBO(_AA_ ## layer, key, _UL2 _UL3, layer)
 combo_aa(0, _1_AA)
-combo_aa(3, _0_AA)
+combo_aa(4, _0_AA)
 
 #define combo_z(layer, key) ZMK_COMBO(_Z_ ## layer, key, _LL3 _LL4, layer)
 combo_z(0, _Z)
